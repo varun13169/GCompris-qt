@@ -95,6 +95,7 @@ money_back_cents
 money_cents
 mosaic
 numbers-odd-even
+object_classification
 paintings
 penalty
 planegame
