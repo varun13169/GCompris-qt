@@ -117,7 +117,7 @@ ActivityBase {
             color: "#FFFF42"
             border.color: "#FFD85F"
             border.width: 4
-            anchors.left: parent.left
+            anchors.right: parent.right
             ListWidget {
                 id: availablePieces
                 vert: background.vert

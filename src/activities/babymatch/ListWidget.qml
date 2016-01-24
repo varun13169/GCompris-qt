@@ -27,7 +27,7 @@ Item {
     id: listWidget
     anchors.fill: parent
     anchors.topMargin: 5 * ApplicationInfo.ratio
-    anchors.leftMargin: 5 * ApplicationInfo.ratio
+    anchors.rightMargin: 5 * ApplicationInfo.ratio
     z: 10
 
     property bool vert
