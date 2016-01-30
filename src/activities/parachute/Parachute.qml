@@ -38,9 +38,9 @@ ActivityBase {
     Keys.onReleased: Activity.processReleasedKey(event)
 
     pageComponent: Image {
-        
+
         id: background
-        source:activity.dataSetUrl + "back.svg"
+        source: activity.dataSetUrl + "back.svg"
         fillMode: Image.PreserveAspectCrop
         sourceSize.width: parent.width
         anchors.fill: parent
@@ -110,49 +110,50 @@ ActivityBase {
         }
 
         GCText {
-            id:keyunable
+            id: keyunable
             anchors.centerIn: parent
             fontSize: largeSize
-            visible:false
-            text:qsTr("Control fall speed with up and down arrow keys")
+            visible: false
+            text: qsTr("Control fall speed with up and down arrow keys")
         }
 
 
         Item{
-            id:helimotion
-            width:(bar.level===1?background.width/6:bar.level===2?background.width/4:bar.level===3?background.width/11:bar.level===4?background.width/7:background.width/7)
-            height:(bar.level===1?background.height/6:bar.level===2?background.height/4:bar.level===3?background.height/11:bar.level===4?background.height/7:background.height/7)
+            id: helimotion
+            width: (bar.level===1?background.width/6:bar.level===2?background.width/4:bar.level===3?background.width/11:bar.level===4?background.width/7:background.width/7)
+            height: (bar.level===1?background.height/6:bar.level===2?background.height/4:bar.level===3?background.height/11:bar.level===4?background.height/7:background.height/7)
             x: -width
-            Rectangle{
-                id:forhover
-                width:(bar.level===1?background.width/6:bar.level===2?background.width/4:bar.level===3?background.width/11:bar.level===4?background.width/7:background.width/7)
-                height:(bar.level===1?background.height/6:bar.level===2?background.height/4:bar.level===3?background.height/11:bar.level===4?background.height/7:background.height/7)
-                visible:false
-                border.width:7
-                radius:20
-                border.color:"#A80000"
-                color:"#500000"
+            Rectangle {
+                id: forhover
+                width: (bar.level===1?background.width/6:bar.level===2?background.width/4:bar.level===3?background.width/11:bar.level===4?background.width/7:background.width/7)
+                height: (bar.level===1?background.height/6:bar.level===2?background.height/4:bar.level===3?background.height/11:bar.level===4?background.height/7:background.height/7)
+                visible: false
+                border.width: 7
+                radius: 20
+                border.color: "#A80000"
+                color: "#500000"
             }
-            Image{
-                id:helicopter
-                source:activity.dataSetUrl+"tuxplane.svg"
-                width:(bar.level===1?background.width/6:bar.level===2?background.width/4:bar.level===3?background.width/11:bar.level===4?background.width/7:background.width/7)
-                height:(bar.level===1?background.height/6:bar.level===2?background.height/4:bar.level===3?background.height/11:bar.level===4?background.height/7:background.height/7)
+            Image {
+                id: helicopter
+                source: activity.dataSetUrl+"tuxplane.svg"
+                width: (bar.level === 1?background.width/6:bar.level === 2?background.width/4:bar.level === 3?background.width/11:bar.level === 4?background.width/7:background.width/7)
+                height: (bar.level === 1?background.height/6:bar.level === 2?background.height/4:bar.level === 3?background.height/11:bar.level === 4?background.height/7:background.height/7)
                 MouseArea {
                     id:mousei
                     hoverEnabled: true
-                    anchors.fill:parent
-                    onEntered:{
-                        forhover.visible=true
+                    anchors.fill: parent
+                    onEntered: {
+                        forhover.visible = true
                     }
-                    onExited:{
-                        forhover.visible=false
+                    onExited: {
+                        forhover.visible = false
                     }
-                    onClicked:{
+                    onClicked: {
                         if(Activity.Oneclick === false) {
                             tuximage.visible=true
                             tuxX.stop()
                             tuxY.start()
+                            activity.audioEffects.play(activity.dataSetUrl+"youcannot.wav" )
                             Activity.tuxImageStatus=1
                             Activity.Oneclick = true;
                         }
@@ -161,16 +162,16 @@ ActivityBase {
                 }
             }
             SequentialAnimation{
-                id:loop
+                id: loop
                 loops: Animation.Infinite
                 PropertyAnimation {
-                    id:animationheli
-                    target:helimotion
+                    id: animationheli
+                    target: helimotion
                     properties: "x"
-                    from:-helimotion.width
-                    to:background.width
+                    from: -helimotion.width
+                    to: background.width
                     duration: (bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
-                    easing.type:Easing.Linear
+                    easing.type: Easing.Linear
                 }
 
 
@@ -180,27 +181,54 @@ ActivityBase {
 
 
         Item {
-            id:tux
-            width:tuximage.width
-            height:tuximage.height
-            x:-helimotion.width
-            Image {
+            id: tux
+            width: tuximage.width
+            height: tuximage.height
+            x: -helimotion.width
+            Rectangle {
+                id:tuximagehover
+                width:tuximage.width
+                height:tuximage.height
+                visible: false
+                border.width: 7
+                radius: 20
+                border.color: "#A80000"
+                color: "#500000"
+                opacity:90
+           }
+           Image {
                 id: tuximage
                 source: activity.dataSetUrl+Activity.minitux
-                visible:false
-                MouseArea{
-                    id:tuxmouse
-                    anchors.fill:parent
-                    onClicked:{
+                visible: false
+                MouseArea {
+                    id: tuxmouse
+                    anchors.fill: parent
+                    hoverEnabled:true
+                    onClicked: {
                         if(Activity.tuxImageStatus === 1) {
+                            if(tuximagehover.visible === true){
+                                  tuximagehover.visible = false
+                            }
+
                             keyunable.visible = true
-                            tuximage.source = activity.dataSetUrl+Activity.parachutetux
+                            tuximage.source = activity.dataSetUrl + Activity.parachutetux
                             Activity.tuxImageStatus = 2
 
                         }
                     }
+                    onEntered: {
+                        if(Activity.tuxImageStatus === 1) {
+                            tuximagehover.visible = true
+                        }
+
+                    }
+                    onExited: {
+                        tuximagehover.visible = false
+                    }
                 }
             }
+
+
             onYChanged: {
                 if(tux.y>background.height/1.5 && Activity.tuxImageStatus === 1 ) {
                     activity.audioEffects.play(activity.dataSetUrl+"bubble.wav" )
@@ -208,131 +236,125 @@ ActivityBase {
                     Activity.onLose()
                 }
                 if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x>boatmotion.x) && (tux.x<boatmotion.x+boatmotion.width))){
-                   Activity.onWin()
+                    Activity.onWin()
                 }
                 else if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x<boatmotion.x)||(tux.x>boatmotion.x+boatmotion.width))){
-                     Activity.tuxImageStatus = 0
-                     Activity.onLose()
+                    activity.audioEffects.play(activity.dataSetUrl+"bubble.wav" )
+                    Activity.tuxImageStatus = 0
+                    Activity.onLose()
                 }
 
             }
-            SequentialAnimation{
-                id:tuxX
+            SequentialAnimation {
+                id: tuxX
                 loops: Animation.Infinite
-                PropertyAnimation{
-                    target:tux
+                PropertyAnimation {
+                    target: tux
                     properties: "x"
-                    from:-helimotion.width
-                    to:background.width
-                    duration:(bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
+                    from: -helimotion.width
+                    to: background.width
+                    duration: (bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
                 }
             }
 
-            PropertyAnimation{
-                id:onPressdown
-                target:tux
-                from:Activity.ycheck === false?tuxY.y :tux.y
-                properties:"y"
-                duration:2000
-                easing.type:Easing.Linear
-                to:background.height/1.3
+            PropertyAnimation {
+                id: onPressdown
+                target: tux
+                from: Activity.ycheck === false? tuxY.x:tux.y
+                properties: "y"
+                duration: (bar.level === 1 ? 4000 : bar.level === 2 ? 3000 : bar.level === 3 ? 2000 : bar.level === 4 ? 2000 : 9000)
+                easing.type: Easing.Linear
+                to: background.height/1.3
             }
 
-            PropertyAnimation{
-                id:onPressUp
-                target:tux
-                from:Activity.ycheck === false?tuxY.y :tux.y
-                duration:80000
-                properties:"y"
-                easing.type:Easing.InQuad
-                to:background.height/1.3
+            PropertyAnimation {
+                id: onPressUp
+                target: tux
+                from: Activity.ycheck === false? tuxY.x:tux.y
+                duration: (bar.level === 1 ? 15000 : bar.level === 2 ? 15000 : bar.level === 3 ? 15000 : bar.level === 4 ? 15000 : 9000)
+                properties: "y"
+                easing.type: Easing.InQuad
+                to: background.height/1.3
             }
 
-            PropertyAnimation{
-                id:onReleas
-                target:tux
-                from:tux.y
-                properties:"y"
-                duration:(bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
-                easing.type:Easing.Linear
-                to:background.height/1.3
+            PropertyAnimation {
+                id: onReleas
+                target: tux
+                from: tux.y
+                properties: "y"
+                duration: (bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
+                easing.type: Easing.Linear
+                to: background.height/1.3
             }
 
-
-            PropertyAnimation{
-                id:tuxY
-                target:tux
+            PropertyAnimation {
+                id: tuxY
+                target: tux
                 properties: "x,y"
-                from:tuxX.y
-                to:background.height/1.3
-                easing.type:Easing.OutQuad
-                duration:(bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
+                from: tuxX.y
+                to: background.height/1.3
+                easing.type: Easing.OutQuad
+                duration: (bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
             }
-
-
-
-
-
 
         }
 
-        Item{
-            id:cloudmotion
-            width:cloud.width
-            height:height.height
-            Image{
-                id:cloud
-                source:activity.dataSetUrl+"cloud.svg"
-                y:background.height/7
+        Item {
+            id: cloudmotion
+            width: cloud.width
+            height: height.height
+            Image {
+                id: cloud
+                source: activity.dataSetUrl+"cloud.svg"
+                y: background.height/7
             }
-            SequentialAnimation{
+            SequentialAnimation {
                 id:loopcloud
                 loops: Animation.Infinite
                 PropertyAnimation {
-                    id:animationcloud
-                    target:cloudmotion
-                    properties:"x"
-                    from:Math.random() > 0.2 ? background.width : -cloud.width
-                    to:animationcloud.from === background.width ? -cloud.width : background.width
-                    duration:(bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type:Easing.Linear
+                    id: animationcloud
+                    target: cloudmotion
+                    properties: "x"
+                    from: Math.random() > 0.2 ? background.width : -cloud.width
+                    to: animationcloud.from === background.width ? -cloud.width : background.width
+                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
+                    easing.type: Easing.Linear
                 }
                 PropertyAnimation {
-                    id:animationcloud1
-                    target:cloudmotion
-                    properties:"x"
-                    from:background.width
-                    to:-cloud.width
-                    duration:(bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type:Easing.Linear
+                    id: animationcloud1
+                    target: cloudmotion
+                    properties: "x"
+                    from: background.width
+                    to: -cloud.width
+                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
+                    easing.type: Easing.Linear
                 }
                 PropertyAnimation {
-                    id:animationcloud2
-                    target:cloudmotion
-                    properties:"x"
-                    from:-cloud.width
-                    to:background.width
-                    duration:(bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type:Easing.Linear
+                    id: animationcloud2
+                    target: cloudmotion
+                    properties: "x"
+                    from: -cloud.width
+                    to: background.width
+                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
+                    easing.type: Easing.Linear
                 }
                 PropertyAnimation {
-                    id:animationcloud3
-                    target:cloudmotion
-                    properties:"x"
-                    from:background.width
-                    to:-cloud.width
-                    duration:(bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type:Easing.Linear
+                    id: animationcloud3
+                    target: cloudmotion
+                    properties: "x"
+                    from: background.width
+                    to: -cloud.width
+                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
+                    easing.type: Easing.Linear
                 }
-
-                PropertyAnimation {
-                    id:animationcloud4
-                    target:cloudmotion
-                    properties:"x"
-                    from:-cloud.width
-                    to:background.width
-                    duration:(bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type:Easing.Linear
+               PropertyAnimation {
+                    id: animationcloud4
+                    target: cloudmotion
+                    properties: "x"
+                    from: -cloud.width
+                    to: background.width
+                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
+                    easing.type: Easing.Linear
                 }
 
 
@@ -341,25 +363,25 @@ ActivityBase {
 
 
         Item{
-            id:boatmotion
-            width:background.width/4
-            height:background.height/4
-            Image{
-                id:boat
-                source:activity.dataSetUrl+"fishingboat.svg"
-                y:(bar.level === 1 ? background.height/1.4 : bar.level==2 ? background.height/1.4 : bar.level ===3 ? background.height/1.4:bar.level === 4?background.height/1.4:background.height/1.3 )
-                width:(bar.level === 1 ? background.width/4 : bar.level==2 ? background.width/4.5 : bar.level ===3 ? background.width/5:bar.level === 4?background.width/5.1:background.width/5.1 )
-                height:background.height/4
+            id: boatmotion
+            width: background.width/4
+            height: background.height/4
+            Image {
+                id: boat
+                source: activity.dataSetUrl+"fishingboat.svg"
+                y: (bar.level === 1 ? background.height/1.4 : bar.level==2 ? background.height/1.4 : bar.level ===3 ? background.height/1.4:bar.level === 4?background.height/1.4:background.height/1.3 )
+                width: (bar.level === 1 ? background.width/4 : bar.level==2 ? background.width/4.5 : bar.level ===3 ? background.width/5:bar.level === 4?background.width/5.1:background.width/5.1 )
+                height: background.height/4
 
             }
             PropertyAnimation {
-                id:animationboat
-                target:boatmotion
-                properties:"x"
-                from:-boat.width
-                to:background.width-2.5*boat.width
-                duration:(bar.level === 1 ? 24000 : bar.level === 2 ? 20500 : bar.level === 3 ? 19000 : bar.level === 4 ? 17000 : 9000)
-                easing.type:Easing.Linear
+                id: animationboat
+                target: boatmotion
+                properties: "x"
+                from: -boat.width
+                to: background.width-2.5*boat.width
+                duration: (bar.level === 1 ? 24000 : bar.level === 2 ? 20500 : bar.level === 3 ? 19000 : bar.level === 4 ? 17000 : 9000)
+                easing.type: Easing.Linear
             }
         }
 
@@ -398,7 +420,7 @@ ActivityBase {
 
         Bonus {
             id: bonus
-            onWin:ok.visible = true
+            onWin: ok.visible = true
 
         }
 

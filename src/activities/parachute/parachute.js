@@ -31,6 +31,7 @@ var numberOfLevel = 4
 var items
 var checkPressed = false
 var ycheck
+var yrcheck
 var pressed
 var Oneclick
 var winlose
@@ -58,6 +59,7 @@ function initLevel() {
     Oneclick = false
     pressed = false
     ycheck = false
+    yrcheck = false
     loseflag =false
     tuxImageStatus = 0
     items.ok.visible = false
@@ -87,6 +89,7 @@ function onLose(){
     winlose = false
     Oneclick = false
     ycheck = false
+    yrcheck = false
     pressed = false
     loseflag = true
     items.tux.x=-items.helimotion.width
@@ -113,19 +116,20 @@ function onWin(){
     winlose = false
     Oneclick = false
     ycheck = false
+    yrcheck = false
     pressed = false
     items.bonus.good("lion");
-    items.tux.x=-items.helimotion.width
-    items.tux.y=0
+    items.tux.x = -items.helimotion.width
+    items.tux.y = 0
     items.ok.visible = true
     items.tuximage.source = "qrc:/gcompris/src/activities/parachute/resource/" + minitux
 }
 
 function processPressedKey(event) {
-    if(tuxImageStatus===2){
+    if(tuxImageStatus === 2){
         switch(event.key) {
         case Qt.Key_Up : event.accepted = true;
-            if(pressed===false){
+            if(pressed === false){
                 items.tuxY.stop()
                 items.onPressUp.restart()
                 pressed=true
@@ -133,38 +137,39 @@ function processPressedKey(event) {
                 items.onReleas.stop()
                 items.onPressUp.restart()
             }
-            console.log("up");
             break;
         case Qt.Key_Down : event.accepted = true;
-            if(pressed===false){
+            if(pressed === false){
                 items.tuxY.stop()
                 items.onPressdown.restart()
-                pressed=true
+                pressed = true
             }else{
-                items.onReleas.restart()
+                items.onReleas.stop()
                 items.onPressdown.restart()
             }
-            console.log("down");
             break;
         }
-        if(ycheck===false){
-            ycheck=true
+        if(ycheck === false){
+            ycheck = true
         }
     }
 
 }
 
 function processReleasedKey(event) {
-    if(tuxImageStatus===2)
+    if(tuxImageStatus === 2)
     {    switch(event.key) {
         case Qt.Key_Up : event.accepted = true;
-            items.onPressUp.stop()
-            items.onReleas.restart()
-            break;
+                items.onPressUp.stop()
+                items.onReleas.restart()
+                break;
         case Qt.Key_Down : event.accepted = true;
-            items.onPressdown.stop()
-            items.onReleas.restart()
-            break;
+                items.onPressdown.stop()
+                items.onReleas.restart()
+                break;
+        }
+        if(yrcheck === false){
+            yrcheck = true
         }
 
     }
@@ -189,7 +194,6 @@ function previousLevel() {
 
 function onreset(){
     items.loop.stop()
-
     items.loopcloud.stop()
     items.animationboat.stop()
     items.tuxX.stop()
@@ -197,6 +201,7 @@ function onreset(){
     items.onReleas.stop()
     items.onPressUp.stop()
     items.onPressdown.stop()
+
     tuxImageStatus = 0
 
     items.tuximage.visible = false
@@ -205,10 +210,11 @@ function onreset(){
     winlose = false
     Oneclick = false
     ycheck = false
+    yrcheck = false
     pressed = false
     loseflag = true
-    items.tux.x=-items.helimotion.width
-    items.tux.y=0
+    items.tux.x = -items.helimotion.width
+    items.tux.y = 0
     items.loop.restart()
     items.tuxX.restart()
     items.loopcloud.restart()
