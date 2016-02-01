@@ -8,7 +8,6 @@ algebra_plus
 algorithm
 align4
 align4-2players
-awele
 alphabet-sequence
 babymatch
 babyshapes
@@ -101,6 +100,7 @@ penalty
 planegame
 readingh
 readingv
+recyclebin
 redraw
 redraw_symmetrical
 renewable_energy
