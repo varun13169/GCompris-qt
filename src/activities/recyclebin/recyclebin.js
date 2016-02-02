@@ -20,31 +20,32 @@ function score(){
     levelScore=1-(totalImgLeft/totalLevelImg);
     items.levelBar.value=levelScore
     if(levelScore==1){
-        nextLevel()
+        items.bonus.good("smiley");
     }
 }
 
 function initLevel(){
+    items.levelBar.value=0.0;
     items.imgTopModel.clear();
     items.imgLeftModel.clear();
     items.imgRightModel.clear();
     items.recycleBinData.clear();
-    items.bar.level=currentLevel;
+    items.bar.level=currentLevel+1;
     if(currentLevel==0){
         totalDustBin=2
-        items.recycleBinData.append({"name":"burnable"})
-        items.recycleBinData.append({"name":"non-burnable"})
+        items.recycleBinData.append({"name":"burnable","burnable":0,"organic":-1,"recycle":-1})
+        items.recycleBinData.append({"name":"non-burnable","burnable":1,"organic":-11,"recycle":-1})
     }
     if(currentLevel==1){
         totalDustBin=2
-        items.recycleBinData.append({"name":"organic"})
-        items.recycleBinData.append({"name":"inorganic"})
+        items.recycleBinData.append({"name":"organic","organic":0,"burnable":-1,"recycle":-1})
+        items.recycleBinData.append({"name":"inorganic","organic":1,"burnable":-1,"recycle":-11})
     }
     if(currentLevel==2){
         totalDustBin=3
-        items.recycleBinData.append({"name":"recycle1"})
-        items.recycleBinData.append({"name":"recycle2"})
-        items.recycleBinData.append({"name":"recycle3"})
+        items.recycleBinData.append({"name":"recycle1","recycle":1,"organic":-1,"burnable":-1})
+        items.recycleBinData.append({"name":"recycle2","recycle":2,"organic":-1,"burnable":-1})
+        items.recycleBinData.append({"name":"recycle3","recycle":3,"organic":-1,"burnable":-1})
     }
     getLevelData();
 }
@@ -118,28 +119,28 @@ function getImage(level){
 }
 
 function returnDataBase(level){
-    var dataBase=[{"name":"food","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/food.png","level":[1,1,0],"burnable":true,"organic":true,"recycle":0},
-              {"name":"clothes","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/clothes.png","level":[1,1,0],"burnable":true,"organic":true,"recycle":0},
-              {"name":"wastepaper","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/wastepaper.png","level":[1,1,1],"burnable":true,"organic":true,"recycle":0},
-              {"name":"woodchip","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/woodchip.png","level":[1,1,0],"burnable":true,"organic":true,"recycle":0},
-              {"name":"aluminiumfoil","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/aluminiumfoil.png","level":[1,1,0],"burnable":false,"organic":false,"recycle":0},
-              {"name":"glass","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/glass.png","level":[0,1,1],"burnable":false,"organic":false,"recycle":1},
-              {"name":"plastic","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/plastic.png","level":[1,1,1],"burnable":false,"organic":false,"recycle":0},
-              {"name":"polystrene","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/polystrene.png","level":[1,1,0],"burnable":false,"organic":false,"recycle":0},
-              {"name":"can","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/can.png","level":[0,0,1],"burnable":false,"organic":false,"recycle":1},
-              {"name":"glassbottle","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/glassbottle.png","level":[0,0,1],"burnable":false,"organic":false,"recycle":1},
-              {"name":"glassbottle","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/gglassbottle3.png","level":[0,0,1],"burnable":false,"organic":false,"recycle":1},
-              {"name":"cardboard","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/cardboard.png","level":[0,1,1],"burnable":true,"organic":true,recycle:2},
-              {"name":"magazine","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/magazine.png","level":[0,1,1],"burnable":true,"organic":true,"recycle":2},
-              {"name":"newspaper","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/newsletter.png","level":[0,1,1],"burnable":true,"organic":true,"recycle":2},
-              {"name":"copypaper","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/copypaper.png","level":[0,1,1],"burnable":true,"organic":true,"recycle":2},
-              {"name":"container","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/container.png","level":[0,1,1],"burnable":true,"organic":true,"recycle":2},
-              {"name":"cables","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/cables.png","level":[0,0,1],"burnable":false,"organic":false,"recycle":3},
-              {"name":"drycell","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/drycell.png","level":[0,0,1],"burnable":false,"organic":false,"recycle":3},
-              {"name":"lamp","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/lamp.png","level":[0,0,1],"burnable":false,"organic":false,"recycle":3},
-              {"name":"candy","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/candy.png","level":[1,0,1],"burnable":false,"organic":false,"recycle":3},
-              {"name":"fluorescent","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/fluorescent.png","level":[0,0,1],"burnable":false,"organic":false,"recycle":3},
-              {"name":"oncan","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/oncan.png","level":[0,0,1],"burnable":false,"organic":false,"recycle":3}]
+    var dataBase=[{"name":"food","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/food.png","level":[1,1,0],"burnable":0,"organic":0,"recycle":0},
+              {"name":"clothes","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/clothes.png","level":[1,1,0],"burnable":0,"organic":0,"recycle":0},
+              {"name":"wastepaper","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/wastepaper.png","level":[1,1,1],"burnable":0,"organic":0,"recycle":0},
+              {"name":"woodchip","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/woodchip.png","level":[1,1,0],"burnable":0,"organic":0,"recycle":0},
+              {"name":"aluminiumfoil","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/aluminiumfoil.png","level":[1,1,0],"burnable":1,"organic":1,"recycle":0},
+              {"name":"glass","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/glass.png","level":[0,1,1],"burnable":1,"organic":1,"recycle":1},
+              {"name":"plastic","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/plastic.png","level":[1,1,1],"burnable":1,"organic":1,"recycle":0},
+              {"name":"polystrene","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/polystrene.png","level":[1,1,0],"burnable":1,"organic":1,"recycle":0},
+              {"name":"can","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/can.png","level":[0,0,1],"burnable":1,"organic":1,"recycle":1},
+              {"name":"glassbottle","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/glassbottle.png","level":[0,0,1],"burnable":1,"organic":1,"recycle":1},
+              {"name":"glassbottle","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/gglassbottle3.png","level":[0,0,1],"burnable":1,"organic":1,"recycle":1},
+              {"name":"cardboard","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/cardboard.png","level":[0,1,1],"burnable":0,"organic":0,recycle:2},
+              {"name":"magazine","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/magazine.png","level":[0,1,1],"burnable":0,"organic":0,"recycle":2},
+              {"name":"newspaper","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/newsletter.png","level":[0,1,1],"burnable":0,"organic":0,"recycle":2},
+              {"name":"copypaper","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/copypaper.png","level":[0,1,1],"burnable":0,"organic":0,"recycle":2},
+              {"name":"container","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/container.png","level":[0,1,1],"burnable":0,"organic":0,"recycle":2},
+              {"name":"cables","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/cables.png","level":[0,0,1],"burnable":1,"organic":1,"recycle":3},
+              {"name":"drycell","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/drycell.png","level":[0,0,1],"burnable":1,"organic":1,"recycle":3},
+              {"name":"lamp","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/lamp.png","level":[0,0,1],"burnable":1,"organic":1,"recycle":3},
+              {"name":"candy","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/candy.png","level":[1,0,1],"burnable":1,"organic":1,"recycle":3},
+              {"name":"fluorescent","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/fluorescent.png","level":[0,0,1],"burnable":1,"organic":1,"recycle":3},
+              {"name":"oncan","source":"qrc:/gcompris/src/activities/recyclebin/resource/img/oncan.png","level":[0,0,1],"burnable":1,"organic":1,"recycle":3}]
     var out=[];
     var i;
     for (i in dataBase){

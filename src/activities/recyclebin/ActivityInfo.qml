@@ -1,6 +1,6 @@
 /* GCompris - ActivityInfo.qml
  *
- * Copyright (C) 2015 shivanshbajaj <>
+ * Copyright (C) 2016 shivanshbajaj <>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,12 +23,12 @@ ActivityInfo {
   icon: "recyclebin/recycle.svg"
   author: "shivanshbajaj &lt;"
   demo: true
-  title: qsTr("Play oware against friend")
+  title: qsTr("recycle bin")
   description: ""
   //intro: "play oware against friend"
-  goal: ""
+  goal: "to learn about type of waste"
   prerequisite: ""
-  manual: qsTr("")
+  manual: qsTr("drag and drop waste to their respective dustbin")
   credit: qsTr("")
   section: "strategy"
 }

@@ -31,7 +31,9 @@ ActivityBase {
     property string soundsUrl: boardsUrl
     property string boardsUrl: "qrc:/gcompris/src/activities/recyclebin/resource/"
     onStart:focus=true
-
+    property var currentBurnableProperty
+    property var currentOrganicProperty
+    property var currentRecycleProperty
     onStop: {}
 
     pageComponent: Rectangle {
@@ -55,6 +57,7 @@ ActivityBase {
             property alias recyclebin: recyclebin
             property alias recycleBinData:recycleBinData
             property alias levelBar: levelBar
+            property alias bonus:bonus
         }
 
         onStart: { Activity.start(items) }
@@ -67,15 +70,21 @@ ActivityBase {
 
         Bar {
             id: bar
-            content: BarEnumContent { value: help | home | level }
+            content: BarEnumContent { value: help | home | level | reload }
             onHelpClicked: {
                 displayDialog(dialogHelp)
             }
             onPreviousLevelClicked: Activity.previousLevel()
             onNextLevelClicked: Activity.nextLevel()
             onHomeClicked: activity.home()
+            onReloadClicked: {
+                Activity.initLevel()
+            }
         }
-
+        Bonus {
+            id: bonus
+            Component.onCompleted: win.connect(Activity.nextLevel)
+        }
         Column {
             id:progressBar
             anchors{
@@ -89,10 +98,26 @@ ActivityBase {
                 value:Activity.levelScore
             }
         }
+        IntroMessage {
+            id: message
+            anchors {
+                top: parent.top
+                topMargin: 10*ApplicationInfo.ratio
+                right: parent.right
+                rightMargin: 5
+                left: parent.left
+                leftMargin: 5
+            }
+            z: 100
+            onIntroDone: {
 
-        Bonus {
-            id: bonus
-           // Component.onCompleted: win.connect(Activity.nextLevel)
+                info.visible = true
+                sun_area.enabled = false
+            }
+            intro: [
+                qsTr("waste are all around screen your task is to clean area"),
+                qsTr("Drag and Drop the waste to their respective dustbin")
+            ]
         }
         ListView {
             id: listView
@@ -129,6 +154,9 @@ ActivityBase {
                         drag.onActiveChanged: {
                             if (mouseArea.drag.active) {
                                 listView.dragItemIndex = index;
+                                currentBurnableProperty=burnable;
+                                currentOrganicProperty=organic;
+                                currentRecycleProperty=recycle;
                             }
                             dragRect.Drag.drop();
                         }
@@ -190,6 +218,9 @@ ActivityBase {
                         drag.onActiveChanged: {
                             if (mouseArea.drag.active) {
                                 listViewRight.dragItemIndex = index;
+                                currentBurnableProperty=burnable;
+                                currentOrganicProperty=organic;
+                                currentRecycleProperty=recycle;
                             }
                             dragRect.Drag.drop();
                         }
@@ -219,7 +250,7 @@ ActivityBase {
         }
         ListView {
             id: listViewVert
-            width: parent.width
+            width: parent.width*0.8
             height: parent.height/5
             clip: false
             anchors.horizontalCenter: root.horizontalCenter
@@ -242,6 +273,7 @@ ActivityBase {
                     Image{
                         fillMode: Image.PreserveAspectFit
                         source:url
+                        anchors.centerIn: dragRect
                     }
 
                     MouseArea {
@@ -252,6 +284,9 @@ ActivityBase {
                         drag.onActiveChanged: {
                             if (mouseArea.drag.active) {
                                 listViewVert.dragItemIndex = index;
+                                currentBurnableProperty=burnable;
+                                currentOrganicProperty=organic;
+                                currentRecycleProperty=recycle;
                             }
                             dragRect.Drag.drop();
                         }
@@ -293,7 +328,7 @@ ActivityBase {
                       Image{
                          source:imagesUrl+"recyclebin.png"
                          height:recyclebin.height*0.9
-                         width:recyclebin.width*(1/Activity.totalDustBin)*0.9
+                         width:recyclebin.width*(1/Activity.totalDustBin)*0.8
                          GCText{
                              anchors.centerIn: parent
                              text:name
@@ -308,13 +343,13 @@ ActivityBase {
                          DropArea {
                              id: dropArea
                              anchors.fill: parent
-
+                            onEntered: {parent.height=recyclebin.height}
+                            onExited: {parent.height=recyclebin.height*0.8}
                              onDropped: {
-                                 console.log("object",drag.source,drag.source)
-                                 if(drag.source){
-                                    drag.source.destroy()
+
+                                 if(burnable==currentBurnableProperty || organic==currentOrganicProperty || recycle==currentRecycleProperty){
+                                     drag.source.destroy()
                                      Activity.score()
-                                     //drag.source.parent.model.remove(listView.dragItemIndex);
                                      listView.dragItemIndex = -1;
                                  }
                              }
