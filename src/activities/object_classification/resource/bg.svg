@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="841.88977pt"
+   height="595.27557pt"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.42"
+   version="1.0"
+   sodipodi:docbase="/home/bcoudoin/Projets/gcompris/gcompris-ressources/herve_chanal"
+   sodipodi:docname="scenery6_background.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3226">
+      <stop
+         style="stop-color:#83bd8c;stop-opacity:1;"
+         offset="0"
+         id="stop3228" />
+      <stop
+         style="stop-color:#83bd8c;stop-opacity:0;"
+         offset="1"
+         id="stop3230" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2331">
+      <stop
+         style="stop-color:#00ac00;stop-opacity:1;"
+         offset="0"
+         id="stop2333" />
+      <stop
+         style="stop-color:#00ac00;stop-opacity:0;"
+         offset="1"
+         id="stop2335" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4400">
+      <stop
+         style="stop-color:#c67200;stop-opacity:1;"
+         offset="0"
+         id="stop4402" />
+      <stop
+         style="stop-color:#c67200;stop-opacity:0;"
+         offset="1"
+         id="stop4404" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3327">
+      <stop
+         style="stop-color:#0053c6;stop-opacity:1;"
+         offset="0"
+         id="stop3329" />
+      <stop
+         style="stop-color:#0053c6;stop-opacity:0;"
+         offset="1"
+         id="stop3331" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3327"
+       id="linearGradient3333"
+       x1="686.01392"
+       y1="318.9942"
+       x2="745.854"
+       y2="324.42825"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.999999,9.997784e-8,-8.356355e-8,0.923193,2.685070e-5,3.454992)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4369">
+      <stop
+         style="stop-color:#007200;stop-opacity:1;"
+         offset="0"
+         id="stop4371" />
+      <stop
+         style="stop-color:#007200;stop-opacity:0;"
+         offset="1"
+         id="stop4373" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4342">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop4344" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop4346" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4332">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0"
+         id="stop4334" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop4336" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4278">
+      <stop
+         style="stop-color:#726855;stop-opacity:1;"
+         offset="0"
+         id="stop4280" />
+      <stop
+         style="stop-color:#726855;stop-opacity:0;"
+         offset="1"
+         id="stop4282" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2294">
+      <stop
+         style="stop-color:#4e63ff;stop-opacity:1;"
+         offset="0"
+         id="stop2296" />
+      <stop
+         style="stop-color:#4e63ff;stop-opacity:0;"
+         offset="1"
+         id="stop2298" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2284">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1;"
+         offset="0"
+         id="stop2286" />
+      <stop
+         style="stop-color:#ffff00;stop-opacity:0;"
+         offset="1"
+         id="stop2288" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2284"
+       id="radialGradient2290"
+       cx="158.23547"
+       cy="174.78339"
+       fx="158.23547"
+       fy="174.78339"
+       r="60.098999"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.112509,9.531579e-7,-7.505469e-7,0.989131,-775.0587,59.06332)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2294"
+       id="radialGradient2300"
+       cx="770.7843"
+       cy="620.88696"
+       fx="770.7843"
+       fy="620.88696"
+       r="147.98227"
+       gradientTransform="matrix(0.900588,0.000000,0.000000,0.225335,-366.0213,263.7655)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4278"
+       id="linearGradient4284"
+       x1="-318.15994"
+       y1="418.09448"
+       x2="-259.26865"
+       y2="418.09448"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.000000,0.000000,0.000000,1.003334,2.795999e-5,-0.189785)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4332"
+       id="radialGradient4338"
+       cx="700.51703"
+       cy="139.46089"
+       fx="700.51703"
+       fy="139.46089"
+       r="56.92857"
+       gradientTransform="matrix(0.900588,0.000000,0.000000,0.608758,-911.5915,186.3394)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4342"
+       id="radialGradient4348"
+       cx="706.86206"
+       cy="79.033936"
+       fx="706.86206"
+       fy="79.033936"
+       r="64.07143"
+       gradientTransform="matrix(0.900588,0.000000,0.000000,0.551561,-921.5915,162.6453)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4369"
+       id="linearGradient4375"
+       x1="131.64282"
+       y1="326.24191"
+       x2="548.35712"
+       y2="326.24191"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.000000,0.000000,0.000000,1.003334,2.795999e-5,-0.189785)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3327"
+       id="linearGradient4398"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.999999,9.997784e-8,-8.356355e-8,0.923193,2.857143e-5,3.454990)"
+       x1="739.55206"
+       y1="325.03232"
+       x2="792.06854"
+       y2="330.74084" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4400"
+       id="linearGradient4406"
+       x1="668.36985"
+       y1="309.82088"
+       x2="804.04609"
+       y2="309.82088"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.000000,0.000000,0.000000,1.003334,0.000000,-0.189774)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2331"
+       id="linearGradient2337"
+       x1="525.2793"
+       y1="372.31775"
+       x2="525.2793"
+       y2="711.729"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.000000,0.000000,0.000000,1.003334,0.000000,-0.189774)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3226"
+       id="radialGradient3232"
+       cx="823.27429"
+       cy="626.91681"
+       fx="823.27429"
+       fy="626.91681"
+       r="72.220833"
+       gradientTransform="matrix(0.992922,0.118774,-2.740288e-2,0.229082,11.41492,398.2313)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="769.91769"
+     inkscape:cy="381.48393"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="838"
+     inkscape:window-height="610"
+     inkscape:window-x="29"
+     inkscape:window-y="26" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1.0000000;fill:#00ffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="rect5898"
+       width="933.23065"
+       height="360.17416"
+       x="57.342720"
+       y="57.421818"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 204.55623,258.65942 L 203.76310,228.70351 L 233.10901,228.70350 L 233.10900,249.67265 L 204.55623,258.65942 z "
+       id="path1367"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#00a800;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 105.80035,386.46400 C 105.80035,386.46400 113.73168,366.24376 126.42179,342.27902 C 139.11191,318.31429 144.06899,310.07640 156.56083,290.60505 C 169.05267,271.13370 164.69045,274.87820 176.38915,264.39363 C 188.08786,253.90905 191.45866,253.53460 203.35565,248.66677 C 215.25264,243.79893 213.26980,245.29674 223.97710,244.92228 C 234.68439,244.54784 232.10671,243.23725 246.18481,247.16897 C 260.26291,251.10068 261.65091,250.16457 280.28951,260.64914 C 298.92812,271.13371 306.46289,280.49494 320.73928,289.10726 C 335.01566,297.71959 329.06717,294.53676 337.39506,295.09845 C 345.72294,295.66012 345.32639,294.34955 354.05084,291.35395 C 362.77529,288.35836 362.57701,285.55001 372.29288,283.11608 C 382.00876,280.68215 382.80189,281.05662 392.91433,281.61829 C 403.02677,282.17996 396.28515,280.30771 412.74265,285.36277 C 429.20015,290.41783 436.73490,292.29007 458.74433,301.83852 C 480.75377,311.38699 485.71083,317.00372 500.78036,323.55657 C 515.84987,330.10944 519.02241,328.04995 519.02241,328.04995 L 529.33313,338.53452 L 472.22759,363.24817 L 300.11783,381.97061 L 112.93854,409.67984 L 105.80035,386.46400 z "
+       id="path1365"
+       sodipodi:nodetypes="cssssssssssssssscccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:url(#linearGradient4375);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.0000000"
+       d="M 104.08132,386.55861 C 104.08132,386.55861 112.01265,366.33836 124.70277,342.37363 C 137.39289,318.40889 142.34996,310.17100 154.84179,290.69966 C 167.33363,271.22831 162.97141,274.97280 174.67011,264.48822 C 186.36883,254.00365 189.73963,253.62920 201.63662,248.76137 C 213.53361,243.89354 211.55077,245.39133 222.25806,245.01689 C 232.96536,244.64243 230.38767,243.33186 244.46577,247.26357 C 258.54387,251.19528 259.93187,250.25917 278.57049,260.74375 C 297.20910,271.22832 304.74386,280.58954 319.02024,289.20185 C 333.29662,297.81419 327.34813,294.63136 335.67603,295.19304 C 344.00392,295.75473 343.60735,294.44415 352.33181,291.44856 C 361.05626,288.45297 360.85798,285.64460 370.57386,283.21068 C 380.28973,280.77677 381.08287,281.15122 391.19531,281.71289 C 401.30774,282.27455 394.56611,280.40230 411.02361,285.45737 C 427.48112,290.51243 435.01587,292.38469 457.02529,301.93313 C 479.03473,311.48159 483.99180,317.09832 499.06132,323.65118 C 514.13085,330.20403 517.30338,328.14457 517.30338,328.14457 L 527.61410,338.62914 L 470.50856,363.34277 L 298.39879,382.06521 L 111.21951,409.77443 L 104.08132,386.55861 z "
+       id="path4351"
+       sodipodi:nodetypes="cssssssssssssssscccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#00d900;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.95699877px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 57.820403,378.94973 C 57.820403,378.94973 205.63503,351.58950 289.70708,339.21750 C 373.77914,326.84550 333.32938,330.96949 399.15937,327.43465 C 464.98937,323.89978 468.16190,326.55094 553.02708,325.07808 C 637.89227,323.60521 738.62011,321.54320 738.62011,321.54320 C 738.62011,321.54320 764.79347,329.49665 797.31191,334.50436 C 829.83034,339.51208 837.76167,338.03922 868.69384,341.57408 C 899.62601,345.10894 893.67752,342.45779 921.04060,348.64380 C 948.40366,354.82980 961.09379,360.13209 978.14614,366.31810 C 995.19848,372.50410 991.27030,373.38781 991.27030,373.38781 L 989.24999,664.42456 L 58.112375,663.24628 L 57.820403,378.94973 z "
+       id="path1373"
+       sodipodi:nodetypes="cscccsssscccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:url(#linearGradient2337);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.95699877px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.0000000"
+       d="M 58.358983,378.93055 C 58.358983,378.93055 206.17361,351.57032 290.24566,339.19832 C 374.31772,326.82632 333.86796,330.95031 399.69795,327.41546 C 465.52795,323.88060 468.70048,326.53176 553.56566,325.05889 C 638.43085,323.58603 739.15869,321.52402 739.15869,321.52402 C 739.15869,321.52402 765.33205,329.47747 797.85049,334.48518 C 830.36892,339.49290 838.30025,338.02003 869.23242,341.55490 C 900.16459,345.08976 894.21610,342.43861 921.57918,348.62461 C 948.94224,354.81062 961.63237,360.11291 978.68467,366.29891 C 995.73707,372.48492 991.80887,373.36863 991.80887,373.36863 L 989.78857,664.40538 L 58.650953,663.22709 L 58.358983,378.93055 z "
+       id="path1432"
+       sodipodi:nodetypes="cscccsssscccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:url(#radialGradient3232);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path3212"
+       sodipodi:cx="823.27429"
+       sodipodi:cy="626.91681"
+       sodipodi:rx="71.720833"
+       sodipodi:ry="16.162441"
+       d="M 894.99512 626.91681 A 71.720833 16.162441 0 1 1  751.55346,626.91681 A 71.720833 16.162441 0 1 1  894.99512 626.91681 z"
+       transform="matrix(0.992922,-0.119170,0.118774,0.996232,-58.63351,76.16309)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#3dd55c;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 829.22399,385.70061 C 829.22399,385.70061 833.78450,382.33058 839.53471,381.95613 C 845.28491,381.58169 847.26775,382.33058 852.22484,384.20283 C 857.18193,386.07506 856.78535,386.44951 859.36302,389.44511 C 861.94071,392.44070 859.95787,393.75127 862.53556,396.18518 C 865.11324,398.61910 865.11324,396.37242 869.67374,399.18078 C 874.23425,401.98915 879.38962,404.04861 880.77760,407.41865 C 882.16558,410.78870 883.75185,412.84816 875.22568,412.66094 C 866.69950,412.47372 858.56989,409.29090 846.67291,406.66976 C 834.77593,404.04861 835.37077,404.79751 827.63773,402.17637 C 819.90468,399.55523 815.74074,396.18518 815.74074,396.18518 L 829.22399,385.70061 z "
+       id="path2266"
+       sodipodi:nodetypes="cssssssssscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#3dc05c;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 687.03375,372.82260 C 687.03375,372.82260 679.69727,363.08692 671.96424,358.59354 C 664.23119,354.10015 664.03292,354.28738 656.10158,354.84905 C 648.17026,355.41071 645.39430,358.03186 640.23893,360.84023 C 635.08357,363.64860 635.67842,366.64419 635.48013,366.08252 C 635.28186,365.52086 642.81662,359.71688 639.44581,358.59354 C 636.07499,357.47019 628.34195,358.96799 621.99688,361.58913 C 615.65183,364.21027 616.44497,365.52085 614.06557,369.07811 C 611.68616,372.63538 609.30676,373.19706 612.47929,375.81820 C 615.65182,378.43934 618.22951,378.62656 626.75569,379.56268 C 635.28186,380.49880 636.27328,379.18823 646.58399,379.56268 C 656.89471,379.93712 657.88614,382.74549 667.99857,381.06048 C 678.11101,379.37547 687.03375,372.82260 687.03375,372.82260 z "
+       id="path2262"
+       sodipodi:nodetypes="csssssssssssc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#ff1100;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5858"
+       sodipodi:cx="592.85712"
+       sodipodi:cy="484.80878"
+       sodipodi:rx="7.1428571"
+       sodipodi:ry="7.8571429"
+       d="M 599.99997 484.80878 A 7.1428571 7.8571429 0 1 1  585.71426,484.80878 A 7.1428571 7.8571429 0 1 1  599.99997 484.80878 z"
+       transform="matrix(0.662567,0.000000,0.000000,0.657652,139.4970,36.34210)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#ff1100;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5860"
+       sodipodi:cx="576.07141"
+       sodipodi:cy="489.80878"
+       sodipodi:rx="11.071428"
+       sodipodi:ry="6.4285712"
+       d="M 587.14284 489.80878 A 11.071428 6.4285712 0 1 1  564.99998,489.80878 A 11.071428 6.4285712 0 1 1  587.14284 489.80878 z"
+       transform="matrix(0.662567,0.000000,0.000000,0.657652,141.8633,34.46306)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#b77e06;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 512.42774,410.60825 L 516.68710,402.62245 L 519.52669,396.51569 L 523.78605,386.18115 L 521.89299,373.49786 L 505.32882,373.49786 L 493.49726,371.61888 L 487.81811,372.08858 L 488.29137,376.78612 L 495.86357,374.90715 L 506.74859,376.78612 L 509.58818,379.13487 L 511.95448,378.19540 L 512.90101,380.54415 L 515.74058,381.01391 L 515.26732,385.71139 L 513.84754,398.86444 C 513.37427,402.77903 506.41686,406.69365 512.42774,410.60825 z "
+       id="path5846"
+       sodipodi:nodetypes="cccccccccccccccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#fdb5d7;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 501.54271,410.13849 C 501.54271,410.13849 502.01597,414.71859 501.54271,417.65454 C 501.06946,420.59047 499.64967,421.88225 499.64967,421.88225 L 500.12293,427.98902 L 503.90902,427.98902 L 511.00796,426.11003 L 512.42774,417.65454 C 512.42774,417.65454 510.65302,416.36266 511.00796,412.01746 C 511.36290,407.67225 513.84754,400.27371 513.84754,400.27371 L 515.26732,398.39468 C 515.26732,398.39468 516.56879,397.92496 518.58016,397.45521 C 520.59152,396.98546 521.65636,398.04239 523.31278,396.51569 C 524.96919,394.98900 525.20583,393.81465 525.20583,391.34845 C 525.20583,388.88227 524.96919,388.41250 523.31278,386.65091 C 521.65636,384.88934 520.59152,384.53706 518.58016,384.30217 C 516.56879,384.06730 515.26732,385.71139 515.26732,385.71139 L 515.26732,381.48367 C 515.26732,381.48367 513.72923,381.95342 512.90101,381.01391 C 512.07280,380.07440 512.78270,378.31285 511.95448,377.72564 C 511.12628,377.13845 510.06145,380.54412 509.58818,378.66511 C 509.11491,376.78609 510.06144,370.20960 510.06144,370.20960 L 502.48923,365.51206 L 496.81009,368.80033 L 492.07747,371.14912 L 488.76464,374.90715 L 488.76464,378.19540 L 495.86357,392.28791 L 491.13095,391.34845 C 491.13095,391.34845 488.17306,390.64378 485.92506,392.28791 C 483.67706,393.93204 482.76560,394.33544 481.34582,396.80162 C 479.92604,399.26782 479.65433,399.92138 480.24591,402.15268 C 480.83749,404.38400 481.66570,405.44096 484.50528,406.85022 C 487.34485,408.25949 488.88295,407.90720 491.60421,407.78975 C 494.32546,407.67232 495.39031,406.38046 495.39031,406.38046 C 495.39031,406.38046 495.27200,407.20251 496.33684,408.72921 C 497.40168,410.25590 498.34819,412.13489 499.64967,412.48722 C 500.95114,412.83955 501.54271,410.13849 501.54271,410.13849 z "
+       id="path5828"
+       sodipodi:nodetypes="cscccccsccsssssccsssccccccccssssscssc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#5311cb;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 487.34484,371.14912 C 487.34484,371.14912 486.63495,367.97832 487.34484,365.04237 C 488.05474,362.10641 487.22653,361.87151 490.18442,359.40531 C 493.14231,356.93910 494.91704,356.23450 499.17640,355.17756 C 503.43576,354.12063 504.50715,354.14615 508.41157,354.61590 C 512.31598,355.08565 511.83616,354.94268 514.79406,357.05656 C 517.75194,359.17045 517.39700,360.22739 519.05342,363.63309 C 520.70983,367.03880 521.41973,370.67936 521.41973,370.67936 L 520.94646,376.31636 L 513.37427,377.25588 L 487.34484,371.14912 z "
+       id="path5848"
+       sodipodi:nodetypes="csssssscccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 496.81009,374.90715 C 495.03536,374.08510 493.78652,374.23022 491.18358,375.05229 C 488.58064,375.87434 488.29137,375.37689 486.39832,378.19540 C 484.50527,381.01392 484.03201,387.12067 484.03201,387.12067 C 484.03201,387.12067 483.91370,389.70432 485.92506,391.34845 C 487.93643,392.99257 489.35622,393.69720 492.07747,393.69720 C 494.79873,393.69720 496.81009,391.34845 496.81009,391.34845 L 495.39031,384.30217 L 498.70314,379.13487 C 498.70314,379.13487 498.58482,375.72922 496.81009,374.90715 z "
+       id="path5838"
+       sodipodi:nodetypes="csscsscccs"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 207.41151,229.90174 L 207.41151,208.93259 L 207.41151,208.93259"
+       id="path1369"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 220.10163,231.39954 L 220.10163,215.67268"
+       id="path1371"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#4eacff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path1375"
+       sodipodi:cx="274.76151"
+       sodipodi:cy="403.67307"
+       sodipodi:rx="147.48227"
+       sodipodi:ry="34.345188"
+       d="M 422.24377 403.67307 A 147.48227 34.345188 0 1 1  127.27924,403.67307 A 147.48227 34.345188 0 1 1  422.24377 403.67307 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,-34.40226,68.39575)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:url(#radialGradient2300);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.43312100"
+       id="path2292"
+       sodipodi:cx="274.76151"
+       sodipodi:cy="403.67307"
+       sodipodi:rx="147.48227"
+       sodipodi:ry="34.345188"
+       d="M 422.24377 403.67307 A 147.48227 34.345188 0 1 1  127.27924,403.67307 A 147.48227 34.345188 0 1 1  422.24377 403.67307 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,-33.92198,68.17432)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#3d9f5c;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 787.77360,355.00559 C 787.77360,355.00559 793.10147,350.50440 800.11184,351.82828 C 807.12221,353.15216 809.08512,353.15216 815.81507,360.30109 C 822.54502,367.45003 821.98420,373.80464 827.03165,380.42402 C 832.07911,387.04341 834.32243,382.80700 836.00492,386.77863 C 837.68741,390.75025 838.80907,392.60369 833.76161,396.31055 C 828.71415,400.01741 826.47083,401.87083 815.81507,401.60606 C 805.15931,401.34128 800.11184,399.22307 791.13857,395.25144 C 782.16531,391.27980 779.92199,385.71953 779.92199,385.71953 L 787.77360,355.00559 z "
+       id="path2264"
+       sodipodi:nodetypes="cssssssscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#e5ec39;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 674.48606,287.22308 C 674.48606,287.22308 678.13146,290.92993 678.97269,299.93230 C 679.81393,308.93466 679.25312,308.40511 677.85104,323.23254 C 676.44896,338.05997 675.88813,345.73844 673.36440,359.24198 C 670.84067,372.74553 667.75611,377.24672 667.75611,377.24672 L 672.24275,380.42403 C 672.24275,380.42403 724.39989,385.19000 750.75887,388.89685 C 777.11785,392.60369 777.67868,395.25145 777.67868,395.25145 L 784.40863,395.25145 L 788.89526,388.89685 C 788.89526,388.89685 788.61485,373.01031 790.01692,358.18288 C 791.41899,343.35546 791.41900,343.88501 794.50356,329.58715 C 797.58813,315.28927 802.35517,300.99140 802.35517,300.99140 L 763.09711,236.38620 L 749.63721,224.73609 L 736.17730,232.14979 L 712.62247,250.15452 L 674.48606,287.22308 z "
+       id="path3133"
+       sodipodi:nodetypes="csssccscccsscccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#af9e00;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 690.91941,259.77478 L 692.50567,226.07436 L 715.50652,228.32106 L 713.12712,244.79682 L 690.91941,259.77478 z "
+       id="path3137"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:url(#linearGradient4406);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.0000000"
+       d="M 675.63839,287.89337 C 675.63839,287.89337 679.28378,291.60023 680.12502,300.60260 C 680.96626,309.60497 680.40544,309.07541 679.00337,323.90283 C 677.60129,338.73026 677.04046,346.40874 674.51673,359.91229 C 671.99300,373.41583 668.90844,377.91702 668.90844,377.91702 L 673.39507,381.09433 C 673.39507,381.09433 725.55220,385.86029 751.91120,389.56715 C 778.27018,393.27399 778.83101,395.92175 778.83101,395.92175 L 785.56096,395.92175 L 790.04759,389.56715 C 790.04759,389.56715 789.76717,373.68061 791.16925,358.85318 C 792.57132,344.02576 792.57133,344.55532 795.65589,330.25745 C 798.74045,315.95957 803.50750,301.66170 803.50750,301.66170 L 764.24944,237.05650 L 750.78953,225.40638 L 737.32962,232.82009 L 713.77479,250.82482 L 675.63839,287.89337 z "
+       id="path4286"
+       sodipodi:nodetypes="csssccscccsscccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#af3000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 697.21939,384.30550 C 697.21939,384.30550 693.05544,374.94427 691.66745,365.58304 C 690.27947,356.22183 689.28805,352.85178 691.66746,346.86059 C 694.04686,340.86940 696.02969,336.93769 701.18504,331.88262 C 706.34040,326.82756 706.53869,328.13815 712.28889,326.64035 C 718.03910,325.14255 717.84083,325.51701 722.59962,329.63593 C 727.35843,333.75488 728.54811,336.37602 731.32408,343.11610 C 734.10004,349.85617 734.10004,349.85617 733.70348,356.59626 C 733.30692,363.33634 733.30692,362.58744 729.73782,370.07644 C 726.16871,377.56541 719.42710,386.55218 719.42710,386.55218 L 697.21939,384.30550 z "
+       id="path3139"
+       sodipodi:nodetypes="csssssssscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#af3000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 693.32828,219.58727 C 699.49740,219.58727 704.82528,222.49979 711.27482,224.88277 C 717.72436,227.26575 718.28519,227.26575 719.12643,229.11918 C 719.96767,230.97261 721.08934,232.56127 714.63980,232.29649 C 708.19026,232.03171 700.33864,229.91352 693.32828,228.06008 C 686.31791,226.20665 686.59833,227.00098 686.59833,224.88277 C 686.59833,222.76456 687.15915,219.58727 693.32828,219.58727 z "
+       id="path3141"
+       sodipodi:nodetypes="cssssss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path3161"
+       sodipodi:cx="-270.46835"
+       sodipodi:cy="421.60327"
+       sodipodi:rx="3.2829957"
+       sodipodi:ry="3.7880721"
+       d="M -267.18536 421.60327 A 3.2829957 3.7880721 0 1 1  -273.75135,421.60327 A 3.2829957 3.7880721 0 1 1  -267.18536 421.60327 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,1023.322,-83.05578)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#ffff00;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path4036"
+       sodipodi:cx="332.85715"
+       sodipodi:cy="76.951622"
+       sodipodi:rx="35.714287"
+       sodipodi:ry="35.714287"
+       d="M 368.57143 76.951622 A 35.714287 35.714287 0 1 1  297.14286,76.951622 A 35.714287 35.714287 0 1 1  368.57143 76.951622 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,-20.44048,90.68852)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#009700;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.88494736px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 227.18289,488.57755 C 227.18289,488.57755 222.09177,486.88531 216.11525,486.77249 C 210.13872,486.65968 209.47466,486.77249 203.27678,488.12629 C 197.07890,489.48009 194.97604,489.14163 191.32372,492.18770 C 187.67139,495.23374 187.45005,496.58755 186.89666,500.76177 C 186.34328,504.93600 185.90056,506.06416 189.11019,508.88459 C 192.31981,511.70499 194.42267,511.25372 201.50596,511.59217 C 208.58926,511.93062 210.58143,511.81783 217.44337,510.23839 C 224.30530,508.65894 223.53058,508.43330 228.95372,505.27443 C 234.37687,502.11558 239.13595,497.60290 239.13595,497.60290 L 216.11525,498.50543 L 227.18289,488.57755 z "
+       id="path5794"
+       sodipodi:nodetypes="cssssssssccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 404.67856,199.82715 C 404.67856,199.82715 410.62706,194.21042 416.57555,194.58486 C 422.52404,194.95932 428.47253,201.32495 428.47253,201.32495 C 428.47253,201.32495 431.24850,196.83156 435.61073,193.83598 C 439.97295,190.84038 445.92146,189.34258 445.92146,189.34258"
+       id="path5796"
+       sodipodi:nodetypes="cscsc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 440.36953,210.31173 C 440.36953,210.31173 446.91286,205.81834 452.26651,205.81834 C 457.62015,205.81834 461.78410,210.31173 461.78410,210.31173 C 461.78410,210.31173 463.56865,206.94170 468.12917,205.81834 C 472.68968,204.69500 480.02615,205.81834 480.02615,205.81834"
+       id="path5798"
+       sodipodi:nodetypes="cscsc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 460.19784,193.83598 C 460.19784,193.83598 466.14634,191.58928 469.71543,192.33818 C 473.28452,193.08709 474.47422,196.83156 474.47422,196.83156 C 474.47422,196.83156 477.84503,192.33817 481.61242,190.84037 C 485.37980,189.34258 489.54374,190.84037 489.54374,190.84037"
+       id="path5800"
+       sodipodi:nodetypes="cscsc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 490.65768,472.61543 L 489.71115,469.32717"
+       id="path5806"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#c80000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 494.44378,421.88225 C 494.44378,421.88225 483.32212,430.57264 476.93307,435.03529 C 470.54403,439.49793 468.88761,439.73284 468.88761,439.73284 L 468.88761,444.90007 L 472.20046,450.53713 L 475.04003,453.35564 C 475.04003,453.35564 480.48255,449.24532 485.45180,446.77912 C 490.42105,444.31292 494.91704,443.49085 494.91704,443.49085 L 493.97051,430.80757 L 494.44378,421.88225 z "
+       id="path5814"
+       sodipodi:nodetypes="csccccsccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ff0000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 512.42774,415.77549 C 515.26732,416.59755 516.45047,418.47659 519.52669,423.29154 C 522.60289,428.10648 522.72121,428.69365 524.73257,435.03529 C 526.74394,441.37692 528.04542,443.72570 527.57215,448.65809 C 527.09888,453.59049 522.83952,454.76484 522.83952,454.76484 L 517.63363,473.08519 L 499.17640,474.49441 L 479.77265,466.97843 L 484.50528,460.87160 C 484.50528,460.87160 484.38697,456.99622 485.45180,450.53713 C 486.51664,444.07805 486.63496,441.84669 488.76464,435.03529 C 490.89431,428.22389 491.72252,427.16698 493.97051,423.29154 C 496.21851,419.41609 497.75662,419.53351 497.75662,419.53351 C 497.75662,419.53351 498.46651,423.17410 501.06946,423.29154 C 503.67240,423.40897 505.32881,421.88228 508.16838,420.00327 C 511.00794,418.12426 509.58817,414.95342 512.42774,415.77549 z "
+       id="path5808"
+       sodipodi:nodetypes="cssscccccssscsss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 508.64165,430.33781 C 508.99660,433.50862 510.41638,437.97126 510.06144,443.02109 C 509.70649,448.07092 507.45850,447.60119 507.22186,450.53713 C 506.98523,453.47307 506.63027,453.23816 509.11491,454.76484 C 511.59954,456.29153 513.61090,456.76133 517.16037,456.64390 C 520.70984,456.52646 523.31278,454.29508 523.31278,454.29508 C 523.31278,454.29508 523.31278,454.29508 523.31278,454.29508"
+       id="path5810"
+       sodipodi:nodetypes="csssscs"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffb1c2;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 460.36889,446.30935 C 458.35753,446.42679 457.76595,446.89652 456.58280,448.18833 C 455.39966,449.48013 454.57145,449.83247 455.63628,451.47659 C 456.70112,453.12073 458.12091,453.59046 460.84216,454.76484 C 463.56342,455.93924 464.15499,455.93926 466.52131,456.17413 C 468.88761,456.40903 468.53267,456.52644 470.30740,455.70437 C 472.08213,454.88230 473.85687,454.64745 473.62023,452.88588 C 473.38360,451.12430 471.60887,449.94991 469.36087,448.65809 C 467.11288,447.36626 464.62825,447.71857 464.62825,447.71857 C 464.62825,447.71857 462.38026,446.19191 460.36889,446.30935 z "
+       id="path5818"
+       sodipodi:nodetypes="cssssssscs"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#08a8c2;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 518.56706,467.54344 L 510.53470,467.91789 C 510.53470,467.91789 503.19913,467.68303 497.28335,466.50867 C 491.36757,465.33429 490.06610,464.62967 486.87157,463.22041 C 483.67705,461.81115 484.50527,460.87160 484.50527,460.87160 L 483.55874,462.75065 L 474.56676,463.69018 L 464.62825,463.69018 L 461.78868,465.56914 L 461.78868,474.96417 L 459.42238,482.48021 L 458.47584,487.64745 L 468.88761,486.70799 L 475.51329,486.23823 L 479.29939,489.99624 L 480.24591,496.10301 C 480.24591,496.10301 483.44043,498.21685 489.71115,497.04247 C 495.98188,495.86808 497.87493,493.98908 505.32881,491.40547 C 512.78269,488.82185 512.84629,489.58431 516.75071,483.71240 C 520.65512,477.84051 518.56706,467.54344 518.56706,467.54344 z "
+       id="path5802"
+       sodipodi:nodetypes="ccssccccccccccccsssc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#fd4718;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 475.98655,501.74001 C 475.98655,501.74001 479.41770,503.73648 482.13895,503.14929 C 484.86022,502.56211 485.33346,502.67954 486.87157,499.39127 C 488.40968,496.10301 488.05474,494.81119 488.29137,489.99624 C 488.52801,485.18129 488.52801,483.77205 487.81811,480.13146 C 487.10822,476.49090 486.75327,477.43039 485.45180,475.43393 C 484.15033,473.43748 484.26865,472.96773 482.61222,472.14567 C 480.95580,471.32361 478.82612,472.14567 478.82612,472.14567 L 475.98655,501.74001 z "
+       id="path5824"
+       sodipodi:nodetypes="csssssscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#fd4718;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 453.26996,457.58335 C 453.26996,457.58335 455.51798,455.58690 458.00259,457.58335 C 460.48721,459.57980 461.78869,461.57624 463.20847,465.56914 C 464.62825,469.56204 464.03667,469.09230 463.68173,473.55495 C 463.32679,478.01759 463.32679,480.01404 461.78868,483.41972 C 460.25057,486.82541 459.77732,486.00333 457.52933,487.17769 C 455.28132,488.35207 452.79671,488.11721 452.79671,488.11721 L 453.26996,457.58335 z "
+       id="path5826"
+       sodipodi:nodetypes="cssssscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 495.09450,406.45306 C 495.09450,406.45306 498.40571,404.38403 500.12293,402.62245 C 501.84014,400.86088 501.54271,399.80395 501.54271,399.80395"
+       id="path5830"
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 501.36758,410.40327 C 503.93315,408.11667 505.43548,407.70308 506.46818,405.83811 L 506.60839,405.30856 L 506.60839,404.83880"
+       id="path5832"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 504.38229,402.15268 C 504.38229,402.15268 506.63029,403.67938 507.22186,405.91070 C 507.81344,408.14203 506.74859,411.07801 506.74859,411.07801"
+       id="path5834"
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 503.66355,376.71354 C 500.82397,376.59608 500.35955,376.78609 498.22987,378.66511 C 496.10020,380.54412 496.23155,380.04234 495.28502,382.50853 C 494.33851,384.97472 493.96166,386.34341 495.14482,388.92705 C 496.32798,391.51068 496.69178,392.28793 499.17640,394.16695 C 501.66104,396.04596 502.25262,396.39824 504.38229,396.04593 C 506.51197,395.69362 506.51197,395.22387 507.69512,392.75767 C 508.87828,390.29149 508.64164,389.58686 509.11491,386.18115 C 509.58818,382.77545 509.44380,381.60106 507.90569,379.13487 C 506.36759,376.66867 506.50311,376.83097 503.66355,376.71354 z "
+       id="path5840"
+       sodipodi:nodetypes="czssssssss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#2411cb;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 488.76464,379.13487 C 484.26865,379.25231 479.77265,379.13487 479.77265,379.13487 C 479.77265,379.13487 475.55164,379.11610 474.36849,377.82430 C 473.18533,376.53248 470.44772,375.65941 471.86750,373.78041 C 473.28728,371.90142 473.95088,371.27079 485.99612,370.30832 C 498.04136,369.34583 523.22100,370.11769 523.22100,370.11769 C 523.22100,370.11769 539.12905,372.19844 532.76296,374.33529 C 526.39686,376.47214 508.75620,377.46522 497.75662,378.66511 C 486.75704,379.86501 493.26064,379.01744 488.76464,379.13487 z "
+       id="path5836"
+       sodipodi:nodetypes="ccssscsss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 334.00787,380.07439 L 336.84743,385.24163"
+       id="path5844"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#5311cb;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 487.34484,366.92135 C 487.34484,366.92135 492.93279,366.80307 497.28335,367.39111 C 501.63391,367.97916 500.56440,368.59099 504.74706,369.27348 C 508.92971,369.95598 509.93376,370.12109 514.01400,370.12109 C 518.09426,370.12109 521.06805,369.27348 521.06805,369.27348 L 521.22709,370.01899 L 520.60606,372.45630 L 520.84923,371.06396 L 520.94646,373.02810 C 520.94646,373.02810 513.13764,374.43739 507.69512,374.43739 C 502.25262,374.43739 504.14565,373.73274 499.17640,373.02810 C 494.20714,372.32348 487.81811,371.61888 487.81811,371.61888 L 487.34484,366.92135 z "
+       id="path5850"
+       sodipodi:nodetypes="cssscccccsscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 510.06144,370.20960 L 514.79406,359.87507 L 523.78605,351.88931"
+       id="path5852"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#b03d3d;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 331.16831,385.71139 L 339.68702,388.06012 L 530.88498,478.72218 L 536.56413,478.72218 L 534.67108,474.96417 L 336.84743,387.59043 L 331.16831,385.71139 z "
+       id="path5842"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffb1c2;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 509.11491,454.29508 C 509.11491,454.29508 505.44713,457.93570 504.38229,459.93215 C 503.31745,461.92860 504.14565,461.10651 504.85555,462.28089 C 505.56544,463.45525 506.15703,464.62962 507.22186,464.62962 C 508.28670,464.62962 509.11491,462.28089 509.11491,462.28089 C 509.11491,462.28089 506.98522,465.92146 508.16838,468.38765 C 509.35154,470.85384 510.53471,471.55848 513.84754,472.14567 C 517.16037,472.73286 518.69848,472.38051 521.41973,470.73638 C 524.14099,469.09225 524.25931,468.50509 524.73257,465.56914 C 525.20583,462.63321 523.78605,461.45882 523.31278,458.99262 C 522.83951,456.52644 522.83952,455.70437 522.83952,455.70437 L 519.52669,455.70437 L 517.16037,457.11366 L 514.32080,456.64390 L 509.11491,454.29508 z "
+       id="path5812"
+       sodipodi:nodetypes="cssscsssssccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#fd5818;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 451.85018,457.11366 C 449.36555,456.87878 447.82744,458.17055 445.69777,461.34137 C 443.56808,464.51219 443.68640,465.09940 443.33146,469.79693 C 442.97651,474.49446 442.85820,475.78629 444.27798,480.13146 C 445.69777,484.47667 446.52599,485.41613 449.01060,487.17769 C 451.49523,488.93925 452.44176,488.70438 454.21649,487.17769 C 455.99122,485.65101 455.51796,485.41612 456.10954,481.07093 C 456.70112,476.72575 456.70111,474.49444 456.58280,469.79693 C 456.46449,465.09942 456.81943,465.45171 455.63628,462.28089 C 454.45314,459.11007 454.33482,457.34854 451.85018,457.11366 z "
+       id="path5820"
+       sodipodi:nodetypes="csssssssss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#fd5818;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 478.35286,471.67591 C 476.10487,470.97128 474.56676,472.85029 472.67370,475.43393 C 470.78066,478.01757 471.60887,478.25244 470.78067,482.01045 C 469.95245,485.76846 469.36087,486.59051 469.36087,490.46594 C 469.36087,494.34139 469.47919,494.69371 470.78067,497.51223 C 472.08214,500.33075 472.31878,501.27025 474.56677,501.74001 C 476.81476,502.20977 477.87959,502.44465 479.77265,499.39127 C 481.66569,496.33790 481.66569,494.81120 482.13895,489.52648 C 482.61222,484.24177 481.66570,478.25242 481.66570,478.25242 C 481.66570,478.25242 480.60087,472.38053 478.35286,471.67591 z "
+       id="path5822"
+       sodipodi:nodetypes="cssssssscs"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#fdbcc6;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 468.41435,439.73284 C 466.63963,438.79335 463.68173,439.73286 461.31542,440.67236 C 458.94911,441.61186 458.71249,441.96416 458.94912,443.49085 C 459.18576,445.01754 460.25058,445.83960 462.26195,446.77912 C 464.27330,447.71863 465.45646,447.83608 466.99457,447.24888 C 468.53267,446.66168 468.05942,446.30932 468.41435,444.43031 C 468.76930,442.55130 470.18909,440.67232 468.41435,439.73284 z "
+       id="path5816"
+       sodipodi:nodetypes="cssssss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.66010505px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 485.92506,474.96417 C 487.34484,474.49443 489.35621,474.25955 491.60421,473.08519 C 493.85220,471.91082 494.08882,470.97132 494.91704,470.26669"
+       id="path5804"
+       sodipodi:nodetypes="css"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#ff1100;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5856"
+       sodipodi:cx="582.85712"
+       sodipodi:cy="474.09448"
+       sodipodi:rx="11.428572"
+       sodipodi:ry="8.5714283"
+       d="M 594.28569 474.09448 A 11.428572 8.5714283 0 1 1  571.42854,474.09448 A 11.428572 8.5714283 0 1 1  594.28569 474.09448 z"
+       transform="matrix(0.662567,0.000000,0.000000,0.657652,139.4970,36.34210)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#ffff00;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5854"
+       sodipodi:cx="585.35712"
+       sodipodi:cy="481.59448"
+       sodipodi:rx="6.0714288"
+       sodipodi:ry="6.0714288"
+       d="M 591.42855 481.59448 A 6.0714288 6.0714288 0 1 1  579.28569,481.59448 A 6.0714288 6.0714288 0 1 1  591.42855 481.59448 z"
+       transform="matrix(0.662567,0.000000,0.000000,0.657652,139.4970,36.34210)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5862"
+       sodipodi:cx="525.71429"
+       sodipodi:cy="531.95160"
+       sodipodi:rx="2.8571429"
+       sodipodi:ry="3.5714285"
+       d="M 528.57144 531.95160 A 2.8571429 3.5714285 0 1 1  522.85715,531.95160 A 2.8571429 3.5714285 0 1 1  528.57144 531.95160 z"
+       transform="matrix(0.662567,0.000000,0.000000,0.657652,139.4970,36.34210)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5864"
+       sodipodi:cx="525.71429"
+       sodipodi:cy="531.95160"
+       sodipodi:rx="2.8571429"
+       sodipodi:ry="3.5714285"
+       d="M 528.57144 531.95160 A 2.8571429 3.5714285 0 1 1  522.85715,531.95160 A 2.8571429 3.5714285 0 1 1  528.57144 531.95160 z"
+       transform="matrix(0.662567,0.000000,0.000000,0.657652,149.4354,38.22115)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 847.30473,540.23780 C 847.30473,540.23780 843.43604,531.10156 845.24143,528.05614 C 847.04682,525.01073 848.59430,527.35336 854.52629,528.05614 C 860.45828,528.75890 864.06907,527.82181 868.96941,530.86723 C 873.86975,533.91265 873.86975,536.02106 874.12768,540.23780 C 874.38559,544.45455 873.35394,544.22025 870.00107,547.73419 C 866.64820,551.24811 860.71619,554.29356 860.71619,554.29356 L 847.30473,540.23780 z "
+       id="path5878"
+       sodipodi:nodetypes="cssssscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffd8ff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 781.04051,599.08929 C 781.04051,599.08929 776.14017,607.99130 777.94556,612.20804 C 779.75095,616.42478 788.26208,615.95624 788.26208,615.95624 L 798.57859,615.01914 L 799.61024,597.21519 L 781.04051,599.08929 z "
+       id="path5882"
+       sodipodi:nodetypes="cscccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffdeff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 795.72215,594.96850 L 792.62721,608.08727 C 792.62721,608.08727 790.56390,617.22349 794.69050,619.33183 C 798.81711,621.44018 809.13363,616.52064 809.13363,616.52064 L 814.29188,604.33907 L 811.19693,590.28332 L 795.72215,594.96850 z "
+       id="path5880"
+       sodipodi:nodetypes="ccscccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffcfff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 843.72695,597.02525 L 843.72695,608.26981 L 855.07511,606.39571 L 858.17007,590.46586 L 843.72695,597.02525 z "
+       id="path5884"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffdcff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 849.20710,586.90208 L 851.66406,606.20762 L 861.98057,609.01871 C 870.98954,608.82495 877.90697,607.64373 874.36040,601.52232 L 864.04388,588.40366 L 849.20710,586.90208 z "
+       id="path5886"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 765.01113,576.03750 C 758.04747,589.85899 765.26904,584.93952 768.10608,591.03036 C 770.94313,597.12119 771.97477,598.29249 776.35929,600.40082 C 780.74381,602.50917 781.51755,598.05816 785.64415,599.46374 C 789.77076,600.86930 787.44954,604.61755 792.86571,606.02312 C 798.28188,607.42868 799.57145,605.08602 807.30884,605.08602 C 815.04623,605.08602 818.65701,606.25736 823.81527,606.02312 C 828.97354,605.78886 824.33110,604.14901 827.94187,604.14901 C 831.55265,604.14901 834.13177,606.49163 838.25838,606.02312 C 842.38498,605.55459 841.86916,604.85181 844.44829,602.27492 C 847.02743,599.69803 845.47994,597.82390 848.57490,595.71555 C 851.66985,593.60718 852.18567,595.71555 856.82811,593.84145 C 861.47054,591.96735 864.82341,591.96736 867.14463,588.21916 C 869.46585,584.47098 864.56550,582.36262 866.11297,578.84869 C 867.66045,575.33474 870.75541,579.08292 873.33454,574.16340 C 875.91366,569.24390 878.75071,562.91884 876.42949,559.17065 C 874.10827,555.42244 870.87177,559.26660 868.80845,556.92394 C 866.74516,554.58131 869.98167,555.18810 868.17628,549.80007 C 866.37090,544.41205 862.76010,542.30374 856.82811,537.61850 C 850.89611,532.93325 851.66985,531.76191 844.44829,531.05911 C 837.22673,530.35633 838.11683,532.23414 832.70066,531.06282 C 827.28449,529.89149 826.91021,528.24792 822.78361,526.37384 C 818.65700,524.49974 818.14118,524.96829 811.43544,527.31093 C 804.72970,529.65357 807.56675,523.56276 795.96066,535.74441 C 784.35459,547.92605 771.97477,562.21602 765.01113,576.03750 z "
+       id="path5876"
+       sodipodi:nodetypes="cssssssssssssssssssssssss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#f5dff1;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 736.91802,564.60103 C 734.59680,576.07990 735.88636,571.86323 738.98131,575.84570 C 742.07626,579.82816 743.10793,579.59384 749.29783,580.53089 C 755.48775,581.46794 756.26149,582.63930 763.74095,579.59388 C 771.22042,576.54847 773.28373,574.44006 779.21572,568.34922 C 785.14772,562.25839 785.14772,563.42974 787.46894,555.23057 C 789.79016,547.03139 788.50060,535.55252 788.50060,535.55252 L 782.31068,515.87447 L 760.64600,518.68565 C 760.64600,518.68565 754.19819,518.45139 748.26619,529.93023 C 742.33419,541.40908 739.23924,553.12216 736.91802,564.60103 z "
+       id="path5870"
+       sodipodi:nodetypes="cssssscccss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 753.42444,529.93023 C 753.42444,529.93023 750.32948,525.94771 746.20288,527.11903 C 742.07627,528.29035 739.23924,529.93025 736.91802,534.61552 C 734.59680,539.30077 734.59680,541.40910 736.91802,545.86008 C 739.23924,550.31107 742.07627,551.71669 746.20288,552.41945 C 750.32948,553.12225 753.42444,548.67119 753.42444,548.67119 L 753.42444,529.93023 z "
+       id="path5890"
+       sodipodi:nodetypes="csssscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#f5dff1;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 782.31068,531.80432 C 778.18409,537.42661 777.92616,537.66086 777.15243,543.04890 C 776.37868,548.43693 776.12077,549.60825 779.21572,553.35647 C 782.31067,557.10468 784.63190,559.91584 789.53224,558.04175 C 794.43259,556.16766 795.72215,552.18516 798.81710,545.86008 C 801.91206,539.53500 803.20161,539.06650 801.91206,532.74141 C 800.62250,526.41634 793.65885,520.55976 793.65885,520.55976 C 793.65885,520.55976 786.43729,526.18204 782.31068,531.80432 z "
+       id="path5872"
+       sodipodi:nodetypes="cssssscs"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 758.58270,502.75580 C 758.58270,502.75580 749.55576,506.26968 747.23454,511.18919 C 744.91332,516.10869 744.91332,518.45139 749.29783,522.43384 C 753.68236,526.41631 758.32479,525.94775 764.77261,527.11903 C 771.22043,528.29032 770.96253,526.18199 775.08912,527.11903 C 779.21573,528.05609 776.63660,529.46164 781.27903,530.86723 C 785.92146,532.27283 788.24268,533.67847 793.65885,532.74141 C 799.07502,531.80437 801.13833,532.50710 802.94372,527.11903 C 804.74911,521.73098 805.78076,517.74852 800.88041,511.18919 C 795.98006,504.62985 793.91677,502.99005 783.34234,500.88171 C 772.76793,498.77337 758.58270,502.75580 758.58270,502.75580 z "
+       id="path5874"
+       sodipodi:nodetypes="csssssssssc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.97333187px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 759.15228,528.56290 C 755.28359,528.09437 753.16653,528.05614 750.32948,531.80432 C 747.49244,535.55253 747.15696,537.66086 747.15696,543.04890 C 747.15696,548.43693 746.97661,550.54531 750.32948,553.35647 C 753.68235,556.16764 760.38809,556.40194 763.74095,554.29356 C 767.09382,552.18518 768.38282,550.14124 768.89865,544.98745 C 769.41447,539.83366 768.67215,540.93570 768.15632,536.71899 C 767.64049,532.50227 763.02097,529.03142 759.15228,528.56290 z "
+       id="path5888"
+       sodipodi:nodetypes="csssssss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5866"
+       sodipodi:cx="736.40118"
+       sodipodi:cy="554.69086"
+       sodipodi:rx="4.2734661"
+       sodipodi:ry="3.4756849"
+       d="M 740.67465 554.69086 A 4.2734661 3.4756849 0 1 1  732.12772,554.69086 A 4.2734661 3.4756849 0 1 1  740.67465 554.69086 z"
+       transform="matrix(1.021283,0.000000,0.000000,0.927632,-12.77513,49.69447)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5892"
+       sodipodi:cx="686.39868"
+       sodipodi:cy="1298.1632"
+       sodipodi:rx="3.5355339"
+       sodipodi:ry="4.5456862"
+       d="M 689.93422 1298.1632 A 3.5355339 4.5456862 0 1 1  682.86315,1298.1632 A 3.5355339 4.5456862 0 1 1  689.93422 1298.1632 z"
+       transform="matrix(1.021283,0.000000,0.000000,0.927632,41.58499,-661.6375)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path5894"
+       sodipodi:cx="700.54077"
+       sodipodi:cy="1301.6987"
+       sodipodi:rx="3.5355339"
+       sodipodi:ry="5.0507627"
+       d="M 704.07631 1301.6987 A 3.5355339 5.0507627 0 1 1  697.00524,1301.6987 A 3.5355339 5.0507627 0 1 1  704.07631 1301.6987 z"
+       transform="matrix(1.021283,0.000000,0.000000,0.927632,38.01356,-662.3542)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#af3000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 730.89781,223.12874 C 709.30588,240.60392 687.60122,262.55045 667.97219,281.61428 C 648.34316,300.67812 659.51988,287.65869 659.51988,291.89510 C 659.51988,296.13151 665.03071,300.12557 667.97219,298.55991 C 674.50969,295.08020 664.88763,304.12020 676.94546,292.20530 C 689.00329,280.29042 699.65905,266.25731 716.20352,250.90033 C 732.74798,235.54336 743.12332,230.77740 743.12332,230.77740 C 743.12332,230.77740 749.29245,229.18875 754.33991,231.83650 C 759.38736,234.48426 754.42204,228.96940 763.31318,241.36842 C 772.20432,253.76745 779.95971,265.92049 789.90447,281.43258 C 799.84923,296.94464 803.09221,303.41673 803.09221,303.41673 C 803.09221,303.41673 809.43144,306.92305 812.66618,307.03271 C 815.90091,307.14240 817.67378,306.51877 812.06548,294.86864 C 806.45718,283.21853 802.57123,280.02563 790.23298,260.43224 C 777.89474,240.83886 775.65142,237.66157 766.67815,225.48189 C 757.70488,213.30223 762.09529,219.60361 758.30558,212.46248 C 754.82986,205.91306 752.48975,205.65359 730.89781,223.12874 z "
+       id="path3135"
+       sodipodi:nodetypes="csssszczsscssszzs"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 336.46916,385.55387 L 336.46916,493.39518 L 336.46916,493.39518"
+       id="path5896"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path2258"
+       sodipodi:cx="802.06110"
+       sodipodi:cy="200.63242"
+       sodipodi:rx="18.182745"
+       sodipodi:ry="12.121831"
+       d="M 820.24384 200.63242 A 18.182745 12.121831 0 1 1  783.87835,200.63242 A 18.182745 12.121831 0 1 1  820.24384 200.63242 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,-185.8258,-21.62787)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path2260"
+       sodipodi:cx="800.04083"
+       sodipodi:cy="148.10448"
+       sodipodi:rx="24.243662"
+       sodipodi:ry="16.162441"
+       d="M 824.28449 148.10448 A 24.243662 16.162441 0 1 1  775.79717,148.10448 A 24.243662 16.162441 0 1 1  824.28449 148.10448 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,-185.8258,-21.62787)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#52993d;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 201.98890,606.10401 C 205.35970,601.61061 210.51507,601.42338 219.43780,600.11282 C 228.36056,598.80224 228.16227,598.42780 237.67987,600.86172 C 247.19746,603.29563 252.74938,605.35511 257.50818,609.84849 C 262.26696,614.34189 265.43950,616.21412 256.71504,618.83527 C 247.99058,621.45641 235.30047,620.52029 222.61035,620.33307 C 209.92023,620.14584 211.10993,621.64364 205.95456,618.08637 C 200.79920,614.52910 198.61809,610.59740 201.98890,606.10401 z "
+       id="path2272"
+       sodipodi:nodetypes="csssssss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#1a8f5c;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 168.54126,605.22661 C 160.01508,605.03939 156.64427,601.48213 148.71294,601.48213 C 140.78161,601.48213 143.35930,602.04380 136.81595,605.22661 C 130.27260,608.40944 124.32411,609.15832 122.53957,614.21338 C 120.75502,619.26845 118.17734,621.88960 129.67776,625.44685 C 141.17818,629.00411 152.28204,627.31909 168.54126,628.44245 C 184.80048,629.56580 182.61936,629.56581 194.71463,629.94024 C 206.80990,630.31469 209.18930,630.68915 216.92234,629.94024 C 224.65537,629.19134 224.45709,630.12746 225.64680,626.94465 C 226.83649,623.76182 225.44852,621.14069 221.68113,617.20898 C 217.91374,613.27726 217.31891,613.83893 210.57727,611.21779 C 203.83564,608.59665 201.65453,608.97110 194.71463,606.72441 C 187.77472,604.47771 189.36098,602.60546 182.81764,602.23101 C 176.27429,601.85656 177.06742,605.41383 168.54126,605.22661 z "
+       id="path2270"
+       sodipodi:nodetypes="csssssssssssss"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:url(#radialGradient2290);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path2274"
+       sodipodi:cx="-599.02045"
+       sodipodi:cy="231.94714"
+       sodipodi:rx="59.598999"
+       sodipodi:ry="61.619305"
+       d="M -539.42145,231.94714 A 59.598999,61.619305 0 1 1 -539.47421,229.35494 L -599.02045,231.94714 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,1005.375,-70.34656)"
+       sodipodi:start="0.0000000"
+       sodipodi:end="6.2411049"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:url(#linearGradient4284);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.0000000"
+       d="M 698.20679,383.41006 C 698.20679,383.41006 694.04283,374.04884 692.65484,364.68761 C 691.26686,355.32639 690.27546,351.95634 692.65486,345.96515 C 695.03426,339.97397 697.01708,336.04225 702.17244,330.98718 C 707.32780,325.93214 707.52608,327.24271 713.27629,325.74491 C 719.02651,324.24713 718.82824,324.62156 723.58702,328.74050 C 728.34583,332.85945 729.53551,335.48058 732.31148,342.22066 C 735.08745,348.96075 735.08745,348.96075 734.69088,355.70082 C 734.29432,362.44090 734.29432,361.69201 730.72522,369.18100 C 727.15612,376.66998 720.41450,385.65675 720.41450,385.65675 L 698.20679,383.41006 z "
+       id="path4236"
+       sodipodi:nodetypes="csssssssscc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:url(#radialGradient4338);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path4330"
+       sodipodi:cx="-280.71429"
+       sodipodi:cy="271.23734"
+       sodipodi:rx="56.428570"
+       sodipodi:ry="35.714287"
+       d="M -224.28572 271.23734 A 56.428570 35.714287 0 1 1  -337.14286,271.23734 A 56.428570 35.714287 0 1 1  -224.28572 271.23734 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,1012.218,-96.53594)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1.0000000;fill:url(#radialGradient4348);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-opacity:0.0000000"
+       id="path4340"
+       sodipodi:cx="-285.00000"
+       sodipodi:cy="206.23734"
+       sodipodi:rx="63.571430"
+       sodipodi:ry="36.428570"
+       d="M -221.42857 206.23734 A 63.571430 36.428570 0 1 1  -348.57143,206.23734 A 63.571430 36.428570 0 1 1  -221.42857 206.23734 z"
+       transform="matrix(1.110386,0.000000,0.000000,1.048457,1023.322,-83.05578)"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 704.77086,328.52804 C 700.28422,383.07177 699.72339,384.13088 699.72339,384.13088 L 699.72339,384.13088"
+       id="path4377"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0789772px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 719.91325,327.46893 C 714.30495,386.77864 714.30495,385.84252 714.30495,385.84252"
+       id="path4379"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#00dec6;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0349884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 733.21801,280.39223 L 719.29189,276.08378 L 699.26880,276.38683 L 696.75964,288.85363 L 696.31019,296.64245 L 700.48683,305.78902 L 718.30629,308.29565 L 727.33275,309.18780 L 730.75506,305.56357 L 733.84224,295.42442 L 733.21801,280.39223 z "
+       id="path7525"
+       sodipodi:nodetypes="ccccccccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:url(#linearGradient3333);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0349884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.0000000"
+       d="M 733.03174,280.01876 L 718.64965,276.22462 L 698.62656,276.52768 L 696.11742,288.99445 L 695.66795,296.78329 L 699.84460,305.92986 L 717.66406,308.43649 L 726.47284,309.49274 L 730.66282,306.14246 L 733.65249,295.05058 L 733.03174,280.01876 z "
+       id="path2436"
+       sodipodi:nodetypes="ccccccccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#da9400;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0349884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 722.22707,277.94188 L 718.95273,276.88352 L 713.75301,276.99714 L 712.52050,288.12617 L 697.13014,286.58366 L 695.81828,293.02396 L 711.92121,295.33922 L 710.35885,307.64480 L 717.77222,308.54309 L 719.07341,296.48325 L 733.27408,298.26952 L 733.90927,291.47893 L 720.79126,289.66978 L 722.22707,277.94188 z "
+       id="path7527"
+       sodipodi:nodetypes="cccccccccccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#00dec6;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0349884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 784.14369,285.35586 L 770.21757,281.04742 L 750.19448,281.35046 L 747.68532,293.81726 L 747.23587,301.60608 L 751.41251,310.75266 L 769.23197,313.25928 L 778.25843,314.15143 L 781.68074,310.52721 L 784.76792,300.38805 L 784.14369,285.35586 z "
+       id="path4392"
+       sodipodi:nodetypes="ccccccccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:url(#linearGradient4398);fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0349884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.0000000"
+       d="M 783.95742,284.98239 L 769.57533,281.18825 L 749.55224,281.49131 L 747.04310,293.95809 L 746.59363,301.74692 L 750.77028,310.89349 L 768.58974,313.40012 L 777.39852,314.45637 L 781.58850,311.10609 L 784.57817,300.01421 L 783.95742,284.98239 z "
+       id="path4394"
+       sodipodi:nodetypes="ccccccccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+    <path
+       style="fill:#da9400;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0349884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 773.15275,282.90551 L 769.87841,281.84715 L 764.67869,281.96077 L 763.44618,293.08980 L 748.05582,291.54730 L 746.74396,297.98760 L 762.84689,300.30285 L 761.28453,312.60843 L 768.69790,313.50673 L 769.99909,301.44688 L 784.19976,303.23316 L 784.83495,296.44256 L 771.71694,294.63341 L 773.15275,282.90551 z "
+       id="path4396"
+       sodipodi:nodetypes="cccccccccccccc"
+       inkscape:export-filename="/home/bcoudoin/Projets/gcompris/gcompris/boards/images/scenery7_background.png"
+       inkscape:export-xdpi="76.936668"
+       inkscape:export-ydpi="76.936668" />
+  </g>
+</svg>
