@@ -30,5 +30,5 @@ ActivityInfo {
   prerequisite: ""
   manual: qsTr("drag and drop waste to their respective dustbin")
   credit: qsTr("")
-  section: "strategy"
+  section: "experiment"
 }

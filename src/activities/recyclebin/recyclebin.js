@@ -33,19 +33,19 @@ function initLevel(){
     items.bar.level=currentLevel+1;
     if(currentLevel==0){
         totalDustBin=2
-        items.recycleBinData.append({"name":"burnable","burnable":0,"organic":-1,"recycle":-1})
-        items.recycleBinData.append({"name":"non-burnable","burnable":1,"organic":-11,"recycle":-1})
+        items.recycleBinData.append({"name":"burnable","subline":"","burnable":0,"organic":-1,"recycle":-1})
+        items.recycleBinData.append({"name":"non"+"\n"+"burnable","subline":"","burnable":1,"organic":-11,"recycle":-1})
     }
     if(currentLevel==1){
         totalDustBin=2
-        items.recycleBinData.append({"name":"organic","organic":0,"burnable":-1,"recycle":-1})
-        items.recycleBinData.append({"name":"inorganic","organic":1,"burnable":-1,"recycle":-11})
+        items.recycleBinData.append({"name":"organic","organic":0,"subline":"","burnable":-1,"recycle":-1})
+        items.recycleBinData.append({"name":"inorganic","organic":1,"subline":"","burnable":-1,"recycle":-11})
     }
     if(currentLevel==2){
         totalDustBin=3
-        items.recycleBinData.append({"name":"recycle1","recycle":1,"organic":-1,"burnable":-1})
-        items.recycleBinData.append({"name":"recycle2","recycle":2,"organic":-1,"burnable":-1})
-        items.recycleBinData.append({"name":"recycle3","recycle":3,"organic":-1,"burnable":-1})
+        items.recycleBinData.append({"name":"recycle1","subline":"(drink can,PET bottle,glass bottle)","recycle":1,"organic":-1,"burnable":-1})
+        items.recycleBinData.append({"name":"recycle2","subline":"(used paper,cardboard)","recycle":2,"organic":-1,"burnable":-1})
+        items.recycleBinData.append({"name":"recycle3","subline":"(metal,battery,bulbs,cable)","recycle":3,"organic":-1,"burnable":-1})
     }
     getLevelData();
 }

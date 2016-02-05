@@ -111,8 +111,6 @@ ActivityBase {
             z: 100
             onIntroDone: {
 
-                info.visible = true
-                sun_area.enabled = false
             }
             intro: [
                 qsTr("waste are all around screen your task is to clean area"),
@@ -327,12 +325,18 @@ ActivityBase {
               delegate:Component{
                       Image{
                          source:imagesUrl+"recyclebin.png"
-                         height:recyclebin.height*0.9
+                         height:recyclebin.height*0.8
                          width:recyclebin.width*(1/Activity.totalDustBin)*0.8
-                         GCText{
-                             anchors.centerIn: parent
-                             text:name
-                         }
+
+                             GCText{
+                                 width:parent.width/3
+                                anchors.centerIn: parent
+                                text:name+subline
+                                color:"black"
+                                horizontalAlignment: Text.AlignHCenter
+                                wrapMode: TextEdit.WordWrap
+                            }
+
 
                          MouseArea{
                              anchors.fill: parent
