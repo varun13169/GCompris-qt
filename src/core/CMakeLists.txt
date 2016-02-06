@@ -2,10 +2,6 @@ include(qt_helper)
 
 configure_file(config.h.in "${CMAKE_CURRENT_BINARY_DIR}/config.h" @ONLY)
 
-if(WITH_ACTIVATION_CODE)
-  add_definitions(-DWITH_ACTIVATION_CODE)
-endif()
-
 if(WITH_KIOSK_MODE)
   add_definitions(-DWITH_KIOSK_MODE)
 endif()
@@ -196,7 +192,7 @@ if(BUILD_STANDALONE)
   install(DIRECTORY ${_qt_qml_path}/QtGraphicalEffects DESTINATION ${_qt_qml_destdir})
 
   # Fix for Linux 'make package' that fails to link with libicu
-  if(UNIX AND NOT APPLE AND NOT SAILFISHOS)
+  if(UNIX AND NOT APPLE AND NOT SAILFISHOS AND NOT ANDROID)
     add_library( libicudata SHARED IMPORTED )
     set_target_properties( libicudata PROPERTIES IMPORTED_LOCATION ${Qt5_DIR}/../../libicudata.so.53 )
     add_library( libicui18n SHARED IMPORTED )
@@ -233,6 +229,8 @@ set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/COPYING")
 set(CPACK_RESOURCE_FILE_README "${PROJECT_SOURCE_DIR}/README")
 
 if(WIN32)
+  set(CPACK_PACKAGE_INSTALL_DIRECTORY "${GCOMPRIS_EXECUTABLE_NAME}")
+  set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "${GCOMPRIS_EXECUTABLE_NAME}")
   set(CPACK_PACKAGE_ICON "${PROJECT_SOURCE_DIR}/installer\\\\gcompris-header.bmp")
   set(CPACK_NSIS_MUI_ICON "${PROJECT_SOURCE_DIR}/installer\\\\GCompris-install.ico")
   set(CPACK_NSIS_MUI_UNIICON "${PROJECT_SOURCE_DIR}/installer\\\\GCompris-uninstall.ico")

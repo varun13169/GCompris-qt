@@ -24,12 +24,11 @@ import QtQuick 2.1
 import GCompris 1.0
 
 import "../explore_farm_animals"
-import "explore_world_animals.js" as Dataset
 
-Explore {
+ExploreLevels {
     id: activity
 
-    dataset: Dataset
-    backgroundImage: "qrc:/gcompris/src/activities/explore_world_animals/resource/content.svg"
+    numberOfLevels: 1
+    url: "qrc:/gcompris/src/activities/explore_world_animals/resource/"
     hasAudioQuestions: false
 }

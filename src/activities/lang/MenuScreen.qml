@@ -137,7 +137,7 @@ Image {
             }
             Image {
                 id: containerImage
-                source: "qrc:/gcompris/data/"+ image;
+                source: image;
                 anchors.top: activityBackground.top
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: iconWidth
@@ -178,7 +178,7 @@ Image {
             }
             MouseArea {
                 anchors.fill: activityBackground
-                enabled: menuScreen.opacity == 1
+                enabled: menuScreen.started
                 onClicked: selectCurrentItem()
             }
 

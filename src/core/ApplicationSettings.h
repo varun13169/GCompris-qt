@@ -143,6 +143,16 @@ class ApplicationSettings : public QObject
     Q_PROPERTY(bool isDemoMode READ isDemoMode WRITE setDemoMode NOTIFY demoModeChanged)
 
     /**
+     * Activation code key.
+     */
+    Q_PROPERTY(QString codeKey READ codeKey WRITE setCodeKey NOTIFY codeKeyChanged)
+
+    /**
+     * Activation mode.
+     */
+    Q_PROPERTY(quint32 activationMode READ activationMode CONSTANT)
+
+    /**
      * Whether kiosk mode is currently active.
      */
     Q_PROPERTY(bool isKioskMode READ isKioskMode WRITE setKioskMode NOTIFY kioskModeChanged)
@@ -151,6 +161,11 @@ class ApplicationSettings : public QObject
      * Whether the section selection row is visible in the menu view.
      */
     Q_PROPERTY(bool sectionVisible READ sectionVisible WRITE setSectionVisible NOTIFY sectionVisibleChanged)
+
+    /**
+     * The name of the default wordset to use. If empty then the internal sample wordset is used.
+     */
+    Q_PROPERTY(QString wordset READ wordset WRITE setWordset NOTIFY wordsetChanged)
 
     /**
      * Current base font-size used for font scaling.
@@ -190,8 +205,11 @@ class ApplicationSettings : public QObject
     // internal group
     Q_PROPERTY(quint32 exeCount READ exeCount WRITE setExeCount NOTIFY exeCountChanged)
 
-	// no group
-	Q_PROPERTY(bool isBarHidden READ isBarHidden WRITE setBarHidden NOTIFY barHiddenChanged)
+    // keep last version ran. If different than ApplicationInfo.GCVersionCode(), it means a new version is running
+    Q_PROPERTY(int lastGCVersionRan READ lastGCVersionRan WRITE setLastGCVersionRan NOTIFY lastGCVersionRanChanged)
+
+    // no group
+    Q_PROPERTY(bool isBarHidden READ isBarHidden WRITE setBarHidden NOTIFY barHiddenChanged)
 
 public:
 	/// @cond INTERNAL_DOCS
@@ -286,14 +304,37 @@ public:
     bool isDemoMode() const { return m_isDemoMode; }
     void setDemoMode(const bool newMode);
 
+    QString codeKey() const { return m_codeKey; }
+    void setCodeKey(const QString newCodeKey) {
+        m_codeKey = newCodeKey;
+        emit notifyCodeKeyChanged();
+    }
+
+    /**
+     * @brief activationMode
+     * @return 0: no, 1: inapp, 2: internal
+     */
+    quint32 activationMode() const { return m_activationMode; }
+
     bool isKioskMode() const { return m_isKioskMode; }
     void setKioskMode(const bool newMode) {
         m_isKioskMode = newMode;
         emit kioskModeChanged();
     }
 
-    // Payment API
-    // Call a payment system to sync our demoMode state with it
+    /**
+     * Check validity of the activation code
+     * @param code An activation code to check
+     * @returns  0 if the code is not valid or we don't know yet
+     *           1 if the code is valid but out of date
+     *           2 if the code is valid and under 2 years
+     */
+    Q_INVOKABLE uint checkActivationCode(const QString code);
+
+    /**
+     * Check Payment API
+     * Call a payment system to sync our demoMode state with it
+     */
     void checkPayment();
     // Called by the payment system
     void bought(const bool isBought) {
@@ -303,14 +344,20 @@ public:
         }
 	}
 
-	bool sectionVisible() const { return m_sectionVisible; }
-	void setSectionVisible(const bool newMode) {
+    bool sectionVisible() const { return m_sectionVisible; }
+    void setSectionVisible(const bool newMode) {
 		qDebug() << "c++ setSectionVisible=" << newMode;
 		m_sectionVisible = newMode;
 		emit sectionVisibleChanged();
 	}
 
-	QString downloadServerUrl() const { return m_downloadServerUrl; }
+    QString wordset() const { return m_wordset; }
+    void setWordset(const QString newWordset) {
+        m_wordset = newWordset;
+        emit wordsetChanged();
+    }
+
+    QString downloadServerUrl() const { return m_downloadServerUrl; }
     void setDownloadServerUrl(const QString newDownloadServerUrl) {
         m_downloadServerUrl = newDownloadServerUrl;
         emit downloadServerUrlChanged();
@@ -337,6 +384,12 @@ public:
     int baseFontSizeMin() const { return m_baseFontSizeMin; }
     int baseFontSizeMax() const { return m_baseFontSizeMax; }
 
+    int lastGCVersionRan() const { return m_lastGCVersionRan; }
+    void setLastGCVersionRan(const int newLastGCVersionRan) {
+        m_lastGCVersionRan = newLastGCVersionRan;
+        emit lastGCVersionRanChanged();
+    }
+
 protected slots:
 
     Q_INVOKABLE void notifyShowLockedActivitiesChanged();
@@ -352,12 +405,16 @@ protected slots:
     Q_INVOKABLE void notifyFilterLevelMinChanged();
     Q_INVOKABLE void notifyFilterLevelMaxChanged();
     Q_INVOKABLE void notifyDemoModeChanged();
+    Q_INVOKABLE void notifyCodeKeyChanged();
     Q_INVOKABLE void notifyKioskModeChanged();
     Q_INVOKABLE void notifySectionVisibleChanged();
+    Q_INVOKABLE void notifyWordsetChanged();
 
     Q_INVOKABLE void notifyDownloadServerUrlChanged();
 
     Q_INVOKABLE void notifyExeCountChanged();
+
+    Q_INVOKABLE void notifyLastGCVersionRanChanged();
 
     Q_INVOKABLE void notifyBarHiddenChanged();
 
@@ -413,14 +470,17 @@ signals:
     void filterLevelMinChanged();
     void filterLevelMaxChanged();
     void demoModeChanged();
+    void codeKeyChanged();
     void kioskModeChanged();
     void sectionVisibleChanged();
+    void wordsetChanged();
     void baseFontSizeChanged();
 
     void downloadServerUrlChanged();
 
     void exeCountChanged();
 
+    void lastGCVersionRanChanged();
     void barHiddenChanged();
 
 private:
@@ -446,8 +506,11 @@ private:
     QString m_locale;
     QString m_font;
     bool m_isDemoMode;
+    QString m_codeKey;
+    quint32 m_activationMode;
     bool m_isKioskMode;
     bool m_sectionVisible;
+    QString m_wordset;
 	int m_baseFontSize;
 	const int m_baseFontSizeMin;
 	const int m_baseFontSizeMax;
@@ -455,6 +518,8 @@ private:
     QString m_downloadServerUrl;
 
     quint32 m_exeCount;
+
+    int m_lastGCVersionRan;
 
     bool m_isBarHidden;
 

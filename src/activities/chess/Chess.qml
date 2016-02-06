@@ -31,6 +31,7 @@ import "chess.js" as Activity
 ActivityBase {
     id: activity
 
+    property bool acceptClick: true
     property bool twoPlayers: false
     // difficultyByLevel means that at level 1 computer is bad better at last level
     property bool difficultyByLevel: true
@@ -158,8 +159,15 @@ ActivityBase {
                         height: 30 * ApplicationInfo.ratio
                         text: qsTr("Redo");
                         style: GCButtonStyle {}
-                        onClicked: Activity.redo()
-                        enabled: items.redo_stack.length > 0 ? 1 : 0
+                        onClicked: {
+                            if (!twoPlayers) {
+                                acceptClick = false;
+                                Activity.redo()
+                            } else {
+                                Activity.redo()
+                            }
+                        }
+                        enabled: items.redo_stack.length > 0 && acceptClick ? 1 : 0
                         opacity: enabled
                         Behavior on opacity {
                             PropertyAnimation {
@@ -295,11 +303,8 @@ ActivityBase {
                         }
                     }
                     onReleased: {
-                        if(piece.Drag.target) {
-                            if(items.from != -1) {
-                                Activity.moveTo(items.from, piece.Drag.target.pos)
-                            }
-                        } else {
+                        // If no target or move not possible, we reset the position
+                        if(!piece.Drag.target || (items.from != -1 && !Activity.moveTo(items.from, piece.Drag.target.pos))) {
                             var pos = parent.pos
                             // Force recalc of the old x,y position
                             parent.pos = -1
@@ -347,7 +352,10 @@ ActivityBase {
             id: redoTimer
             repeat: false
             interval: 400
-            onTriggered: Activity.moveByEngine(move)
+            onTriggered: {
+                acceptClick = true;
+                Activity.moveByEngine(move)
+            }
             property var move
 
             function moveByEngine(engineMove) {

@@ -1,4 +1,4 @@
-/* GCompris - ApplicationSettingsDefault.cpp
+/* GCompris - ApplicationSettingswordefault.cpp
  *
  * Copyright (C) 2014 Johnny Jazeix <jazeix@gmail.com>
  *
@@ -56,6 +56,7 @@ static const QString ENABLE_AUTOMATIC_DOWNLOADS = "enableAutomaticDownloads";
 static const QString DOWNLOAD_SERVER_URL_KEY = "downloadServerUrl";
 
 static const QString EXE_COUNT_KEY = "exeCount";
+static const QString LAST_GC_VERSION_RAN = "lastGCVersionRan";
 
 static const QString FILTER_LEVEL_MIN = "filterLevelMin";
 static const QString FILTER_LEVEL_MAX = "filterLevelMax";
@@ -66,8 +67,10 @@ static const QString FONT_CAPITALIZATION = "fontCapitalization";
 static const QString DEFAULT_CURSOR = "defaultCursor";
 static const QString NO_CURSOR = "noCursor";
 static const QString DEMO_KEY = "demo";
+static const QString CODE_KEY = "key";
 static const QString KIOSK_KEY = "kiosk";
 static const QString SECTION_VISIBLE = "sectionVisible";
+static const QString WORDSET = "wordset";
 
 static const QString PROGRESS_KEY = "progress";
 
@@ -92,12 +95,22 @@ ApplicationSettings::ApplicationSettings(QObject *parent): QObject(parent),
     m_fontCapitalization = m_config.value(FONT_CAPITALIZATION, GC_DEFAULT_FONT_CAPITALIZATION).toUInt();
     m_isEmbeddedFont = m_config.value(IS_CURRENT_FONT_EMBEDDED, true).toBool();
 
-// The default demo mode based on the platform
-#if defined(WITH_ACTIVATION_CODE)
-    m_isDemoMode = m_config.value(DEMO_KEY, true).toBool();
-#else
-    m_isDemoMode = m_config.value(DEMO_KEY, false).toBool();
-#endif
+    // Init the activation mode
+    if(QLatin1String(ACTIVATION_MODE) == "no")
+        m_activationMode = 0;
+    else if(QLatin1String(ACTIVATION_MODE) == "inapp")
+        m_activationMode = 1;
+    else if(QLatin1String(ACTIVATION_MODE) == "internal")
+        m_activationMode = 2;
+    else
+        qFatal("Unknown activation mode");
+
+    // Set the demo mode
+    if(QLatin1String(ACTIVATION_MODE) != "no")
+        m_isDemoMode = m_config.value(DEMO_KEY, true).toBool();
+    else
+        m_isDemoMode = false;
+    m_codeKey = m_config.value(CODE_KEY, "").toString();
 
 #if defined(WITH_KIOSK_MODE)
     m_isKioskMode = m_config.value(KIOSK_KEY, true).toBool();
@@ -108,8 +121,9 @@ ApplicationSettings::ApplicationSettings(QObject *parent): QObject(parent),
     // Option only useful if we are in demo mode (else all the activities are available and unlocked)
     // By default, all the activities are displayed (even locked ones)
     m_showLockedActivities = m_config.value(SHOW_LOCKED_ACTIVITIES_KEY, m_isDemoMode).toBool();
-	m_sectionVisible = m_config.value(SECTION_VISIBLE, true).toBool();
-	m_isAutomaticDownloadsEnabled = m_config.value(ENABLE_AUTOMATIC_DOWNLOADS,
+    m_sectionVisible = m_config.value(SECTION_VISIBLE, true).toBool();
+    m_wordset = m_config.value(WORDSET, "").toString();
+    m_isAutomaticDownloadsEnabled = m_config.value(ENABLE_AUTOMATIC_DOWNLOADS,
             !ApplicationInfo::getInstance()->isMobile() && ApplicationInfo::isDownloadAllowed()).toBool();
     m_filterLevelMin = m_config.value(FILTER_LEVEL_MIN, 1).toUInt();
     m_filterLevelMax = m_config.value(FILTER_LEVEL_MAX, 6).toUInt();
@@ -128,27 +142,30 @@ ApplicationSettings::ApplicationSettings(QObject *parent): QObject(parent),
     // internal group
     m_config.beginGroup(INTERNAL_GROUP_KEY);
     m_exeCount = m_config.value(EXE_COUNT_KEY, 0).toUInt();
+    m_lastGCVersionRan = m_config.value(LAST_GC_VERSION_RAN, 0).toUInt();
     m_config.endGroup();
 
     // no group
     m_isBarHidden = false;
 
-    connect(this, SIGNAL(showLockedActivitiesChanged()), this, SLOT(notifyShowLockedActivitiesChanged()));
-	connect(this, SIGNAL(audioVoicesEnabledChanged()), this, SLOT(notifyAudioVoicesEnabledChanged()));
-	connect(this, SIGNAL(audioEffectsEnabledChanged()), this, SLOT(notifyAudioEffectsEnabledChanged()));
-	connect(this, SIGNAL(fullscreenChanged()), this, SLOT(notifyFullscreenChanged()));
-    connect(this, SIGNAL(localeChanged()), this, SLOT(notifyLocaleChanged()));
-    connect(this, SIGNAL(fontChanged()), this, SLOT(notifyFontChanged()));
-    connect(this, SIGNAL(virtualKeyboardChanged()), this, SLOT(notifyVirtualKeyboardChanged()));
-    connect(this, SIGNAL(automaticDownloadsEnabledChanged()), this, SLOT(notifyAutomaticDownloadsEnabledChanged()));
-    connect(this, SIGNAL(filterLevelMinChanged()), this, SLOT(notifyFilterLevelMinChanged()));
-    connect(this, SIGNAL(filterLevelMaxChanged()), this, SLOT(notifyFilterLevelMaxChanged()));
-	connect(this, SIGNAL(sectionVisibleChanged()), this, SLOT(notifySectionVisibleChanged()));
-    connect(this, SIGNAL(demoModeChanged()), this, SLOT(notifyDemoModeChanged()));
-    connect(this, SIGNAL(kioskModeChanged()), this, SLOT(notifyKioskModeChanged()));
-    connect(this, SIGNAL(downloadServerUrlChanged()), this, SLOT(notifyDownloadServerUrlChanged()));
-    connect(this, SIGNAL(exeCountChanged()), this, SLOT(notifyExeCountChanged()));
-    connect(this, SIGNAL(barHiddenChanged()), this, SLOT(notifyBarHiddenChanged()));
+    connect(this, &ApplicationSettings::showLockedActivitiesChanged, this, &ApplicationSettings::notifyShowLockedActivitiesChanged);
+	connect(this, &ApplicationSettings::audioVoicesEnabledChanged, this, &ApplicationSettings::notifyAudioVoicesEnabledChanged);
+	connect(this, &ApplicationSettings::audioEffectsEnabledChanged, this, &ApplicationSettings::notifyAudioEffectsEnabledChanged);
+	connect(this, &ApplicationSettings::fullscreenChanged, this, &ApplicationSettings::notifyFullscreenChanged);
+    connect(this, &ApplicationSettings::localeChanged, this, &ApplicationSettings::notifyLocaleChanged);
+    connect(this, &ApplicationSettings::fontChanged, this, &ApplicationSettings::notifyFontChanged);
+    connect(this, &ApplicationSettings::virtualKeyboardChanged, this, &ApplicationSettings::notifyVirtualKeyboardChanged);
+    connect(this, &ApplicationSettings::automaticDownloadsEnabledChanged, this, &ApplicationSettings::notifyAutomaticDownloadsEnabledChanged);
+    connect(this, &ApplicationSettings::filterLevelMinChanged, this, &ApplicationSettings::notifyFilterLevelMinChanged);
+    connect(this, &ApplicationSettings::filterLevelMaxChanged, this, &ApplicationSettings::notifyFilterLevelMaxChanged);
+	connect(this, &ApplicationSettings::sectionVisibleChanged, this, &ApplicationSettings::notifySectionVisibleChanged);
+    connect(this, &ApplicationSettings::wordsetChanged, this, &ApplicationSettings::notifyWordsetChanged);
+    connect(this, &ApplicationSettings::demoModeChanged, this, &ApplicationSettings::notifyDemoModeChanged);
+    connect(this, &ApplicationSettings::kioskModeChanged, this, &ApplicationSettings::notifyKioskModeChanged);
+    connect(this, &ApplicationSettings::downloadServerUrlChanged, this, &ApplicationSettings::notifyDownloadServerUrlChanged);
+    connect(this, &ApplicationSettings::exeCountChanged, this, &ApplicationSettings::notifyExeCountChanged);
+    connect(this, &ApplicationSettings::barHiddenChanged, this, &ApplicationSettings::notifyBarHiddenChanged);
+    connect(this, &ApplicationSettings::lastGCVersionRanChanged, this, &ApplicationSettings::notifyLastGCVersionRanChanged);
 }
 
 ApplicationSettings::~ApplicationSettings()
@@ -167,9 +184,11 @@ ApplicationSettings::~ApplicationSettings()
     m_config.setValue(FILTER_LEVEL_MIN, m_filterLevelMin);
 	m_config.setValue(FILTER_LEVEL_MAX, m_filterLevelMax);
     m_config.setValue(DEMO_KEY, m_isDemoMode);
+    m_config.setValue(CODE_KEY, m_codeKey);
     m_config.setValue(KIOSK_KEY, m_isKioskMode);
     m_config.setValue(SECTION_VISIBLE, m_sectionVisible);
-	m_config.setValue(DEFAULT_CURSOR, m_defaultCursor);
+    m_config.setValue(WORDSET, m_wordset);
+    m_config.setValue(DEFAULT_CURSOR, m_defaultCursor);
 	m_config.setValue(NO_CURSOR, m_noCursor);
     m_config.setValue(BASE_FONT_SIZE_KEY, m_baseFontSize);
     m_config.setValue(FONT_CAPITALIZATION, m_fontCapitalization);
@@ -183,6 +202,7 @@ ApplicationSettings::~ApplicationSettings()
     // internal group
     m_config.beginGroup(INTERNAL_GROUP_KEY);
     m_config.setValue(EXE_COUNT_KEY, m_exeCount);
+    m_config.setValue(LAST_GC_VERSION_RAN, m_lastGCVersionRan);
     m_config.endGroup();
 
     m_config.sync();
@@ -278,6 +298,14 @@ void ApplicationSettings::notifyDemoModeChanged()
     qDebug() << "notifyDemoMode: " << m_isDemoMode;
 }
 
+void ApplicationSettings::notifyCodeKeyChanged()
+{
+    checkPayment();
+    if(!m_isDemoMode)
+        updateValueInConfig(GENERAL_GROUP_KEY, CODE_KEY, m_codeKey);
+    qDebug() << "notifyCodeKey: " << m_codeKey;
+}
+
 void ApplicationSettings::notifyKioskModeChanged()
 {
     updateValueInConfig(GENERAL_GROUP_KEY, KIOSK_KEY, m_isKioskMode);
@@ -286,8 +314,14 @@ void ApplicationSettings::notifyKioskModeChanged()
 
 void ApplicationSettings::notifySectionVisibleChanged()
 {
-	updateValueInConfig(GENERAL_GROUP_KEY, SECTION_VISIBLE, m_sectionVisible);
-	qDebug() << "notifySectionVisible: " << m_sectionVisible;
+    updateValueInConfig(GENERAL_GROUP_KEY, SECTION_VISIBLE, m_sectionVisible);
+    qDebug() << "notifySectionVisible: " << m_sectionVisible;
+}
+
+void ApplicationSettings::notifyWordsetChanged()
+{
+    updateValueInConfig(GENERAL_GROUP_KEY, WORDSET, m_wordset);
+    qDebug() << "notifyWordset: " << m_wordset;
 }
 
 void ApplicationSettings::notifyDownloadServerUrlChanged()
@@ -300,6 +334,12 @@ void ApplicationSettings::notifyExeCountChanged()
 {
     updateValueInConfig(INTERNAL_GROUP_KEY, EXE_COUNT_KEY, m_exeCount);
     qDebug() << "exeCount set to: " << m_exeCount;
+}
+
+void ApplicationSettings::notifyLastGCVersionRanChanged()
+{
+    updateValueInConfig(INTERNAL_GROUP_KEY, LAST_GC_VERSION_RAN, m_lastGCVersionRan);
+    qDebug() << "lastVersionRan set to: " << m_lastGCVersionRan;
 }
 
 void ApplicationSettings::notifyBarHiddenChanged()
@@ -388,3 +428,4 @@ void ApplicationSettings::init()
 	qmlRegisterSingletonType<ApplicationSettings>("GCompris", 1, 0,
 												  "ApplicationSettings", systeminfoProvider);
 }
+
