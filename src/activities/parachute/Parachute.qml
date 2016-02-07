@@ -19,6 +19,7 @@
  *   You should have received a copy of the GNU General Public License
  *   along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
+
 import QtQuick 2.1
 import GCompris 1.0
 import QtGraphicalEffects 1.0
@@ -28,14 +29,14 @@ import "parachute.js" as Activity
 
 ActivityBase {
     id: activity
+
+    property real velocityX
+    property real velocityY
     
     property string dataSetUrl: "qrc:/gcompris/src/activities/parachute/resource/"
     
     onStart: focus = true
     onStop: {}
-
-    Keys.onPressed: Activity.processPressedKey(event)
-    Keys.onReleased: Activity.processReleasedKey(event)
 
     pageComponent: Image {
 
@@ -65,28 +66,24 @@ ActivityBase {
             property alias animationcloud: animationcloud
             property alias bar: bar
             property alias bonus: bonus
-            property alias helicopter: helicopter
             property alias animationboat: animationboat
             property alias keyunable: keyunable
             property alias ok: ok
             property alias loop: loop
             property alias loopcloud: loopcloud
             property alias tuxX: tuxX
-            property alias tuxY: tuxY
             property alias tux: tux
             property alias tuximage: tuximage
-            property alias onPressdown: onPressdown
-            property alias onPressUp: onPressUp
-            property alias onReleas: onReleas
             property alias helimotion: helimotion
+
         }
 
         IntroMessage {
             id:message
             onIntroDone: {
                 Activity.start(items)
-
             }
+
             intro: [
                 qsTr("The red boat moves in the water from left to right."),
                 qsTr("Penguin Tux falls off from the plane, to land on the boat safely. "),
@@ -99,6 +96,7 @@ ActivityBase {
                 qsTr("Help Tux save his life!")
             ]
             z: 20
+
             anchors {
                 top: parent.top
                 topMargin: 10
@@ -118,7 +116,7 @@ ActivityBase {
         }
 
 
-        Item{
+        Item {
             id: helimotion
             width: (bar.level===1?background.width/6:bar.level===2?background.width/4:bar.level===3?background.width/11:bar.level===4?background.width/7:background.width/7)
             height: (bar.level===1?background.height/6:bar.level===2?background.height/4:bar.level===3?background.height/11:bar.level===4?background.height/7:background.height/7)
@@ -135,7 +133,7 @@ ActivityBase {
             }
             Image {
                 id: helicopter
-                source: activity.dataSetUrl+"tuxplane.svg"
+                source: activity.dataSetUrl + "tuxplane.svg"
                 width: (bar.level === 1?background.width/6:bar.level === 2?background.width/4:bar.level === 3?background.width/11:bar.level === 4?background.width/7:background.width/7)
                 height: (bar.level === 1?background.height/6:bar.level === 2?background.height/4:bar.level === 3?background.height/11:bar.level === 4?background.height/7:background.height/7)
                 MouseArea {
@@ -151,17 +149,22 @@ ActivityBase {
                     onClicked: {
                         if(Activity.Oneclick === false) {
                             tuximage.visible=true
+                            tux.y = helimotion.y
                             tuxX.stop()
-                            tuxY.start()
-                            activity.audioEffects.play(activity.dataSetUrl+"youcannot.wav" )
-                            Activity.tuxImageStatus=1
+                            /*     activity.audioEffects.play(activity.dataSetUrl+"youcannot.wav");
+                            sound file is not supporting in linux please do remove it before the merge */
+                            Activity.tuxImageStatus = 1
                             Activity.Oneclick = true;
+                            velocityX = Activity.velocityX
+                            velocityY = Activity.velocityY[bar.level-1]
+                            tux.state = "Released"
+
                         }
                     }
 
                 }
             }
-            SequentialAnimation{
+            SequentialAnimation {
                 id: loop
                 loops: Animation.Infinite
                 PropertyAnimation {
@@ -173,9 +176,6 @@ ActivityBase {
                     duration: (bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
                     easing.type: Easing.Linear
                 }
-
-
-
             }
         }
 
@@ -186,28 +186,28 @@ ActivityBase {
             height: tuximage.height
             x: -helimotion.width
             Rectangle {
-                id:tuximagehover
-                width:tuximage.width
-                height:tuximage.height
+                id: tuximagehover
+                width: tuximage.width
+                height: tuximage.height
                 visible: false
                 border.width: 7
                 radius: 20
                 border.color: "#A80000"
                 color: "#500000"
-                opacity:90
-           }
-           Image {
+                opacity: 90
+            }
+            Image {
                 id: tuximage
-                source: activity.dataSetUrl+Activity.minitux
+                source: activity.dataSetUrl + Activity.minitux
                 visible: false
                 MouseArea {
                     id: tuxmouse
                     anchors.fill: parent
-                    hoverEnabled:true
+                    hoverEnabled: true
                     onClicked: {
                         if(Activity.tuxImageStatus === 1) {
-                            if(tuximagehover.visible === true){
-                                  tuximagehover.visible = false
+                            if(tuximagehover.visible === true) {
+                                tuximagehover.visible = false
                             }
 
                             keyunable.visible = true
@@ -220,7 +220,6 @@ ActivityBase {
                         if(Activity.tuxImageStatus === 1) {
                             tuximagehover.visible = true
                         }
-
                     }
                     onExited: {
                         tuximagehover.visible = false
@@ -228,23 +227,30 @@ ActivityBase {
                 }
             }
 
-
             onYChanged: {
-                if(tux.y>background.height/1.5 && Activity.tuxImageStatus === 1 ) {
-                    activity.audioEffects.play(activity.dataSetUrl+"bubble.wav" )
-                    Activity.tuxImageStatus=0
+                console.log(tux.y)
+                if( (tux.y > background.height/1.5)&& Activity.tuxImageStatus === 1 ) {
+                    activity.audioEffects.play(activity.dataSetUrl + "bubble.wav" )
+                    tux.state = "finished"
+                    Activity.tuxImageStatus = 0
                     Activity.onLose()
                 }
+
                 if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x>boatmotion.x) && (tux.x<boatmotion.x+boatmotion.width))){
+                    tux.state = "finished"
+                    Activity.tuxImageStatus = 0
                     Activity.onWin()
                 }
+
                 else if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x<boatmotion.x)||(tux.x>boatmotion.x+boatmotion.width))){
-                    activity.audioEffects.play(activity.dataSetUrl+"bubble.wav" )
+                    activity.audioEffects.play(activity.dataSetUrl + "bubble.wav" )
+                    tux.state = "finished"
                     Activity.tuxImageStatus = 0
                     Activity.onLose()
                 }
 
             }
+
             SequentialAnimation {
                 id: tuxX
                 loops: Animation.Infinite
@@ -257,47 +263,85 @@ ActivityBase {
                 }
             }
 
-            PropertyAnimation {
-                id: onPressdown
-                target: tux
-                from: Activity.ycheck === false? tuxY.x:tux.y
-                properties: "y"
-                duration: (bar.level === 1 ? 4000 : bar.level === 2 ? 3000 : bar.level === 3 ? 2000 : bar.level === 4 ? 2000 : 9000)
-                easing.type: Easing.Linear
-                to: background.height/1.3
+            states: [
+                State{
+                    name:"rest"
+                    PropertyChanges {
+                        target: tux
+                        y:helimotion.y
+
+                    }
+                },
+
+                State {
+                    name: "UpPressed"
+                    PropertyChanges {
+                        target: tux
+                        y:background.height/1.3
+                        x:(tux.x + 2)
+                    }
+
+                },
+                State {
+                    name: "DownPressed"
+                    PropertyChanges {
+                        target: tux
+                        y:(tux.y + 200)
+                        x:(tux.x + 2)
+                    }
+                },
+                State {
+                    name: "Released"
+                    PropertyChanges {
+                        target: tux
+                        y:(tux.y + 3)
+                        x:(tux.x + 2)
+                    }
+
+                },
+                State {
+                    name: "finished"
+                    PropertyChanges {
+                        target: tux
+
+                    }
+                }
+
+            ]
+
+            Behavior on x {
+                SmoothedAnimation { velocity:velocityX  }
+            }
+            Behavior on y {
+                SmoothedAnimation { velocity:velocityY }
             }
 
-            PropertyAnimation {
-                id: onPressUp
-                target: tux
-                from: Activity.ycheck === false? tuxY.x:tux.y
-                duration: (bar.level === 1 ? 15000 : bar.level === 2 ? 15000 : bar.level === 3 ? 15000 : bar.level === 4 ? 15000 : 9000)
-                properties: "y"
-                easing.type: Easing.InQuad
-                to: background.height/1.3
-            }
 
-            PropertyAnimation {
-                id: onReleas
-                target: tux
-                from: tux.y
-                properties: "y"
-                duration: (bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
-                easing.type: Easing.Linear
-                to: background.height/1.3
-            }
+        }
 
-            PropertyAnimation {
-                id: tuxY
-                target: tux
-                properties: "x,y"
-                from: tuxX.y
-                to: background.height/1.3
-                easing.type: Easing.OutQuad
-                duration: (bar.level === 1 ? 20000 : bar.level === 2 ? 16000 : bar.level === 3 ? 12000 : bar.level === 4 ? 10000 : 9000)
+        Keys.onReleased: {
+            if((Activity.tuxImageStatus === 1)||(Activity.tuxImageStatus ===2)) {
+               tux.state = "Released"
+               velocityY = Activity.velocityY[bar.level-1]
             }
 
         }
+
+        Keys.onUpPressed: {
+            if(Activity.tuxImageStatus === 2) {
+                  tux.state = "Uppressed"
+                  velocityY = velocityY/2
+               }
+        }
+
+        Keys.onDownPressed: {
+            if(Activity.tuxImageStatus === 2) {
+                    tux.state = "Downpressed"
+            }
+
+        }
+
+
 
         Item {
             id: cloudmotion
@@ -305,12 +349,13 @@ ActivityBase {
             height: height.height
             Image {
                 id: cloud
-                source: activity.dataSetUrl+"cloud.svg"
+                source: activity.dataSetUrl + "cloud.svg"
                 y: background.height/7
             }
             SequentialAnimation {
                 id:loopcloud
                 loops: Animation.Infinite
+
                 PropertyAnimation {
                     id: animationcloud
                     target: cloudmotion
@@ -320,6 +365,7 @@ ActivityBase {
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
                 }
+
                 PropertyAnimation {
                     id: animationcloud1
                     target: cloudmotion
@@ -329,6 +375,7 @@ ActivityBase {
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
                 }
+
                 PropertyAnimation {
                     id: animationcloud2
                     target: cloudmotion
@@ -338,6 +385,7 @@ ActivityBase {
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
                 }
+
                 PropertyAnimation {
                     id: animationcloud3
                     target: cloudmotion
@@ -347,7 +395,8 @@ ActivityBase {
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
                 }
-               PropertyAnimation {
+
+                PropertyAnimation {
                     id: animationcloud4
                     target: cloudmotion
                     properties: "x"
@@ -356,19 +405,17 @@ ActivityBase {
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
                 }
-
-
             }
         }
 
 
-        Item{
+        Item {
             id: boatmotion
             width: background.width/4
             height: background.height/4
             Image {
                 id: boat
-                source: activity.dataSetUrl+"fishingboat.svg"
+                source: activity.dataSetUrl + "fishingboat.svg"
                 y: (bar.level === 1 ? background.height/1.4 : bar.level==2 ? background.height/1.4 : bar.level ===3 ? background.height/1.4:bar.level === 4?background.height/1.4:background.height/1.3 )
                 width: (bar.level === 1 ? background.width/4 : bar.level==2 ? background.width/4.5 : bar.level ===3 ? background.width/5:bar.level === 4?background.width/5.1:background.width/5.1 )
                 height: background.height/4
@@ -384,9 +431,6 @@ ActivityBase {
                 easing.type: Easing.Linear
             }
         }
-
-
-
 
         DialogHelp {
             id: dialogHelp
@@ -413,17 +457,13 @@ ActivityBase {
             onClicked: {
                 Activity.loseflag = true
                 Activity.nextLevel()
-
-
             }
         }
 
         Bonus {
             id: bonus
             onWin: ok.visible = true
-
         }
-
 
     }
 

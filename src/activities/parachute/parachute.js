@@ -30,15 +30,15 @@ var currentLevel = 0
 var numberOfLevel = 4
 var items
 var checkPressed = false
-var ycheck
-var yrcheck
 var pressed
 var Oneclick
 var winlose
 var loseflag = false
-var minitux="minitux.svg"
-var parachutetux="parachute.svg"
+var minitux = "minitux.svg"
+var parachutetux = "parachute.svg"
 var tuxImageStatus = 1
+var velocityY = [30,45,55,80]
+var velocityX = 18
 
 function start(items_) {
     items = items_
@@ -53,127 +53,63 @@ function stop() {
 }
 
 function initLevel() {
-    if(loseflag==false){   items.bar.level = currentLevel + 1   }
+    if(loseflag == false) {
+       items.bar.level = currentLevel + 1
+    }
+
+
     checkPressed = false
     winlose = false
     Oneclick = false
     pressed = false
-    ycheck = false
-    yrcheck = false
     loseflag =false
     tuxImageStatus = 0
+    items.tux.state = "rest"
+    items.tux.y = 0
     items.ok.visible = false
     items.loop.restart()
     items.tuxX.restart()
     items.loopcloud.restart()
     items.animationboat.restart()
-
 }
-function onLose(){
-    items.loop.stop()
 
+function onLose() {
+    items.loop.stop()
     items.loopcloud.stop()
     items.animationboat.stop()
     items.tuxX.stop()
-    items.tuxY.stop()
-    items.onReleas.stop()
-    items.onPressUp.stop()
-    items.onPressdown.stop()
-    tuxImageStatus = 0
-
     items.bonus.bad("lion")
 
+    items.tux.x = -items.helimotion.width
+    items.tux.y = 0
+    tuxImageStatus = 0
     items.tuximage.visible = false
     items.tuximage.source = "qrc:/gcompris/src/activities/parachute/resource/" + minitux
-    checkPressed =false
+    checkPressed = false
     winlose = false
     Oneclick = false
-    ycheck = false
-    yrcheck = false
     pressed = false
     loseflag = true
-    items.tux.x=-items.helimotion.width
-    items.tux.y=0
-    items.loop.restart()
-    items.tuxX.restart()
-    items.loopcloud.restart()
-    items.animationboat.restart()
-    initLevel()
 
+    initLevel()
 }
 
-function onWin(){
+function onWin() {
     items.loop.stop()
     items.loopcloud.stop()
     items.animationboat.stop()
     items.tuxX.stop()
-    items.tuxY.stop()
-    items.onReleas.stop()
-    items.onPressUp.stop()
-    items.onPressdown.stop()
+
     items.tuximage.visible = false
-    checkPressed =false
+    checkPressed = false
     winlose = false
     Oneclick = false
-    ycheck = false
-    yrcheck = false
     pressed = false
     items.bonus.good("lion");
     items.tux.x = -items.helimotion.width
     items.tux.y = 0
     items.ok.visible = true
     items.tuximage.source = "qrc:/gcompris/src/activities/parachute/resource/" + minitux
-}
-
-function processPressedKey(event) {
-    if(tuxImageStatus === 2){
-        switch(event.key) {
-        case Qt.Key_Up : event.accepted = true;
-            if(pressed === false){
-                items.tuxY.stop()
-                items.onPressUp.restart()
-                pressed=true
-            }else{
-                items.onReleas.stop()
-                items.onPressUp.restart()
-            }
-            break;
-        case Qt.Key_Down : event.accepted = true;
-            if(pressed === false){
-                items.tuxY.stop()
-                items.onPressdown.restart()
-                pressed = true
-            }else{
-                items.onReleas.stop()
-                items.onPressdown.restart()
-            }
-            break;
-        }
-        if(ycheck === false){
-            ycheck = true
-        }
-    }
-
-}
-
-function processReleasedKey(event) {
-    if(tuxImageStatus === 2)
-    {    switch(event.key) {
-        case Qt.Key_Up : event.accepted = true;
-                items.onPressUp.stop()
-                items.onReleas.restart()
-                break;
-        case Qt.Key_Down : event.accepted = true;
-                items.onPressdown.stop()
-                items.onReleas.restart()
-                break;
-        }
-        if(yrcheck === false){
-            yrcheck = true
-        }
-
-    }
-
 }
 
 function nextLevel() {
@@ -192,25 +128,18 @@ function previousLevel() {
     initLevel();
 }
 
-function onreset(){
+function onreset() {
     items.loop.stop()
     items.loopcloud.stop()
     items.animationboat.stop()
     items.tuxX.stop()
-    items.tuxY.stop()
-    items.onReleas.stop()
-    items.onPressUp.stop()
-    items.onPressdown.stop()
-
     tuxImageStatus = 0
 
     items.tuximage.visible = false
     items.tuximage.source = "qrc:/gcompris/src/activities/parachute/resource/" + minitux
-    checkPressed =false
+    checkPressed = false
     winlose = false
     Oneclick = false
-    ycheck = false
-    yrcheck = false
     pressed = false
     loseflag = true
     items.tux.x = -items.helimotion.width
