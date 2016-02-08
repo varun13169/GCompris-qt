@@ -65,7 +65,7 @@ ActivityBase {
             onClose: home()
         }
 
-        Image{
+        Image {
             id:bambo1
             source: url + "bambo.svg"
             x:background.width/14+2*circleContent2.width
@@ -78,14 +78,14 @@ ActivityBase {
 
         Item{
             id:caption1
-            GCText{
+            GCText {
                 id:caption1text
                 text:Activity.caption[bar.level-1][0]
                 visible:Activity.caption[bar.level-1][0] === "?" ? false : true
                 x:background.width/14+2*circleContent2.width
                 y:background.height/1.5
             }
-            Image{
+            Image {
                 id:caption1image
                 source:url+"questionmark.svg"
                 visible:Activity.caption[bar.level-1][0] === "?" ? true : false
@@ -96,7 +96,7 @@ ActivityBase {
 
         }
 
-        Image{
+        Image {
             id:bambo2
             source:url + "bambo.svg"
             x:background.width/5.5
@@ -111,19 +111,19 @@ ActivityBase {
             id:caption2
             x:background.width/7
             y:background.height/2.5
-            GCText{
+            GCText {
                 text:Activity.caption[bar.level-1][1]
                 visible:Activity.caption[bar.level-1][1] === "?" ? false : true
 
 
             }
-            Image{
+            Image {
                 source:url+"questionmark.svg"
                 visible:Activity.caption[bar.level-1][1] === "?" ? true : false
             }
 
         }
-        Image{
+        Image {
             id:bambo3
             source:url+ "bambo.svg"
             height:background.height/2.7
@@ -133,18 +133,18 @@ ActivityBase {
             rotation:150
         }
 
-        Item{
+        Item {
             id:caption3
             y:background.height/2.5
             x:background.width/14+background.width/4+(1.3*circleContent2.width)
-            GCText{
+            GCText {
                 text:Activity.caption[bar.level-1][2]
                 visible:Activity.caption[bar.level-1][2] === "?" ? false : true
 
 
 
             }
-            Image{
+            Image {
                 source:url+"questionmark.svg"
                 visible:Activity.caption[bar.level-1][2] === "?" ? true : false
                 anchors.top:bambo3.bottom
@@ -160,19 +160,19 @@ ActivityBase {
             y:background.height/10
             width:background.width/9
             height:background.width/9
-            Rectangle{
+            Rectangle {
                 id:circlef
                 width:parent.width
                 height:parent.height
                 radius:parent.width/2
                 border.color:"black"
                 border.width:5
-                Image{
+                Image {
                     id:pic1
                     source:url+ Activity.CirleContent[items.bar.level-1][0]
                     width:parent.width
                     height:parent.height
-                    anchors{
+                    anchors {
                         horizontalCenter:parent.horizontalCenter
                         verticalCenter: parent.verticalCenter
                     }
@@ -193,14 +193,14 @@ ActivityBase {
                 id:circleContent2
                 width:background.width/9
                 height:background.width/9
-                Rectangle{
+                Rectangle {
                     id:circlef1
                     width:parent.width
                     height:parent.height
                     border.color:"black"
                     radius:parent.width/2
                     border.width: 5
-                    Image{
+                    Image {
                         id:pic2
                         source:url+Activity.CirleContent[items.bar.level-1][1]
                         width:parent.width
@@ -219,19 +219,19 @@ ActivityBase {
                 id:circleContent3
                 width:background.width/9
                 height:background.width/9
-                Rectangle{
+                Rectangle {
                     id:cirlef2
                     width:parent.width
                     height:parent.height
                     radius:parent.width/2
                     border.color:"black"
                     border.width: 5
-                    Image{
+                    Image {
                         id:pic3
                         source:url+Activity.CirleContent[items.bar.level-1][2]
                         width:parent.width
                         height:parent.height
-                        anchors{
+                        anchors {
                             horizontalCenter:parent.horizontalCenter
                             verticalCenter: parent.verticalCenter
                         }
@@ -247,7 +247,7 @@ ActivityBase {
             rowSpacing:background.width/10
             x:background.width/1.5
             y:background.height/14
-            AnswerButton{
+            AnswerButton {
                 id:button1
                 width:background.width/5
                 height:background.height/6
@@ -263,7 +263,7 @@ ActivityBase {
                 }
 
             }
-            AnswerButton{
+            AnswerButton {
                 id:button2
                 width:background.width/5
                 height:background.height/6
@@ -278,7 +278,7 @@ ActivityBase {
 
                 }
             }
-            AnswerButton{
+            AnswerButton {
                 id:button3
                 width:background.width/5
                 height:background.height/6

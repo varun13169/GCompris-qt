@@ -22,7 +22,7 @@
 .import QtQuick 2.0 as Quick
 
 var currentLevel = 0
-var numberOfLevel = 13
+var numberOfLevel = 17
 var items
 
 var CirleContent = [  [ "man1.svg","girl1.svg","grandmother.svg"] ,
@@ -38,6 +38,10 @@ var CirleContent = [  [ "man1.svg","girl1.svg","grandmother.svg"] ,
                       [ "girl2.svg","man2.svg","grandpa.svg"],
                       [ "girl3.svg","man1.svg","girl2.svg"],
                       [ "man2.svg","girl3.svg","man1.svg"],
+                      [ "man1.svg","boy1.svg","lady1.svg"],
+                      [ "lady.svg","girl2.svg","man2.svg"],
+                      [ "boy2.svg","man1.svg","lady.svg"],
+                      [ "lady1.svg","man2.svg","girl2.svg"]
 ] ;
 var Options = [[ "Grand Mother","Grand Father","Father" ],
                [ "Grand Mother", "Mother", "Grand Father"],
@@ -51,9 +55,17 @@ var Options = [[ "Grand Mother","Grand Father","Father" ],
                [ "Mother","Mother in law","Aunty"],
                [ "Father", "Father in Law", "Uncle" ],
                [ "Sister","Cousin","Sister in Law"],
-               [ "Brother","Brother in law","Cousin"]
-]
-var answer = ["Grand Mother","Grand Father","Uncle","Aunty","Cousin","Newphew","Niece","Grand Son","Grand Daughter","Mother in law","Father in Law","Sister in Law","Brother in law"];
+               [ "Brother","Brother in law","Cousin"],
+               [ "Mother","Aunty","Step-Mother"],
+               [ "Father","Uncle","Step-Father"],
+               [ "Son","Step-Son","Newphew"],
+               [ "Step-Daughter","Niece","Daughter"]
+] ;
+
+
+var answer = ["Grand Mother","Grand Father","Uncle","Aunty","Cousin","Newphew","Niece",
+              "Grand Son","Grand Daughter","Mother in law","Father in Law","Sister in Law",
+              "Brother in law","Step-Mother","Step-Father","Step-Son","Step-Daughter"];
 
 var caption = [ ["?","Father","Mother"],
                 ["Father","?","Son"],
@@ -67,7 +79,11 @@ var caption = [ ["?","Father","Mother"],
                 ["Mother","Husband","?"],
                 ["Father","Wife","?"],
                 ["?","Wife","Sister"],
-                ["?","Husband","Brother"]
+                ["?","Husband","Brother"],
+                [ "?","Father","Second Wife"],
+                [ "?","Mother","Second Husband"],
+                ["Second Wife","?","Mother"],
+                ["Daughter","Second wife","?"]
         ]
 
 
