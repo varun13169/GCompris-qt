@@ -22,7 +22,7 @@
 .import QtQuick 2.0 as Quick
 
 var currentLevel = 0
-var numberOfLevel = 17
+var numberOfLevel = 35
 var items
 
 var CirleContent = [  [ "man1.svg","girl1.svg","grandmother.svg"] ,
@@ -41,7 +41,27 @@ var CirleContent = [  [ "man1.svg","girl1.svg","grandmother.svg"] ,
                       [ "man1.svg","boy1.svg","lady1.svg"],
                       [ "lady.svg","girl2.svg","man2.svg"],
                       [ "boy2.svg","man1.svg","lady.svg"],
-                      [ "lady1.svg","man2.svg","girl2.svg"]
+                      [ "lady1.svg","man2.svg","girl2.svg"],
+                      [ "Father","You","Mother"],
+                      [ "Father","You","Father"],
+                      [ "You","Son","Brother"],
+                      [ "You","Daughter","Sister"],
+                      [ "Father","You","Newphew"],
+                      [ "Father","You","Niece"],
+                      ["Father","You","Cousin"],
+                      ["Mother","You","Cousin"],
+                      ["Son","You","Son"],
+                      ["Son","You","Daughter"],
+                      ["Wife","You","Mother"],
+                      ["husband","You","Father"],
+                      ["Wife","You","Brother"],
+                      ["Wife","You","Sister"],
+                      ["Father","Second\nWife","You"],
+                      ["Mother","Second\nHusband","You"],
+                      ["Second\nWife","You","Son"],
+                      ["Second\nWife","You","Daughter"]
+
+
 ] ;
 var Options = [[ "Grand Mother","Grand Father","Father" ],
                [ "Grand Mother", "Mother", "Grand Father"],
@@ -59,13 +79,35 @@ var Options = [[ "Grand Mother","Grand Father","Father" ],
                [ "Mother","Aunty","Step-Mother"],
                [ "Father","Uncle","Step-Father"],
                [ "Son","Step-Son","Newphew"],
+               [ "Step-Daughter","Niece","Daughter"],
+               [ "Grand Mother","Grand Father","Father" ],
+               [ "Grand Mother", "Mother", "Grand Father"],
+               [ "Uncle","Aunty","father"],
+               [ "Mother","Aunty","GrandMother"],
+               [ "Brother","Sister","Cousin"],
+               [ "Brother","Sister","Cousin"],
+               [ "Daughter","Son","Newphew"],
+               [ "Son","Niece","Daughter"],
+               [ "Grand Son", "Son","Son In Law"],
+               [ "Grand Daughter","Daughter","Daughter In Law"],
+               [ "Mother","Mother in law","Aunty"],
+               [ "Father", "Father in Law", "Uncle" ],
+               [ "Brother","Brother in law","Cousin"],
+               [ "Sister","Cousin","Sister in Law"],
+               [ "Mother","Aunty","Step-Mother"],
+               [ "Father","Uncle","Step-Father"],
+               [ "Son","Step-Son","Newphew"],
                [ "Step-Daughter","Niece","Daughter"]
 ] ;
 
 
 var answer = ["Grand Mother","Grand Father","Uncle","Aunty","Cousin","Newphew","Niece",
               "Grand Son","Grand Daughter","Mother in law","Father in Law","Sister in Law",
-              "Brother in law","Step-Mother","Step-Father","Step-Son","Step-Daughter"];
+              "Brother in law","Step-Mother","Step-Father","Step-Son","Step-Daughter","Grand Mother",
+              "Grand Father","Uncle","Aunty","Cousin","Cousin","Newphew","Niece","Grand Son","Grand Daughter",
+              "Mother in law","Father in Law","Brother in law","Sister in Law","Step-Mother","Step-Father",
+              "Step-Son", "Step-Daughter"
+];
 
 var caption = [ ["?","Father","Mother"],
                 ["Father","?","Son"],
@@ -83,7 +125,25 @@ var caption = [ ["?","Father","Mother"],
                 [ "?","Father","Second Wife"],
                 [ "?","Mother","Second Husband"],
                 ["Second Wife","?","Mother"],
-                ["Daughter","Second wife","?"]
+                ["Daughter","Second wife","?"],
+                ["?","",""],
+                ["?","",""],
+                ["","","?"],
+                ["","","?"],
+                ["?","",""],
+                ["?","",""],
+                ["","","?"],
+                ["","","?"],
+                ["?","",""],
+                ["?","",""],
+                ["?","",""],
+                ["?","",""],
+                ["?","",""],
+                ["?","",""],
+                ["?","",""],
+                ["?","",""],
+                ["?","",""],
+                ["?","",""]
         ]
 
 

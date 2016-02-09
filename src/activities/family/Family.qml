@@ -78,6 +78,7 @@ ActivityBase {
 
         Item{
             id:caption1
+            visible: bar.level < 18 ? true : Activity.caption[bar.level-1][0] === "?" ? true : false
             GCText {
                 id:caption1text
                 text:Activity.caption[bar.level-1][0]
@@ -111,7 +112,9 @@ ActivityBase {
             id:caption2
             x:background.width/7
             y:background.height/2.5
+            visible: bar.level < 18 ? true : Activity.caption[bar.level-1][1] === "?" ? true : false
             GCText {
+                id:captiontext2
                 text:Activity.caption[bar.level-1][1]
                 visible:Activity.caption[bar.level-1][1] === "?" ? false : true
 
@@ -137,7 +140,9 @@ ActivityBase {
             id:caption3
             y:background.height/2.5
             x:background.width/14+background.width/4+(1.3*circleContent2.width)
+            visible: bar.level < 18 ? true : Activity.caption[bar.level-1][2] === "?" ? true : false
             GCText {
+                id:captiontext3
                 text:Activity.caption[bar.level-1][2]
                 visible:Activity.caption[bar.level-1][2] === "?" ? false : true
 
@@ -147,8 +152,7 @@ ActivityBase {
             Image {
                 source:url+"questionmark.svg"
                 visible:Activity.caption[bar.level-1][2] === "?" ? true : false
-                anchors.top:bambo3.bottom
-                anchors.rightMargin: 7
+
 
             }
 
@@ -169,7 +173,8 @@ ActivityBase {
                 border.width:5
                 Image {
                     id:pic1
-                    source:url+ Activity.CirleContent[items.bar.level-1][0]
+                    visible: bar.level < 18 ?  true : false
+                    source:bar.level < 18 ? (url+ Activity.CirleContent[items.bar.level-1][0]):(url+"text_background.svg")
                     width:parent.width
                     height:parent.height
                     anchors {
@@ -177,6 +182,17 @@ ActivityBase {
                         verticalCenter: parent.verticalCenter
                     }
 
+                }
+
+                GCText{
+                   id:text1
+                   visible:items.bar.level >= 18 ? true : false
+                   text:qsTr(Activity.CirleContent[items.bar.level-1][0])
+                   fontSize:19
+                   anchors{
+                       horizontalCenter:parent.horizontalCenter
+                       verticalCenter: parent.verticalCenter
+                   }
                 }
 
             }
@@ -202,7 +218,8 @@ ActivityBase {
                     border.width: 5
                     Image {
                         id:pic2
-                        source:url+Activity.CirleContent[items.bar.level-1][1]
+                        visible: bar.level <= 17 ? true : false
+                        source:bar.level <= 17 ?(url+Activity.CirleContent[items.bar.level-1][1]):(url+"text_background.svg")
                         width:parent.width
                         height:parent.height
                         anchors{
@@ -210,6 +227,17 @@ ActivityBase {
                             verticalCenter: parent.verticalCenter
                         }
 
+                    }
+
+                    GCText{
+                       id:text2
+                       visible:bar.level > 17 ? true : false
+                       text:qsTr(Activity.CirleContent[items.bar.level-1][1])
+                       fontSize:19
+                       anchors{
+                           horizontalCenter:parent.horizontalCenter
+                           verticalCenter: parent.verticalCenter
+                       }
                     }
                 }
             }
@@ -228,7 +256,8 @@ ActivityBase {
                     border.width: 5
                     Image {
                         id:pic3
-                        source:url+Activity.CirleContent[items.bar.level-1][2]
+                        visible: bar.level <= 17 ? true : false
+                        source:bar.level <= 17 ?(url+Activity.CirleContent[items.bar.level-1][2]):(url+"text_background.svg")
                         width:parent.width
                         height:parent.height
                         anchors {
@@ -236,6 +265,17 @@ ActivityBase {
                             verticalCenter: parent.verticalCenter
                         }
 
+                    }
+
+                    GCText{
+                        id:text3
+                        visible: bar.level > 17 ? true : false
+                        text:qsTr(Activity.CirleContent[items.bar.level-1][2])
+                        fontSize:19
+                        anchors{
+                            horizontalCenter:parent.horizontalCenter
+                            verticalCenter: parent.verticalCenter
+                        }
                     }
 
                 }
