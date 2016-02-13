@@ -77,21 +77,21 @@ ActivityBase {
         }
 
         Item{
-            id:caption1
-            visible: bar.level < 18 ? true : Activity.caption[bar.level-1][0] === "?" ? true : false
+            id: caption1
+            visible: Activity.imageOrtext === "image" ? true : Activity.captiond1 === "?" ? true : false
             GCText {
-                id:caption1text
-                text:Activity.caption[bar.level-1][0]
-                visible:Activity.caption[bar.level-1][0] === "?" ? false : true
-                x:background.width/14+2*circleContent2.width
-                y:background.height/1.5
+                id: caption1text
+                text: Activity.captiond1
+                visible: Activity.captiond1 === "?" ? false : true
+                x: background.width/14+2*circleContent2.width
+                y: background.height/1.5
             }
             Image {
-                id:caption1image
-                source:url+"questionmark.svg"
-                visible:Activity.caption[bar.level-1][0] === "?" ? true : false
-                x:background.width/14+2*circleContent2.width
-                y:background.height/1.5
+                id: caption1image
+                source: url+"questionmark.svg"
+                visible: Activity.captiond1 === "?" ? true : false
+                x: background.width/14+2*circleContent2.width
+                y: background.height/1.5
 
             }
 
@@ -112,17 +112,17 @@ ActivityBase {
             id:caption2
             x:background.width/7
             y:background.height/2.5
-            visible: bar.level < 18 ? true : Activity.caption[bar.level-1][1] === "?" ? true : false
+            visible: Activity.imageOrtext === "image" ? true : Activity.captiond2 === "?" ? true : false
             GCText {
                 id:captiontext2
-                text:Activity.caption[bar.level-1][1]
-                visible:Activity.caption[bar.level-1][1] === "?" ? false : true
+                text:Activity.captiond2
+                visible:Activity.captiond2 === "?" ? false : true
 
 
             }
             Image {
                 source:url+"questionmark.svg"
-                visible:Activity.caption[bar.level-1][1] === "?" ? true : false
+                visible:Activity.captiond2 === "?" ? true : false
             }
 
         }
@@ -140,18 +140,18 @@ ActivityBase {
             id:caption3
             y:background.height/2.5
             x:background.width/14+background.width/4+(1.3*circleContent2.width)
-            visible: bar.level < 18 ? true : Activity.caption[bar.level-1][2] === "?" ? true : false
+            visible: Activity.imageOrtext === "image" ? true : Activity.captiond3 === "?" ? true : false
             GCText {
                 id:captiontext3
-                text:Activity.caption[bar.level-1][2]
-                visible:Activity.caption[bar.level-1][2] === "?" ? false : true
+                text:Activity.captiond3
+                visible:Activity.captiond3 === "?" ? false : true
 
 
 
             }
             Image {
                 source:url+"questionmark.svg"
-                visible:Activity.caption[bar.level-1][2] === "?" ? true : false
+                visible:Activity.captiond3 === "?" ? true : false
 
 
             }
@@ -173,8 +173,8 @@ ActivityBase {
                 border.width:5
                 Image {
                     id:pic1
-                    visible: bar.level < 18 ?  true : false
-                    source:bar.level < 18 ? (url+ Activity.CirleContent[items.bar.level-1][0]):(url+"text_background.svg")
+                    visible: Activity.imageOrtext === "image" ?  true : false
+                    source: Activity.imageOrtext === "image" ? (url+ Activity.circlecontentd1):(url+"text_background.svg")
                     width:parent.width
                     height:parent.height
                     anchors {
@@ -186,8 +186,8 @@ ActivityBase {
 
                 GCText{
                    id:text1
-                   visible:items.bar.level >= 18 ? true : false
-                   text:qsTr(Activity.CirleContent[items.bar.level-1][0])
+                   visible: Activity.imageOrtext === "image" ? true : false
+                   text:qsTr(Activity.circlecontentd1)
                    fontSize:19
                    anchors{
                        horizontalCenter:parent.horizontalCenter
@@ -218,8 +218,8 @@ ActivityBase {
                     border.width: 5
                     Image {
                         id:pic2
-                        visible: bar.level <= 17 ? true : false
-                        source:bar.level <= 17 ?(url+Activity.CirleContent[items.bar.level-1][1]):(url+"text_background.svg")
+                        visible: Activity.imageOrtext === "image" ? true : false
+                        source: Activity.imageOrtext === "image" ?(url+Activity.circlecontentd2):(url+"text_background.svg")
                         width:parent.width
                         height:parent.height
                         anchors{
@@ -231,8 +231,8 @@ ActivityBase {
 
                     GCText{
                        id:text2
-                       visible:bar.level > 17 ? true : false
-                       text:qsTr(Activity.CirleContent[items.bar.level-1][1])
+                       visible:Activity.imageOrtext === "text" ? true : false
+                       text:(Activity.circlecontentd2)
                        fontSize:19
                        anchors{
                            horizontalCenter:parent.horizontalCenter
@@ -256,8 +256,8 @@ ActivityBase {
                     border.width: 5
                     Image {
                         id:pic3
-                        visible: bar.level <= 17 ? true : false
-                        source:bar.level <= 17 ?(url+Activity.CirleContent[items.bar.level-1][2]):(url+"text_background.svg")
+                        visible:Activity.imageOrtext === "image" ? true : false
+                        source:Activity.imageOrtext === "image" ?(url+Activity.circlecontentd3):(url+"text_background.svg")
                         width:parent.width
                         height:parent.height
                         anchors {
@@ -269,8 +269,8 @@ ActivityBase {
 
                     GCText{
                         id:text3
-                        visible: bar.level > 17 ? true : false
-                        text:qsTr(Activity.CirleContent[items.bar.level-1][2])
+                        visible:Activity.imageOrtext === "text" ? true : false
+                        text:qsTr(Activity.circlecontentd3)
                         fontSize:19
                         anchors{
                             horizontalCenter:parent.horizontalCenter
@@ -291,9 +291,9 @@ ActivityBase {
                 id:button1
                 width:background.width/5
                 height:background.height/6
-                textLabel:qsTr(Activity.Options[items.bar.level-1][0])
+                textLabel:qsTr(Activity.answerbuttond1)
                 onPressed: {
-                    if(button1.textLabel === Activity.answer[bar.level-1]) {
+                    if(button1.textLabel === Activity.answer) {
                         bonus.good("lion")
                     }
                     else {
@@ -307,13 +307,14 @@ ActivityBase {
                 id:button2
                 width:background.width/5
                 height:background.height/6
-                textLabel:qsTr(Activity.Options[items.bar.level-1][1])
+                textLabel:qsTr(Activity.answerbuttond2)
                 onPressed: {
-                    if(button2.textLabel === Activity.answer[bar.level-1]) {
+                    if(button2.textLabel === Activity.answerbuttond2) {
                         bonus.good("lion")
                     }
                     else {
                         bonus.bad("lion")
+                        console.log(Activity.answerd)
                     }
 
                 }
@@ -322,13 +323,15 @@ ActivityBase {
                 id:button3
                 width:background.width/5
                 height:background.height/6
-                textLabel:qsTr(Activity.Options[items.bar.level-1][2])
+                textLabel:qsTr(Activity.answerbutton3)
                 onPressed: {
-                    if(button3.textLabel === Activity.answer[bar.level-1]) {
+                    if(button3.textLabel === Activity.answerd) {
                         bonus.good("lion")
                     }
                     else {
                         bonus.bad("lion")
+
+
                     }
 
                 }
