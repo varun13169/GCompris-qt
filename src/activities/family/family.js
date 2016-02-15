@@ -24,20 +24,9 @@
 
 var currentLevel = 0
 var numberOfLevel = 35
-var imageOrtext  /* to check whether we are using image or picture in this level */
+var flag
 var items
-/* d after every varible refers to the data*/
-var currentleveldataset
-var circlecontentd1
-var circlecontentd2
-var circlecontentd3
-var answerbuttond1
-var answerbuttond2
-var answerbuttond3
-var answerd
-var captiond1
-var captiond2
-var captiond3
+var currentdata
 /*
 The first three elements of dataset is refer to the circle elements the next three elements refer to the
 content of answer button and then 7th element refer to the correct answer then next three element refer to the how we are related to
@@ -106,7 +95,7 @@ var dataset = [  [ "man1.svg","girl1.svg","grandmother.svg","Grand Mother","Gran
                [ "You","Daughter","Sister","Mother","Aunty","GrandMother","Aunty","","","?",
                 "text"],
 
-               [ "Father","You","Newphew","Brother","Sister","Cousin",["Cousin"],["?","",""],
+               [ "Father","You","Newphew","Brother","Sister","Cousin","Cousin","?","","",
                 "text"],
 
                [ "Father","You","Niece","Brother","Sister","Cousin","Cousin","?","","",
@@ -145,10 +134,7 @@ var dataset = [  [ "man1.svg","girl1.svg","grandmother.svg","Grand Mother","Gran
 
                ["Second\nWife","You","Daughter","Step-Daughter","Niece","Daughter","Step-Daughter",
                 "?","","","text"]
-
-
-        ];
-
+    ];
 
 function start(items_) {
     items = items_
@@ -163,13 +149,31 @@ function stop() {
 function initLevel() {
     items.bar.level = currentLevel + 1
     dataset = Core.shuffle(dataset);
-    currentleveldataset = dataset[items.bar.level];
-    /*intialization for the type conversion of the elements*/
-    circlecontentd1 = currentleveldataset[0]; circlecontentd2 = currentleveldataset[1]; circlecontentd3 = currentleveldataset[2];
-    answerbuttond1  = currentleveldataset[3]; answerbuttond2 = currentleveldataset[4]; answerbuttond3 = currentleveldataset[5];
-    answerd = currentleveldataset[6]; captiond1 = currentleveldataset[7]; captiond2 = currentleveldataset[8]; captiond3 = currentleveldataset[9];
-    imageOrtext = currentleveldataset[10];
-    console.log(imageOrtext)
+    currentdata = dataset[items.bar.level];
+    items.imageOrtext = currentdata[10];
+    if(currentdata[10] === "text") {
+            items.pic1.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
+            items.pic1.visible = false
+            items.pic2.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
+            items.pic2.visible = false
+            items.pic3.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
+            items.pic3.visible = false
+
+    }else {
+        items.pic1.source = "qrc:/gcompris/src/activities/family/resource/" + currentdata[0]
+        items.pic1.visible = true
+        items.pic2.source = "qrc:/gcompris/src/activities/family/resource/" + currentdata[1]
+        items.pic2.visible = true
+        items.pic3.source = "qrc:/gcompris/src/activities/family/resource/" + currentdata[2]
+        items.pic3.visible = true
+
+    }
+
+    items.circle1d = currentdata[0]; items.circle2d = currentdata[1]; items.circle3d = currentdata[2];
+    items.answered = currentdata[6]; items.button1d = currentdata[3]; items.button2d = currentdata[4]; items.button3d = currentdata[5];
+    items.caption1d = currentdata[7]; items.caption2d = currentdata[8]; items.caption3d = currentdata[9];
+
+
 }
 
 function nextLevel() {
