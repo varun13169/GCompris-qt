@@ -189,7 +189,6 @@ ActivityBase {
                 Image {
                     id:pic1
                     visible: items.imageOrtext === "image" ?  true : false
-                    source: items.imageOrtext === "image" ? (url+ items.circle1d):(url+"text_background.svg")
                     width:parent.width
                     height:parent.height
                     anchors {
@@ -234,7 +233,6 @@ ActivityBase {
                     Image {
                         id:pic2
                         visible: items.imageOrtext === "image" ? true : false
-                        source: items.imageOrtext === "image" ? (url+items.circle2d) :(url+"text_background.svg")
                         width:parent.width
                         height:parent.height
                         anchors{
@@ -272,7 +270,6 @@ ActivityBase {
                     Image {
                         id:pic3
                         visible:items.imageOrtext === "image" ? true : false
-                        source:items.imageOrtext === "image" ? (url+items.circle3d) : (url+"text_background.svg")
                         width:parent.width
                         height:parent.height
                         anchors {

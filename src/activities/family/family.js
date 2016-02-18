@@ -170,7 +170,8 @@ function initLevel() {
     }
 
     items.circle1d = currentdata[0]; items.circle2d = currentdata[1]; items.circle3d = currentdata[2];
-    items.answered = currentdata[6]; items.button1d = currentdata[3]; items.button2d = currentdata[4]; items.button3d = currentdata[5];
+    items.answered = currentdata[6];
+    items.button1d = currentdata[3]; items.button2d = currentdata[4]; items.button3d = currentdata[5];
     items.caption1d = currentdata[7]; items.caption2d = currentdata[8]; items.caption3d = currentdata[9];
 
 
