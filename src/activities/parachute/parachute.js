@@ -37,6 +37,7 @@ var loseflag = false
 var minitux = "minitux.svg"
 var parachutetux = "parachute.svg"
 var tuxImageStatus = 1
+var tuxfallingblock = false
 var velocityY = [30,45,55,80]
 var velocityX = 18
 
@@ -66,6 +67,7 @@ function initLevel() {
     tuxImageStatus = 0
     items.tux.state = "rest"
     items.tux.y = 0
+    tuxfallingblock = false
     items.ok.visible = false
     items.loop.restart()
     items.tuxX.restart()
@@ -128,6 +130,8 @@ function previousLevel() {
     initLevel();
 }
 
+
+
 function onreset() {
     items.loop.stop()
     items.loopcloud.stop()
@@ -151,3 +155,16 @@ function onreset() {
     initLevel()
 
 }
+
+function steps() {
+  switch(items.bar.level) {
+  case 1: return 0.5;
+  case 2: return 0.6;
+  case 3: return 0.7;
+  case 4: return 0.75;
+  }
+}
+
+
+
+
