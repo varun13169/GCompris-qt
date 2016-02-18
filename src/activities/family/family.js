@@ -154,27 +154,27 @@ function initLevel() {
     if(currentdata[10] === "text") {
             items.pic1.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
             items.pic1.visible = false
+            items.text1.text = qsTr(currentdata[0])
             items.pic2.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
             items.pic2.visible = false
+            items.text2.text = qsTr(currentdata[1])
             items.pic3.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
             items.pic3.visible = false
+            items.text3.text = qsTr(currentdata[2])
 
-    }else {
+    }  else {
         items.pic1.source = "qrc:/gcompris/src/activities/family/resource/" + currentdata[0]
         items.pic1.visible = true
         items.pic2.source = "qrc:/gcompris/src/activities/family/resource/" + currentdata[1]
         items.pic2.visible = true
         items.pic3.source = "qrc:/gcompris/src/activities/family/resource/" + currentdata[2]
         items.pic3.visible = true
-
     }
-
-    items.circle1d = currentdata[0]; items.circle2d = currentdata[1]; items.circle3d = currentdata[2];
     items.answered = currentdata[6];
-    items.button1d = currentdata[3]; items.button2d = currentdata[4]; items.button3d = currentdata[5];
+    items.button1.textLabel = qsTr(currentdata[3]);
+    items.button2.textLabel = qsTr(currentdata[4]);
+    items.button3.textLabel = qsTr(currentdata[5]);
     items.caption1d = currentdata[7]; items.caption2d = currentdata[8]; items.caption3d = currentdata[9];
-
-
 }
 
 function nextLevel() {

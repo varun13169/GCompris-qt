@@ -55,17 +55,17 @@ ActivityBase {
             property alias pic1: pic1
             property alias pic2: pic2
             property alias pic3: pic3
+            property alias text1:text1
+            property alias text2:text2
+            property alias text3:text3
+            property alias button1:button1
+            property alias button2:button2
+            property alias button3:button3
             /* d stands for the data of the various */
             property string caption1d
             property string caption2d
             property string caption3d
             property string answered
-            property string circle1d
-            property string circle2d
-            property string circle3d
-            property string button1d
-            property string button2d
-            property string button3d
             property string imageOrtext  /* to check whether we are using image or text in this level */
 
         }
@@ -201,7 +201,6 @@ ActivityBase {
                 GCText{
                    id:text1
                    visible: items.imageOrtext === "text" ? true : false
-                   text:qsTr(items.circle1d)
                    fontSize:19
                    anchors{
                        horizontalCenter:parent.horizontalCenter
@@ -245,7 +244,6 @@ ActivityBase {
                     GCText{
                        id:text2
                        visible:items.imageOrtext === "text" ? true : false
-                       text:qsTr(items.circle2d)
                        fontSize:19
                        anchors{
                            horizontalCenter:parent.horizontalCenter
@@ -282,7 +280,7 @@ ActivityBase {
                     GCText{
                         id:text3
                         visible:items.imageOrtext === "text" ? true : false
-                        text:qsTr(items.circle3d)
+
                         fontSize:19
                         anchors{
                             horizontalCenter:parent.horizontalCenter
@@ -303,7 +301,6 @@ ActivityBase {
                 id:button1
                 width:background.width/5
                 height:background.height/6
-                textLabel:qsTr(items.button1d)
                 onPressed: {
                     if(button1.textLabel === items.answered) {
                         bonus.good("lion")
@@ -319,7 +316,6 @@ ActivityBase {
                 id:button2
                 width:background.width/5
                 height:background.height/6
-                textLabel:qsTr(items.button2d)
                 onPressed: {
                     if(button2.textLabel === items.answered) {
                         bonus.good("lion")
@@ -335,7 +331,6 @@ ActivityBase {
                 id:button3
                 width:background.width/5
                 height:background.height/6
-                textLabel:qsTr(items.button3d)
                 onPressed: {
                     if(button3.textLabel === items.answered) {
                         bonus.good("lion")
