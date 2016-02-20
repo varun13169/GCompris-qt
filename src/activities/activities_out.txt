@@ -1,5 +1,3 @@
-# The list of activities that will be loaded at GCompris start.
-# Keep it sorted
 advanced_colors
 algebra_by
 algebra_div
