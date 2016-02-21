@@ -241,7 +241,7 @@ ActivityBase {
                 if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x>boatmotion.x) && (tux.x<boatmotion.x+boatmotion.width))){
                     tux.state = "finished"
                     Activity.tuxImageStatus = 0
-                    Activity.tuxfallingblock = false
+                    Activity.tuxfallingblock = true
                     Activity.onWin()
                 }
 
