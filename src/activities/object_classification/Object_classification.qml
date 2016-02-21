@@ -28,7 +28,9 @@ import "object_classification.js" as Activity
 ActivityBase {
     id: activity
 
-//    property string backgroundImage:
+    property string backgroundImage: "qrc:/gcompris/src/activities/menu/resource/background.svg"
+    property int numberOfLevels: 2
+    property string url: "qrc:/gcompris/src/activities/object_classification/resource/"
 
     onStart: focus = true
     onStop: {}
@@ -36,7 +38,7 @@ ActivityBase {
     pageComponent: Image {
         id: background
         anchors.fill: parent
-        source: "qrc:/gcompris/src/activities/bject_classification/resource/bg.svg"
+        source: backgroundImage
 
         signal start
         signal stop
@@ -53,11 +55,19 @@ ActivityBase {
             property alias background: background
             property alias bar: bar
             property alias bonus: bonus
+            property alias dataset: dataset
+            property alias score: score
+//            property alias questionPanel: questionPanel
+//            property alias answerPanel: answerPanel
         }
 
-        onStart: { Activity.start(items) }
-        onStop: { Activity.stop() }
+        Loader{
+            id : dataset
+            asynchronous: false
+        }
 
+        onStart: { Activity.start(items, url, numberOfLevels) }
+        onStop: { Activity.stop() }
 
         GCText {
             id: questionItem
@@ -71,74 +81,213 @@ ActivityBase {
             font.weight: Font.DemiBold
             style: Text.Outline
             styleColor: "black"
-            color: "white"
-            text: "Question Area"
-
-//            function initQuestion() {
-//                text = Activity.getCurrentTextQuestion()
-//                if(Activity.getCurrentAudioQuestion()) {
-//                    if(items.firstQuestion)
-//                        items.audioOk = activity.audioVoices.append(Activity.getCurrentAudioQuestion())
-//                    else
-//                        items.audioOk = activity.audioVoices.play(Activity.getCurrentAudioQuestion())
-//                    items.firstQuestion = false
-//                }
-//                opacity = 1.0
-//            }
-
-//            onOpacityChanged: opacity == 0 ? initQuestion() : ""
-//            Behavior on opacity { PropertyAnimation { duration: 500 } }
+            color: "blue"
+            text: dataset.item.questionText
         }
 
-        DropShadow {
-            anchors.fill: questionItem
-            cached: false
-            horizontalOffset: 3
-            verticalOffset: 3
-            radius: 8.0
-            samples: 16
-            color: "#80000000"
-            source: questionItem
-        }
+//        DropShadow {
+//            anchors.fill: questionItem
+//            cached: false
+//            horizontalOffset: 3
+//            verticalOffset: 3
+//            radius: 8.0
+//            samples: 16
+//            color: "#80000000"
+//            source: questionItem
+//        }
 
-        Item {
-            width: 200; height: 200
+        Rectangle {
+            id: draggingpanel
+            width: background.width - 2 * 10 * ApplicationInfo.ratio
+            height: background.height/5
+            anchors.top: questionItem.bottom
+            anchors.margins: 10 * ApplicationInfo.ratio
+            anchors.left: background.left
+            color: "transparent"
 
-            DropArea {
-                x: 75; y: 75
-                width: 50; height: 50
+            ListView {
+                id: listView
+                width: parent.width
+                height: parent.height
+                orientation: ListView.Horizontal
+                property int dragItemIndex: -1
 
-                Rectangle {
-                    anchors.fill: parent
-                    color: "green"
+                model: dataset.item.tab.length
 
-//                    visible: parent.containsDrag
+                delegate: Item {
+                    id: delegateItem
+                    width: listView.width / dataset.item.tab.length
+                    height: listView.height
+
+                    Rectangle {
+                        id: dragRect
+                        width: listView.width / dataset.item.tab.length
+                        height: listView.height
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: "transparent"
+                        border.color: Qt.darker(color)
+
+                        Image{
+                            id: dragImage
+                            fillMode: Image.PreserveAspectFit
+                            source:dataset.item.tab[index].source
+                            anchors.centerIn: dragRect
+                            width: background.width * dataset.item.tab[index].width
+                            height: background.height * dataset.item.tab[index].height
+
+                            MouseArea {
+                                id: mouseArea
+                                anchors.fill: dragImage
+                                drag.target: dragImage
+
+                                drag.onActiveChanged: {
+                                    if (mouseArea.drag.active) {
+                                        listView.dragItemIndex = index;
+                                    }
+                                    dragImage.Drag.drop();
+                                }
+                            }
+
+                            states: [
+                                State {
+                                    when: dragImage.Drag.active
+                                    ParentChange {
+                                        target: dragImage
+                                        parent: draggingpanel
+                                    }
+
+                                    AnchorChanges {
+                                        target: dragImage
+                                        anchors.horizontalCenter: undefined
+                                        anchors.verticalCenter: undefined
+                                    }
+                                }
+                            ]
+
+                            Drag.active: mouseArea.drag.active
+                            Drag.hotSpot.x: dragImage.width / 2
+                            Drag.hotSpot.y: dragImage.height / 2
+                        }
+                    }
                 }
             }
 
             Rectangle {
-                x: 10; y: 10
-                width: 50; height: 50
-                color: "red"
+                id: droppingpanel
+                width: background.width - 2 * 10 * ApplicationInfo.ratio
+                height: background.height/5
+                anchors.top: draggingpanel.bottom
+                anchors.margins: 10 * ApplicationInfo.ratio
+                color: "transparent"
+                border.width: 2
+                radius: 1
 
-                Drag.active: dragArea.drag.active
-                Drag.hotSpot.x: 10
-                Drag.hotSpot.y: 10
-//                Drag.drop()
-                MouseArea {
-                    id: dragArea
-                    anchors.fill: parent
+                ListView {
+                    id: listviewdrop
+                    width: parent.width
+                    height: parent.height
+                    orientation: ListView.Horizontal
+                    property int dragItemIndex: -1
 
-                    drag.target: parent
+                    model: dataset.item.tab.length
+
+                    delegate: Item {
+                        id: delegateItemdrop
+                        width: listView.width / dataset.item.tab.length
+                        height: listView.height
+
+                        Rectangle {
+                            id: dropRect
+                            width: listView.width / dataset.item.tab.length - (dataset.item.tab.length - 1) * 10 * ApplicationInfo.ratio
+                            height: listView.height
+                            anchors.centerIn: parent
+                            border.width: 5
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.margins: 10 * ApplicationInfo.ratio
+                            color: "transparent"
+                            border.color: Qt.darker(color)
+                            Rectangle{
+                                id: dropcircle
+                                anchors.centerIn: dropRect
+                                width: parent.width > parent.height ? parent.height / 10 : parent.width / 10
+                                height: width
+                                radius: width/2
+                                border.width: 1
+                                color: "pink"
+                                border.color: "red"
+                            }
+
+                            Image{
+                                id: dropimage
+                                anchors.centerIn: parent
+                                fillMode: Image.PreserveAspectFit
+                                width: background.width * dataset.item.tab[listView.dragItemIndex].width
+                                height: background.height * dataset.item.tab[listView.dragItemIndex].height
+
+                                DropArea {
+                                    id: dropArea
+                                    anchors.fill: dropimage
+
+                                    onDropped: {
+                                        if(index == dataset.item.tab[listView.dragItemIndex].value)
+                                        {
+    //                                        drag.accepted = true;
+    //                                        dropimage.source = dataset.item.tab[index].source
+//                                            dropimage.width =  background.width * dataset.item.tab[index].width
+//                                            dropimage.height = background.height * dataset.item.tab[index].height
+                                            dropimage.source = dataset.item.tab[index].source
+                                            drag.source.destroy();
+    //                                                            drop.acceptProposedAction()
+    //                                        visualModel.items.move(drag.source.visualIndex, delegateRoot.visualIndex)
+    //                                                drag.accept (Qt.CopyAction);
+                                            listView.dragItemIndex = -1;
+                                            items.score.currentSubLevel++;
+                                            if (score.currentSubLevel == score.numberOfSubLevels){
+                                                items.bonus.good("flower");
+                                                Activity.nextLevel();
+
+                                            }
+                                        }
+                                    }
+                            }
+
+
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        GCText {
-            anchors.centerIn: parent
-            text: "object_classification activity"
-            fontSize: largeSize
+//        ListModel{
+//            id: questionPanel
+//        }
+
+//        ListModel{
+//            id: answerPanel
+//        }
+
+        Score {
+            id: score
+            visible: true
         }
+
+//        Image {
+//            id: ok
+//            visible: score.currentSubLevel == score.numberOfSubLevels
+//            source:"qrc:/gcompris/src/core/resource/bar_ok.svg"
+//            sourceSize.width: score.height * 1.5
+//            fillMode: Image.PreserveAspectFit
+//            anchors.right: score.left
+//            anchors.bottom: parent.bottom
+//            anchors.margins: 25 * ApplicationInfo.ratio
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: Activity.nextLevel()
+//            }
+//        }
 
         DialogHelp {
             id: dialogHelp
@@ -158,8 +307,7 @@ ActivityBase {
 
         Bonus {
             id: bonus
-            Component.onCompleted: win.connect(Activity.nextLevel)
+//            Component.onCompleted: win.connect(Activity.nextLevel)
         }
     }
-
 }

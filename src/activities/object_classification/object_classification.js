@@ -21,13 +21,17 @@
 .pragma library
 .import QtQuick 2.0 as Quick
 
-var currentLevel = 0
-var numberOfLevel = 4
+var currentLevel
+var numberOfLevel
 var items
+var url
 
-function start(items_) {
+function start(items_,url_,levelcount_) {
     items = items_
-    currentLevel = 0
+    url = url_
+    numberOfLevel = levelcount_
+    currentLevel = 1
+    items.score.currentSubLevel = 0
     initLevel()
 }
 
@@ -35,19 +39,29 @@ function stop() {
 }
 
 function initLevel() {
-    items.bar.level = currentLevel + 1
+//    items.questionPanel.clear();
+//    items.answerPanel.clear();
+    items.bar.level = currentLevel
+    var filename = url + "board" + "/" + "board" + currentLevel + "_0.qml"
+    items.dataset.source = filename
+    items.score.currentSubLevel = 0
+    items.score.numberOfSubLevels = items.dataset.item.tab.length
+//    items.questionPanel.model = items.dataset.item.length;
+//    items.answerPanel.model = items.dataset.item.length;
 }
 
 function nextLevel() {
-    if(numberOfLevel <= ++currentLevel ) {
-        currentLevel = 0
+    if(numberOfLevel < ++currentLevel ) {
+        currentLevel = 1
+        items.score.currentSubLevel = 0
     }
     initLevel();
 }
 
 function previousLevel() {
-    if(--currentLevel < 0) {
-        currentLevel = numberOfLevel - 1
+    if(--currentLevel < 1) {
+        currentLevel = numberOfLevel
+        items.score.currentSubLevel = 0
     }
     initLevel();
 }
