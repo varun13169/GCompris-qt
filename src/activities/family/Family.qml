@@ -201,7 +201,7 @@ ActivityBase {
                 GCText{
                    id:text1
                    visible: items.imageOrtext === "text" ? true : false
-                   fontSize:19
+                   fontSize:mediumSize
                    anchors{
                        horizontalCenter:parent.horizontalCenter
                        verticalCenter: parent.verticalCenter
@@ -244,7 +244,7 @@ ActivityBase {
                     GCText{
                        id:text2
                        visible:items.imageOrtext === "text" ? true : false
-                       fontSize:19
+                       fontSize:mediumSize
                        anchors{
                            horizontalCenter:parent.horizontalCenter
                            verticalCenter: parent.verticalCenter
@@ -280,8 +280,7 @@ ActivityBase {
                     GCText{
                         id:text3
                         visible:items.imageOrtext === "text" ? true : false
-
-                        fontSize:19
+                        fontSize:mediumSize
                         anchors{
                             horizontalCenter:parent.horizontalCenter
                             verticalCenter: parent.verticalCenter
