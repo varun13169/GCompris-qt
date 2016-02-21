@@ -219,16 +219,16 @@ ActivityBase {
                                 border.color: "red"
                             }
 
-                            Image{
-                                id: dropimage
-                                anchors.centerIn: parent
-                                fillMode: Image.PreserveAspectFit
-                                width: background.width * dataset.item.tab[listView.dragItemIndex].width
-                                height: background.height * dataset.item.tab[listView.dragItemIndex].height
+//                            Image{
+//                                id: dropimage
+//                                anchors.centerIn: parent
+//                                fillMode: Image.PreserveAspectFit
+//                                width: background.width * dataset.item.tab[listView.dragItemIndex].width
+//                                height: background.height * dataset.item.tab[listView.dragItemIndex].height
 
                                 DropArea {
                                     id: dropArea
-                                    anchors.fill: dropimage
+                                    anchors.fill: dropRect
 
                                     onDropped: {
                                         if(index == dataset.item.tab[listView.dragItemIndex].value)
@@ -237,7 +237,7 @@ ActivityBase {
     //                                        dropimage.source = dataset.item.tab[index].source
 //                                            dropimage.width =  background.width * dataset.item.tab[index].width
 //                                            dropimage.height = background.height * dataset.item.tab[index].height
-                                            dropimage.source = dataset.item.tab[index].source
+//                                            dropimage.source = dataset.item.tab[index].source
                                             drag.source.destroy();
     //                                                            drop.acceptProposedAction()
     //                                        visualModel.items.move(drag.source.visualIndex, delegateRoot.visualIndex)
@@ -251,10 +251,10 @@ ActivityBase {
                                             }
                                         }
                                     }
-                            }
+                                }
 
 
-                            }
+//                            }
                         }
                     }
                 }
