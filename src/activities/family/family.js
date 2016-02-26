@@ -153,7 +153,7 @@ function initLevel() {
     currentdata = dataset[items.bar.level];
     items.imageOrtext = currentdata[10];
     count = currentdata[11];
-    items.repeateanswerbutton.model = count;
+    items.repeateanswerbutton.model = [qsTr(currentdata[3]),qsTr(currentdata[4]),qsTr(currentdata[5])]
     if(currentdata[10] === "text") {
             items.pic1.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
             items.pic1.visible = false

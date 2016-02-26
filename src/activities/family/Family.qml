@@ -300,7 +300,7 @@ ActivityBase {
                     id:button
                     width:background.width/5
                     height:background.height/6
-                    textLabel:qsTr(Activity.currentdata[index+3])
+                    textLabel:modelData
                     onPressed: {
                         if(button.textLabel === items.answered) {
                             bonus.good("lion")
