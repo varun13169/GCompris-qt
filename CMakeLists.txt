@@ -21,6 +21,9 @@ endif()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${my_cxx_flags}")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${my_cxx_flags}")
 
+# enable qml debugging for DEBUG builds:
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DQT_QML_DEBUG")
+
 set(GCOMPRIS_MAJOR_VERSION 0)
 set(GCOMPRIS_MINOR_VERSION 60)
 set(GCOMPRIS_PATCH_VERSION 0)
@@ -28,14 +31,38 @@ set(GCOMPRIS_PATCH_VERSION 0)
 # Set the BUILD_DATE
 string(TIMESTAMP BUILD_DATE %Y%M)
 
+# cmake modules setup
+find_package(ECM 1.4.0 QUIET NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DIR}/cmake/)
+set(CMAKE_PREFIX_PATH "${Qt5_DIR}/lib/cmake/Qt5")
+
+# KDE po to qm tools
+if(ECM_FOUND)
+  include(ECMPoQmTools)
+  if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
+    ecm_install_po_files_as_qm(po)
+  endif()
+endif(ECM_FOUND)
+
+if(CMAKE_SYSTEM_NAME STREQUAL Android)
+  find_package(ECM)
+  set(ANDROID 1)
+  # TODO: possibly should be setup by toolchain one day
+  set(QT_QMAKE_EXECUTABLE "${_qt5Core_install_prefix}/bin/qmake")
+  # workaround until this fix is in released ECM
+  if(ECM_VERSION VERSION_LESS "5.15.0")
+    add_definitions(-DANDROID)
+  endif()
+endif()
+
 # Set executable filename
 if(ANDROID)
   set(GCOMPRIS_EXECUTABLE_NAME GCompris)
-  if("${ANDROID_ABI}" STREQUAL "x86")
+  if("${ANDROID_ARCHITECTURE}" STREQUAL "x86")
     # We always want x86 to be a release above to arm one because the play
     # store want x86 to be pushed after arm.
     MATH(EXPR GCOMPRIS_MINOR_VERSION "${GCOMPRIS_MINOR_VERSION}+1")
-  endif("${ANDROID_ABI}" STREQUAL "x86")
+  endif("${ANDROID_ARCHITECTURE}" STREQUAL "x86")
 elseif(SAILFISHOS)
   set(GCOMPRIS_EXECUTABLE_NAME harbour-gcompris-qt)
 else()
@@ -46,12 +73,7 @@ set(GCOMPRIS_VERSION ${GCOMPRIS_MAJOR_VERSION}.${GCOMPRIS_MINOR_VERSION})
 
 # An integer value that represents the version of the application
 # Increase it at each release
-set(GCOMPRIS_VERSION_CODE ${GCOMPRIS_MINOR_VERSION})
-
-# cmake modules setup
-find_package(ECM 1.4.0 QUIET NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DIR}/cmake/)
-set(CMAKE_PREFIX_PATH "${Qt5_DIR}/lib/cmake/Qt5")
+math(EXPR GCOMPRIS_VERSION_CODE "${GCOMPRIS_MAJOR_VERSION}*10000 + ${GCOMPRIS_MINOR_VERSION}*100 + ${GCOMPRIS_PATCH_VERSION}")
 
 # KDE po to qm tools
 if(ECM_FOUND)
@@ -125,7 +147,7 @@ else()
 endif()
 if(ANDROID)
   # Android .so output
-  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/android/libs/${ARM_TARGET}/)
+  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/android/libs/${ANDROID_ABI}/)
   set(GCOMPRIS_TRANSLATIONS_DIR ${CMAKE_BINARY_DIR}/${_data_dest_dir} CACHE INTERNAL "" FORCE)
   set(GCOMPRIS_RCC_DIR ${CMAKE_BINARY_DIR}/${_data_dest_dir} CACHE INTERNAL "" FORCE)
   if(ACTIVATION_MODE STREQUAL "inapp")

@@ -119,6 +119,28 @@ class ApplicationSettings : public QObject
     Q_PROPERTY(quint32 fontCapitalization READ fontCapitalization WRITE setFontCapitalization NOTIFY fontCapitalizationChanged)
 
     /**
+     * Font letter spacing
+     *
+     * Change the letter spacing of all the texts
+     * @sa font
+     */
+    Q_PROPERTY(qreal fontLetterSpacing READ fontLetterSpacing WRITE setFontLetterSpacing NOTIFY fontLetterSpacingChanged)
+
+    /**
+     * Minimum allowed value for font spacing letter.
+     *
+     * Constant value: +0.0
+     */
+    Q_PROPERTY(qreal fontLetterSpacingMin READ fontLetterSpacingMin CONSTANT)
+
+    /**
+     * Maximum allowed value for font spacing letter.
+     *
+     * Constant value: +8.0
+     */
+    Q_PROPERTY(qreal fontLetterSpacingMax READ fontLetterSpacingMax CONSTANT)
+
+    /**
      * Whether downloads/updates of resource files should be done automatically,
      * without user-interaction.
      *
@@ -205,8 +227,11 @@ class ApplicationSettings : public QObject
     // internal group
     Q_PROPERTY(quint32 exeCount READ exeCount WRITE setExeCount NOTIFY exeCountChanged)
 
-	// no group
-	Q_PROPERTY(bool isBarHidden READ isBarHidden WRITE setBarHidden NOTIFY barHiddenChanged)
+    // keep last version ran. If different than ApplicationInfo.GCVersionCode(), it means a new version is running
+    Q_PROPERTY(int lastGCVersionRan READ lastGCVersionRan WRITE setLastGCVersionRan NOTIFY lastGCVersionRanChanged)
+
+    // no group
+    Q_PROPERTY(bool isBarHidden READ isBarHidden WRITE setBarHidden NOTIFY barHiddenChanged)
 
 public:
 	/// @cond INTERNAL_DOCS
@@ -282,6 +307,15 @@ public:
         m_fontCapitalization = newFontCapitalization;
         emit fontCapitalizationChanged();
     }
+
+    qreal fontLetterSpacing() const { return m_fontLetterSpacing; }
+    void setFontLetterSpacing(qreal newFontLetterSpacing) {
+        m_fontLetterSpacing = newFontLetterSpacing;
+        emit fontLetterSpacingChanged();
+    }
+
+    qreal fontLetterSpacingMin() const { return m_fontLetterSpacingMin; }
+    qreal fontLetterSpacingMax() const { return m_fontLetterSpacingMax; }
 
     bool isAutomaticDownloadsEnabled() const;
     void setIsAutomaticDownloadsEnabled(const bool newIsAutomaticDownloadsEnabled);
@@ -381,16 +415,23 @@ public:
     int baseFontSizeMin() const { return m_baseFontSizeMin; }
     int baseFontSizeMax() const { return m_baseFontSizeMax; }
 
+    int lastGCVersionRan() const { return m_lastGCVersionRan; }
+    void setLastGCVersionRan(const int newLastGCVersionRan) {
+        m_lastGCVersionRan = newLastGCVersionRan;
+        emit lastGCVersionRanChanged();
+    }
+
 protected slots:
 
     Q_INVOKABLE void notifyShowLockedActivitiesChanged();
-	Q_INVOKABLE void notifyAudioVoicesEnabledChanged();
-	Q_INVOKABLE void notifyAudioEffectsEnabledChanged();
+    Q_INVOKABLE void notifyAudioVoicesEnabledChanged();
+    Q_INVOKABLE void notifyAudioEffectsEnabledChanged();
     Q_INVOKABLE void notifyFullscreenChanged();
     Q_INVOKABLE void notifyVirtualKeyboardChanged();
     Q_INVOKABLE void notifyLocaleChanged();
     Q_INVOKABLE void notifyFontChanged();
     Q_INVOKABLE void notifyFontCapitalizationChanged();
+    Q_INVOKABLE void notifyFontLetterSpacingChanged();
     Q_INVOKABLE void notifyEmbeddedFontChanged();
     Q_INVOKABLE void notifyAutomaticDownloadsEnabledChanged();
     Q_INVOKABLE void notifyFilterLevelMinChanged();
@@ -405,11 +446,13 @@ protected slots:
 
     Q_INVOKABLE void notifyExeCountChanged();
 
+    Q_INVOKABLE void notifyLastGCVersionRanChanged();
+
     Q_INVOKABLE void notifyBarHiddenChanged();
 
 public slots:
-	Q_INVOKABLE bool isFavorite(const QString &activity);
-	Q_INVOKABLE void setFavorite(const QString &activity, bool favorite);
+    Q_INVOKABLE bool isFavorite(const QString &activity);
+    Q_INVOKABLE void setFavorite(const QString &activity, bool favorite);
     Q_INVOKABLE void saveBaseFontSize();
     /// @endcond
 
@@ -447,13 +490,14 @@ public slots:
 
 signals:
     void showLockedActivitiesChanged();
-	void audioVoicesEnabledChanged();
-	void audioEffectsEnabledChanged();
+    void audioVoicesEnabledChanged();
+    void audioEffectsEnabledChanged();
     void fullscreenChanged();
     void virtualKeyboardChanged();
     void localeChanged();
     void fontChanged();
     void fontCapitalizationChanged();
+    void fontLetterSpacingChanged();
     void embeddedFontChanged();
     void automaticDownloadsEnabledChanged();
     void filterLevelMinChanged();
@@ -469,6 +513,7 @@ signals:
 
     void exeCountChanged();
 
+    void lastGCVersionRanChanged();
     void barHiddenChanged();
 
 private:
@@ -481,16 +526,17 @@ private:
 
     bool m_showLockedActivities;
     bool m_isAudioVoicesEnabled;
-	bool m_isAudioEffectsEnabled;
+    bool m_isAudioEffectsEnabled;
     bool m_isFullscreen;
     bool m_isVirtualKeyboard;
     bool m_isAutomaticDownloadsEnabled;
     bool m_isEmbeddedFont;
     quint32 m_fontCapitalization;
+    qreal m_fontLetterSpacing;
     quint32 m_filterLevelMin;
     quint32 m_filterLevelMax;
-	bool m_defaultCursor;
-	bool m_noCursor;
+    bool m_defaultCursor;
+    bool m_noCursor;
     QString m_locale;
     QString m_font;
     bool m_isDemoMode;
@@ -499,13 +545,17 @@ private:
     bool m_isKioskMode;
     bool m_sectionVisible;
     QString m_wordset;
-	int m_baseFontSize;
-	const int m_baseFontSizeMin;
-	const int m_baseFontSizeMax;
+    int m_baseFontSize;
+    const int m_baseFontSizeMin;
+    const int m_baseFontSizeMax;
+    const qreal m_fontLetterSpacingMin;
+    const qreal m_fontLetterSpacingMax;
 
     QString m_downloadServerUrl;
 
     quint32 m_exeCount;
+
+    int m_lastGCVersionRan;
 
     bool m_isBarHidden;
 

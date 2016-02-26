@@ -37,6 +37,7 @@ erase
 erase_2clic
 erase_clic
 explore_farm_animals
+explore_monuments
 explore_world_animals
 explore_world_music
 fifteen
@@ -50,6 +51,7 @@ gnumch-factors
 gnumch-inequality
 gnumch-multiples
 gnumch-primes
+graph-coloring
 guessnumber
 hangman
 hanoi
@@ -113,6 +115,7 @@ smallnumbers
 smallnumbers2
 sudoku
 superbrain
+tangram
 target
 tic_tac_toe
 tic_tac_toe_2players

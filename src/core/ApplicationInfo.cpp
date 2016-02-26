@@ -24,6 +24,7 @@
 
 #include "ApplicationInfo.h"
 
+#include <QtQml>
 #include <QtMath>
 #include <QUrl>
 #include <QUrlQuery>
@@ -229,6 +230,18 @@ QString ApplicationInfo::getVoicesLocale(const QString &locale)
         return QLocale(_locale).name();
     // short locale for all the rest:
     return localeShort(_locale);
+}
+
+QVariantList ApplicationInfo::localeSort(QVariantList list,
+                                         const QString& locale) const
+{
+    QElapsedTimer timer;
+    timer.start();
+    std::sort(list.begin(), list.end(),
+              [&locale,this](const QVariant& a, const QVariant& b) {
+        return (localeCompare(a.toString(), b.toString(), locale) < 0);
+    });
+    return list;
 }
 
 QObject *ApplicationInfo::systeminfoProvider(QQmlEngine *engine,
