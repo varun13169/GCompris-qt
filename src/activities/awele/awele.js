@@ -21,68 +21,92 @@
 .import "engine.js" as Engine
 
 var url="qrc:/gcompris/src/activities/awele/resource/"
-var playerOnePoints=0;
-var playerTwoPoints=0;
 var items;
 var stack=[];
 var set=Engine.returnBoard();
 
 function start(items_){
+    console.log(Engine.constructor())
     items=items_;
-    items.learnOware.visible=true
     init();
 }
 
+function stop(){
+}
+
+function TheKroos(){
+    ////console.log(Engine.board);
+    Engine.board=[1,12,7,6,5,0,1,6,6,0,2,0];
+    updateValues();
+
+}
+
+function Harvesting(){
+    Engine.board=[6,6,5,0,1,6,6,0,7,5,5,1];
+}
+
 function init(){
-    playerOnePoints=0;
-    playerTwoPoints=0;
-    console.log("init");
+
+    //console.log("init");
     set=Engine.returnBoard()
     stack=[];
     updateValues();
+    updateScores();
+    items.player1turn.start();
 }
 
 function twoPlayer(move,player){
     Engine.nextPlayer=(player+2)%2;
-    if(player){
-        Engine.makeMoveComplete(6+move);
-        console.log(Engine.scoreHouse);
-    }
-    else{
-        Engine.makeMoveComplete(move);
-        console.log(Engine.scoreHouse);
-    }
+        if(player){
+            if(Engine.board[6+move]==0)
+                return false;
+            Engine.makeMoveComplete(6+move,Engine);
+            //console.log(Engine.scoreHouse);
+            return true;
+        }
+        else{
+            if(Engine.board[move]==0)
+                return false;
+            //console.log(move)
+            Engine.makeMoveComplete(move,Engine);
+            //console.log(Engine.scoreHouse);
+            return true;
+        }
 }
 
 function newAi(level,move,player){
-//    console.log("in ailevel1",move,level);
+//    //console.log("in ailevel1",move,level);
 //    Engine.makePlayerMove(move,undefined);
 //    updateValues();
 //    updateScores();
 //    Engine.makeAiMove(level,undefined);
 //    updateValues();
 //    updateScores();
-   // console.log(move,"move");
+   // //console.log(move,"move");
 
     var computerTurn=0;
     var computerHeuristic;
     Engine.makeMove(move,player);
     updateValues();
     updateScores();
-    //console.log("move player",set);
-    console.log("algo",set);
+    ////console.log("move player",set);
+    //console.log("algo",set);
     computerHeuristic=Engine.makeAimove();
-   // console.log("computer HEURISTIC",computerHeuristic);
+   // //console.log("computer HEURISTIC",computerHeuristic);
     updateValues();
     updateScores();
 }
 
+
+
 function updateScores(){
-//    playerOnePoints=Engine.scoringHouse(0,this)
-//    playerTwoPoints=Engine.scoringHouse(1,this)
-//    items.textOneSource.textSource="player one:<br />"+playerOnePoints
+    console.log(Engine.scoringHouse(0,Engine),Engine.scoringHouse(0,Engine),"Engine.scoringHouse(0,Engine)")
+    items.textOneSource.text=Engine.scoringHouse(0,Engine)
+    items.textTwoSource.text=Engine.scoringHouse(1,Engine)
+    //console.log("score",playerOnePoints,playerTwoPoints);
+    //    items.textOneSource.textSource="player one:<br />"+playerOnePoints
 //    items.textTwoSource.textSource="player Two:<br />"+playerTwoPoints
-//   // console.log(items.textOneSource.textSource,items.textTwoSource.textSource);
+//   // //console.log(items.textOneSource.textSource,items.textTwoSource.textSource);
 }
 
 function updateValues(){
@@ -90,7 +114,7 @@ function updateValues(){
     j=0;
     //set=[1,2,3,4,5,6,7,8,9,10,11,12]
     set=Engine.returnBoard()
-    console.log(set);
+    //console.log(set);
 //    for (i=0;i<12;i++){
 ////        items.repeator.itemAt(i).value=set[i];
 ////        items.repeator.itemAt(6+i).value=set[6+i];
@@ -105,7 +129,7 @@ function updateValues(){
         items.repeator.itemAt(j).value=set[i];
         j++;
     }
-    console.log(j);
+    //console.log(j);
     for(i=0;i<6;i++){
         items.repeator.itemAt(j).value=set[i];
         j++;
@@ -114,26 +138,26 @@ function updateValues(){
 
 function getValueByIndex(index,player){
 
-  // console.log("index",index,player);
+  // //console.log("index",index,player);
 
     if(player){
-        //console.log("less 6",set[index+5]);
+        ////console.log("less 6",set[index+5]);
         return (set[index]);
     }
     else{
-        //        console.log("less 6",set[index%6]);
+        //        //console.log("less 6",set[index%6]);
         return (set[index+6]);
     }
 }
 
 function getX(radius,index,value){
-  //  console.log("value is",index,value);
+  //  //console.log("value is",index,value);
     var step=(2*Math.PI)*index/value;
     return radius*Math.cos(step);
 }
 
 function getY(radius,index,value){
-  //  console.log("value is",index,value);
+  //  //console.log("value is",index,value);
     var step=(2*Math.PI)*index/value;
     return radius*Math.sin(step);
 }
@@ -143,7 +167,7 @@ function swap(move,player){
     var temp=set[row][move];
     var i=row;
     set[row][count]=0;
-   // console.log(set[row][count]);
+   // //console.log(set[row][count]);
     while(temp>0){
         if(i){
             if(count==5){
@@ -199,24 +223,24 @@ function swap(move,player){
                 count--;
             }
         }
-        console.log(set[0],set[1]);
+        //console.log(set[0],set[1]);
         temp--;
     }
     var variable;
     if(stack!=[]){
-        console.log("out",stack);
+        //console.log("out",stack);
         for(var count=0;count<stack.length;count++){
             variable=stack[count];
-             console.log("count",count,i,row,variable);
+             //console.log("count",count,i,row,variable);
              if(row!=i){
                 if(row){
                      playerOnePoints=playerOnePoints+set[variable[0]][variable[1]];
-                    console.log("score1",playerOnePoints,variable[0],variable[1]);
+                    //console.log("score1",playerOnePoints,variable[0],variable[1]);
                     set[variable[0]][variable[1]]=0;
                 }
                 else{
                      playerTwoPoints=playerTwoPoints+set[variable[0]][variable[1]];
-                    console.log("score2",variable,playerOnePoints,variable[0],variable[1]);
+                    //console.log("score2",variable,playerOnePoints,variable[0],variable[1]);
                     set[variable[0]][variable[1]]=0;
                 }
             }
