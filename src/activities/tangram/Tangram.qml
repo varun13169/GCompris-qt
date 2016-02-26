@@ -34,6 +34,8 @@ ActivityBase {
     onStart: focus = true
     onStop: {}
 
+    Keys.onPressed: Activity.processPressedKey(event)
+
     pageComponent: Item {
         id: background
         anchors.fill: parent
@@ -171,6 +173,7 @@ ActivityBase {
                 property bool selected: false
                 property int animDuration: 48
                 property bool flippable: modelData.flippable
+                property bool rotable: modelData.moduloRotation != 0
 
                 // After a drag the [x, y] positions are adressed directly breaking our
                 // binding. Call me to reset the binding.
@@ -286,7 +289,7 @@ ActivityBase {
                     source: "qrc:/gcompris/src/core/resource/bar_reload.svg"
                     x: - width
                     y: parent.height / 2 - height / 2
-                    visible: parent.selected && modelData.moduloRotation > 0
+                    visible: parent.selected && parent.rotable
                     sourceSize.width: 40 * ApplicationInfo.ratio
                     z: parent.z + 1
 
