@@ -26,7 +26,7 @@ var stack=[];
 var set=Engine.returnBoard();
 
 function start(items_){
-    console.log(Engine.constructor())
+
     items=items_;
     init();
 }
