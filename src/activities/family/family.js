@@ -27,6 +27,7 @@ var numberOfLevel = 35
 var flag
 var items
 var currentdata
+var count = 0
 /*
 The first three elements of dataset is refer to the circle elements the next three elements refer to the
 content of answer button and then 7th element refer to the correct answer then next three element refer to the how we are related to
@@ -34,106 +35,106 @@ other people, the contents that will be displayed next to bambo at last we will 
 */
 
 var dataset = [  [ "man1.svg","girl1.svg","grandmother.svg","Grand Mother","Grand Father","Father","Grand Mother",
-                  "?","Father","Mother","image"],
+                  "?","Father","Mother","image",3],
 
                [ "grandpa.svg","girl2.svg","man1.svg","Grand Mother", "Mother", "Grand Father","Grand Father",
-                "Father","?","Son","image"],
+                "Father","?","Son","image",3],
 
                [ "girl3.svg","man1.svg","man2.svg","Uncle","Aunty","father","Uncle","Brother","Daughter","?",
-                "image"],
+                "image",3],
 
                [ "lady.svg","boy1.svg","lady1.svg","Mother","Aunty","GrandMother","Aunty","Mother","?","Sister",
-                "image"],
+                "image",3],
 
                [ "lady.svg","boy1.svg","girl2.svg","Brother","Sister","Cousin","Cousin","?","Mother","Niece",
-                "image"],
+                "image",3],
 
                [ "man1.svg","man2.svg","boy1.svg","Daughter","Son","Newphew","Newphew","Son","Brother","?",
-                "image"],
+                "image",3],
 
                [ "girl3.svg","man1.svg","man2.svg","Newphew","Niece","Daughter","Niece","Brother","?","Father",
-                "image"],
+                "image",3],
 
                [ "grandmother.svg","man1.svg","boy1.svg","Grand Son", "Son","Son In Law","Grand Son",
-                "Son","Son","?","image"],
+                "Son","Son","?","image",3],
 
                [ "lady.svg","girl1.svg","grandpa.svg","Grand Daughter","Daughter","Daughter In Law","Grand Daughter",
-                "?","Mother","Father","image"] ,
+                "?","Mother","Father","image",3] ,
 
                [ "man1.svg","lady1.svg","grandmother.svg","Mother","Mother in law","Aunty","Mother in law",
-                "Mother","Husband","?","image"],
+                "Mother","Husband","?","image",3],
 
                [ "girl2.svg","man2.svg","grandpa.svg","Father", "Father in Law", "Uncle","Father in Law",
-                "Father","Wife","?","image"],
+                "Father","Wife","?","image",3],
 
                [ "girl3.svg","man1.svg","girl2.svg","Sister","Cousin","Sister in Law","Sister in Law",
-                "?","Wife","Sister","image"],
+                "?","Wife","Sister","image",3],
 
                [ "man2.svg","girl3.svg","man1.svg","Brother","Brother in law","Cousin","Brother in law",
-                "?","Husband","Brother","image"],
+                "?","Husband","Brother","image",3],
 
                [ "man1.svg","boy1.svg","lady1.svg","Mother","Aunty","Step-Mother","Step-Mother",
-                "?","Father","Second Wife","image"],
+                "?","Father","Second Wife","image",3],
 
                [ "lady.svg","girl2.svg","man2.svg","Father","Uncle","Step-Father","Step-Father",
-                "?","Mother","Second Husband","image"],
+                "?","Mother","Second Husband","image",3],
 
                [ "boy2.svg","man1.svg","lady.svg","Son","Step-Son","Newphew","Step-Son",
-                "Second Wife","?","Mother","image"],
+                "Second Wife","?","Mother","image",3],
 
                [ "lady1.svg","man2.svg","girl2.svg","Step-Daughter","Niece","Daughter","Step-Daughter",
-                "Daughter","Second wife","?","image"],
+                "Daughter","Second wife","?","image",3],
 
                [ "Father","You","Mother","Grand Mother","Grand Father","Father","Grand Mother",
-                "?","","","text"],
+                "?","","","text",3],
 
                [ "Father","You","Father","Grand Mother","Mother", "Grand Father","Grand Father",
-                "?","","","text"],
+                "?","","","text",3],
 
-               [ "You","Son","Brother","Uncle","Aunty","father","Uncle","","","?","text"],
+               [ "You","Son","Brother","Uncle","Aunty","father","Uncle","","","?","text",3],
 
                [ "You","Daughter","Sister","Mother","Aunty","GrandMother","Aunty","","","?",
-                "text"],
+                "text",3],
 
                [ "Father","You","Newphew","Brother","Sister","Cousin","Cousin","?","","",
-                "text"],
+                "text",3],
 
                [ "Father","You","Niece","Brother","Sister","Cousin","Cousin","?","","",
-                "text"],
+                "text",3],
 
                ["Father","You","Cousin","Daughter","Son","Newphew","Newphew","","","?",
-                "text"],
+                "text",3],
 
                ["Mother","You","Cousin","Son","Niece","Daughter","Niece","","","?",
-                "text"],
+                "text",3],
 
-               ["Son","You","Son","Grand Son", "Son","Son In Law","Grand Son","?","","","text"],
+               ["Son","You","Son","Grand Son", "Son","Son In Law","Grand Son","?","","","text",3],
 
                ["Son","You","Daughter","Grand Daughter","Daughter","Daughter In Law","Grand Daughter",
-                "?","","","text"],
+                "?","","","text",3],
 
                ["Wife","You","Mother","Mother","Mother in law","Aunty","Mother in law",
-                "?","","","text"],
+                "?","","","text",3],
 
                ["husband","You","Father","Father", "Father in Law", "Uncle","Father in Law",
-                "?","","","text"],
+                "?","","","text",3],
 
                ["Wife","You","Brother","Brother","Brother in law","Cousin","Brother in law",
-                "?","","","text"],
+                "?","","","text",3],
 
                ["Wife","You","Sister","Sister","Cousin","Sister in Law","Sister in Law",
-                "?","","","text"],
+                "?","","","text",3],
 
                ["Father","Second\nWife","You", "Mother","Aunty","Step-Mother","Step-Mother",
-                "?","","","text"],
+                "?","","","text",3],
 
                ["Mother","Second\nHusband","You","Father","Uncle","Step-Father","Step-Father",
-                "?","","","text"],
+                "?","","","text",3],
 
-               ["Second\nWife","You","Son","Son","Step-Son","Newphew","Step-Son","?","","","text"],
+               ["Second\nWife","You","Son","Son","Step-Son","Newphew","Step-Son","?","","","text",3],
 
                ["Second\nWife","You","Daughter","Step-Daughter","Niece","Daughter","Step-Daughter",
-                "?","","","text"]
+                "?","","","text",3]
     ];
 
 function start(items_) {
@@ -151,6 +152,7 @@ function initLevel() {
     dataset = Core.shuffle(dataset);
     currentdata = dataset[items.bar.level];
     items.imageOrtext = currentdata[10];
+    count = currentdata[11];
     if(currentdata[10] === "text") {
             items.pic1.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
             items.pic1.visible = false
