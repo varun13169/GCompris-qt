@@ -87,8 +87,7 @@ ActivityBase{
             width: parent.width
             height: parent.height
             visible: false
-
-            z: 1
+            z: 100
             onVisibleChanged: {
                 if(visible) {
                     animDescription.start()
@@ -475,7 +474,8 @@ ActivityBase{
                             // Activity.newAi(level,index,player);
 
                             Activity.twoPlayer(index,player)
-                            player=!player;
+                            if(Activity.getValueByIndex(index,player)!=0)
+                                player=!player;
                             Activity.updateValues();
                             Activity.updateScores();
                             sourceString: Activity.url + "bouton"+(index+1)+".png"
@@ -557,7 +557,7 @@ ActivityBase{
             }
             width: parent.width
             wrapMode: Text.WordWrap
-            z: 100
+
             onTextChanged: textanim.start()
             property string newKey
             SequentialAnimation {
