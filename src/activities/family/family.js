@@ -153,6 +153,7 @@ function initLevel() {
     currentdata = dataset[items.bar.level];
     items.imageOrtext = currentdata[10];
     count = currentdata[11];
+    items.repeateanswerbutton.model = count;
     if(currentdata[10] === "text") {
             items.pic1.source = "qrc:/gcompris/src/activities/family/resource/" + "text_background.svg"
             items.pic1.visible = false
@@ -173,9 +174,6 @@ function initLevel() {
         items.pic3.visible = true
     }
     items.answered = currentdata[6];
-    items.button1.textLabel = qsTr(currentdata[3]);
-    items.button2.textLabel = qsTr(currentdata[4]);
-    items.button3.textLabel = qsTr(currentdata[5]);
     items.caption1d = currentdata[7]; items.caption2d = currentdata[8]; items.caption3d = currentdata[9];
 }
 

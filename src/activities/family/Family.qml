@@ -58,9 +58,7 @@ ActivityBase {
             property alias text1:text1
             property alias text2:text2
             property alias text3:text3
-            property alias button1:button1
-            property alias button2:button2
-            property alias button3:button3
+            property alias repeateanswerbutton: repeateanswerbutton
             /* d stands for the data of the various */
             property string caption1d
             property string caption2d
@@ -199,13 +197,13 @@ ActivityBase {
                 }
 
                 GCText{
-                   id:text1
-                   visible: items.imageOrtext === "text" ? true : false
-                   fontSize:mediumSize
-                   anchors{
-                       horizontalCenter:parent.horizontalCenter
-                       verticalCenter: parent.verticalCenter
-                   }
+                    id:text1
+                    visible: items.imageOrtext === "text" ? true : false
+                    fontSize:mediumSize
+                    anchors{
+                        horizontalCenter:parent.horizontalCenter
+                        verticalCenter: parent.verticalCenter
+                    }
                 }
 
             }
@@ -242,13 +240,13 @@ ActivityBase {
                     }
 
                     GCText{
-                       id:text2
-                       visible:items.imageOrtext === "text" ? true : false
-                       fontSize:mediumSize
-                       anchors{
-                           horizontalCenter:parent.horizontalCenter
-                           verticalCenter: parent.verticalCenter
-                       }
+                        id:text2
+                        visible:items.imageOrtext === "text" ? true : false
+                        fontSize:mediumSize
+                        anchors {
+                            horizontalCenter:parent.horizontalCenter
+                            verticalCenter: parent.verticalCenter
+                        }
                     }
                 }
             }
@@ -296,55 +294,25 @@ ActivityBase {
             rowSpacing:background.width/10
             x:background.width/1.5
             y:background.height/14
-            AnswerButton {
-                id:button1
-                width:background.width/5
-                height:background.height/6
-                onPressed: {
-                    if(button1.textLabel === items.answered) {
-                        bonus.good("lion")
-                    }
-                    else {
-                        bonus.bad("lion")
-                    }
-
-                }
-
-            }
-            AnswerButton {
-                id:button2
-                width:background.width/5
-                height:background.height/6
-                onPressed: {
-                    if(button2.textLabel === items.answered) {
-                        bonus.good("lion")
-                    }
-                    else {
-                        bonus.bad("lion")
-                        console.log(items.answered)
-                    }
-
-                }
-            }
-            AnswerButton {
-                id:button3
-                width:background.width/5
-                height:background.height/6
-                onPressed: {
-                    if(button3.textLabel === items.answered) {
-                        bonus.good("lion")
-                    }
-                    else {
-                        bonus.bad("lion")
-
+            Repeater {
+                id:repeateanswerbutton
+                AnswerButton {
+                    id:button
+                    width:background.width/5
+                    height:background.height/6
+                    textLabel:qsTr(Activity.currentdata[index+3])
+                    onPressed: {
+                        if(button.textLabel === items.answered) {
+                            bonus.good("lion")
+                        }
+                        else {
+                            bonus.bad("lion")
+                        }
 
                     }
 
                 }
             }
-
-
-
 
         }
 
