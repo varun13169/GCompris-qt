@@ -174,7 +174,7 @@ function initLevel() {
         items.pic3.visible = true
     }
     items.answered = currentdata[6];
-    items.caption1d = currentdata[7]; items.caption2d = currentdata[8]; items.caption3d = currentdata[9];
+    items.caption1d = qsTr(currentdata[7]); items.caption2d = qsTr(currentdata[8]); items.caption3d = qsTr(currentdata[9]);
 }
 
 function nextLevel() {
