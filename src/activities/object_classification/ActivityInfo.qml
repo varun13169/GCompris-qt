@@ -23,7 +23,7 @@ import GCompris 1.0
 ActivityInfo {
   name: "object_classification/Object_classification.qml"
   difficulty: 1
-  icon: "object_classification/object_classification.svg"
+  icon: "object_classification/object_classification.png"
   author: "Ayush Agrawal &lt;ayushagrawal288@gmail.com&gt;"
   demo: true
   title: qsTr("Object Classification")

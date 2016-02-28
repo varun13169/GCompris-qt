@@ -22,17 +22,17 @@
 import QtQuick 2.0
 
 QtObject {
-    property string instruction: qsTr("Arrange the objects in increasing order of their Real-life sizes.")
+    property string instruction: qsTr("Arrange the Cuboids in increasing order of their Volume.")
     property variant levels : [
         {
-            "pixmapfile": "img/car.png",
+            "pixmapfile": "img/blueCuboid.png",
             "x": "0.67",
             "y": "0.5",
             "height": "0.4",
             "width": "0.4"
         },
         {
-            "pixmapfile": "img/bicycle.png",
+            "pixmapfile": "img/yellowCuboid.png",
             "x": "0.33",
             "y": "0.5",
             "height": "0.4",

@@ -1,1 +1,1 @@
-GCOMPRIS_ADD_RCC(activities/object_classification *.qml *.svg *.js resource/*/*)
+GCOMPRIS_ADD_RCC(activities/object_classification *.qml *.png *.js resource/*/*)

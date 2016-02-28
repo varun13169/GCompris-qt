@@ -22,19 +22,21 @@
 import QtQuick 2.0
 
 QtObject {
-    property string questionText: qsTr("Drag and Drop the items to make them match")
-    property variant tab : [
+    property string instruction: qsTr("Arrange the triangle in increasing order of their Areas.")
+    property variant levels : [
         {
-            "source": "qrc:/gcompris/src/activities/object_classification/resource/img/triangle.png",
-            "value": "1",
-            "height": "0.1",
-            "width": "0.1"
+            "pixmapfile": "img/greenTriangle.png",
+            "x": "0.67",
+            "y": "0.5",
+            "height": "0.4",
+            "width": "0.4"
         },
         {
-            "source": "qrc:/gcompris/src/activities/object_classification/resource/img/triangle.png",
-            "value": "0",
-            "height": "0.07",
-            "width": "0.07"
+            "pixmapfile": "img/greenTriangleSmall.png",
+            "x": "0.33",
+            "y": "0.5",
+            "height": "0.4",
+            "width": "0.4"
         }
     ]
 }

@@ -22,18 +22,32 @@
 import QtQuick 2.0
 
 QtObject {
-    property string instruction: qsTr("Arrange the objects in increasing order of their Real-life sizes.")
+    property string instruction: qsTr("Arrange the triangle in increasing order of their Areas.")
     property variant levels : [
         {
-            "pixmapfile": "img/car.png",
-            "x": "0.67",
+            "pixmapfile": "img/orangeTriangleSmall.png",
+            "x": "0.20",
             "y": "0.5",
             "height": "0.4",
             "width": "0.4"
         },
         {
-            "pixmapfile": "img/bicycle.png",
-            "x": "0.33",
+            "pixmapfile": "img/greenTriangleSmall.png",
+            "x": "0.40",
+            "y": "0.5",
+            "height": "0.4",
+            "width": "0.4"
+        },
+        {
+            "pixmapfile": "img/orangeTriangle.png",
+            "x": "0.60",
+            "y": "0.5",
+            "height": "0.4",
+            "width": "0.4"
+        },
+        {
+            "pixmapfile": "img/greenTriangle.png",
+            "x": "0.80",
             "y": "0.5",
             "height": "0.4",
             "width": "0.4"
