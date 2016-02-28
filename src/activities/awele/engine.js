@@ -31,6 +31,16 @@ for(k=0;k<12;k++){
     board[k]=4;
 }
 
+function init(){
+    for(var k=0;k<2;k++){
+        this.scoreHouse[k]=0;
+    }
+
+    for(k=0;k<12;k++){
+        this.board[k]=4;
+    }
+}
+
 function clone(obj) {
     if(obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj)
         return obj;

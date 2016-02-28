@@ -9,6 +9,7 @@ algorithm
 align4
 align4-2players
 awele
+awele-2players
 alphabet-sequence
 babymatch
 babyshapes

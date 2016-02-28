@@ -34,6 +34,11 @@ function start(items_){
 function stop(){
 }
 
+function reload(){
+    Engine.init();
+    init();
+}
+
 function TheKroos(){
     ////console.log(Engine.board);
     Engine.board=[1,12,7,6,5,0,1,6,6,0,2,0];

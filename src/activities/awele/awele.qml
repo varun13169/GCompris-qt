@@ -1,9 +1,8 @@
 /* GCompris - oware
  *
- * Copyright (C) 2014-2015 Holger Kaelberer <holger.k@elberer.de>
+ * Copyright (C) 2016 shivansh Bajaj <bajajshivansh1@gmail.com>
  *
  * Authors:
- *   Holger Kaelberer <holger.k@elberer.de>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -28,12 +27,12 @@ import "awele.js" as Activity
 ActivityBase{
     id: activity
     property bool player: false
-    property string value: "4"
     property var rule: qsTr("Oware is played on a board of two rows and six holes. The row in front of you is your own ground. The game starts with 4 seeds in each hole.")+"\n"+qsTr("Oware Rule 1 : sowing")+"\n"+qsTr("To sow you must take all the seeds of  any of your holes and lay its out along the holes against the direction of the clockwise. In every hole you should lay it out one seed.  If you reach the last hole of your ground you must continue in the land of the other player. Remember, you always have to lay out seeds in the direction against the clockwise")+"\n"+qsTr("Oware Rule 2: harvesting")+"\n"+qsTr("If the last hole where you sow is in the land of the other player and there are two or three seeds in the last hole remove from the board and keep them.If the previous holes also contain two or three seeds also remove them and remove all the seeds of your opponent that contains two or three seeds.")+"\n"+qsTr("Oware Rule 3: The Kroo ")+"\n"+qsTr("As the game progresses, is possible that one hole contains more than 12 seeds. This hole is called Kroo and makes possible complete one round.When the harvest starts at the Kroo, this hole must finish empty what means that the player shouldn’t lay out any seed.")+"\n"+qsTr("Oware Rule 4: You can’t permit other players feel hungry")+"\n"+qsTr("If the other player has only one seed in his field you will have to remove it in order to harvest and continue playing. This situation means that the other player will not be able keep playing.Players must provide in advance to avoid this situation. For example, having at least one seed in the last hole to harvest immediately to our opponent side and allow him to keep playing.If this is impossible, because we only have one seed in our land. The game is finished. Teh winner is the one that harvest more.")+"\n"+qsTr("Oware Rule 5: The final agreement ")+"\n"+qsTr("When there are few seeds left on the counter, the game may be perpetuating and hardly any of the 2 players can capture any new seed. By mutual agreement player can agree the end of the game. In this case every player is the owner of the seeds in his side.  As always, who has garnered more wins the match.")
     property bool learn:false
+    property bool playerTwo:true
     onStart:{focus=true
     }
-    onStop: {}
+    onStop: {Activity.reload()}
 
     pageComponent:Image{
         id: background
@@ -113,7 +112,7 @@ ActivityBase{
                 onPressed: parent.close()
             }
 
-            property var title: "Learn Owares"
+
             property var description: qsTr("If the last hole where you sow is in the land of the other player and there are two or three seeds in the last hole remove from the board and keep them. If the previous holes also contain two or three seeds also remove them and remove all the seeds of your opponent that contains two or three seeds." )+qsTr("As the game progresses, is possible that one hole contains more than 12 seeds. This hole is called Kroo and makes possible complete one round. When the harvest starts at the Kroo, this hole must finish empty what means that the player shouldn’t lay out any seed.")
             property var imageSource:Activity.url+"/background.jpg"
 
@@ -127,7 +126,7 @@ ActivityBase{
                 anchors.centerIn: parent.Center
                 color: "white"
                 width: parent.width
-                text:"Rules"
+                text:qsTr("Rules")
                 wrapMode: Text.WordWrap
             }
 
@@ -248,7 +247,7 @@ ActivityBase{
                 anchors.top: imageOne.bottom
                 anchors.horizontalCenter: imageOne.horizontalCenter
                 fontSize: smallSize
-                text: "South"
+                text: qsTr("South")
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: TextEdit.WordWrap
             }
@@ -362,7 +361,7 @@ ActivityBase{
                 anchors.bottom: imageTwo.top
                 anchors.horizontalCenter: imageTwo.horizontalCenter
                 fontSize: smallSize
-                text: "north"
+                text: qsTr("north")
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: TextEdit.WordWrap
             }
@@ -412,12 +411,12 @@ ActivityBase{
                     property var value: Activity.getValueByIndex(index,player)
                     property var circleRadius: width
                     radius: circleRadius
-                    Text{
+                    GCText{
                         text:value
                         color: "white"
                         font.bold: true
                         font.family: "Helvetica"
-                        font.pixelSize:24
+
                         anchors.bottom: parent.top
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
@@ -460,24 +459,8 @@ ActivityBase{
                         anchors.fill:parent
                         hoverEnabled: true
                         onClicked:{
-                            var level=1;
-                            if(player){
-                                player2turn.stop();
-                                player1turn.start();
-                            }
-                            else{
-                                player1turn.stop();
-                                player2turn.start();
-                            }
-
-                            //Activity.newAi(1,index,player)
-                            // Activity.newAi(level,index,player);
-
-                            Activity.twoPlayer(index,player)
-                            if(Activity.getValueByIndex(index,player)!=0)
-                                player=!player;
-                            Activity.updateValues();
-                            Activity.updateScores();
+                            if(playerTwo==true)
+                                multiPlayer(index);
                             sourceString: Activity.url + "bouton"+(index+1)+".png"
 
                         }
@@ -590,14 +573,39 @@ ActivityBase{
                 }
             }
         }
+        function multiPlayer(index){
+            var level=1;
+            if(player){
+                player2turn.stop();
+                player1turn.start();
+            }
+            else{
+                player1turn.stop();
+                player2turn.start();
+            }
 
+            //Activity.newAi(1,index,player)
+            // Activity.newAi(level,index,player);
+
+            Activity.twoPlayer(index,player);
+            if(Activity.getValueByIndex(index,player)!=0)
+                player=!player;
+            Activity.updateValues();
+            Activity.updateScores();
+        }
+        DialogHelp {
+            id: dialogHelp
+            onClose: home()
+        }
         Bar {
             id: bar
-            content: BarEnumContent { value: help | home }
+            content: BarEnumContent { value: help | home | reload | (playerTwo)?0:level}
             onHelpClicked: {
                 displayDialog(dialogHelp)
             }
             onHomeClicked: activity.home()
+            onReloadClicked: Activity.reload()
+
         }
 
     }
