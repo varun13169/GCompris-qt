@@ -18,7 +18,7 @@
 import GCompris 1.0
 
 ActivityInfo {
-  name: "awele/awele.qml"
+  name: "awele/Awele.qml"
   difficulty: 6
   icon: "awele/awele.svg"
   author: "shivanshbajaj &ltbajajshivansh1@gmail.com;"
