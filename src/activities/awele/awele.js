@@ -24,7 +24,7 @@ var url="qrc:/gcompris/src/activities/awele/resource/"
 var items;
 var stack=[];
 var set=Engine.returnBoard();
-
+var level=1;
 function start(items_){
 
     items=items_;
@@ -32,6 +32,18 @@ function start(items_){
 }
 
 function stop(){
+}
+
+function nextLevel(){
+    if(level<6){
+        level=level+1;
+    }
+}
+
+function nextLevel(){
+    if(level>0){
+        level=level-1;
+    }
 }
 
 function reload(){
@@ -79,7 +91,7 @@ function twoPlayer(move,player){
         }
 }
 
-function newAi(level,move,player){
+function newAi(move,player){
 //    //console.log("in ailevel1",move,level);
 //    Engine.makePlayerMove(move,undefined);
 //    updateValues();
@@ -88,7 +100,7 @@ function newAi(level,move,player){
 //    updateValues();
 //    updateScores();
    // //console.log(move,"move");
-
+    Engine.depth=level;
     var computerTurn=0;
     var computerHeuristic;
     Engine.makeMove(move,player);
