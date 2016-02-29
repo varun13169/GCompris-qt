@@ -75,6 +75,7 @@ ActivityBase {
             property alias tux: tux
             property alias tuximage: tuximage
             property alias helimotion: helimotion
+            property alias helicopter : helicopter
             property real  velocityY:velocityY
 
         }
@@ -149,6 +150,7 @@ ActivityBase {
                     }
                     onClicked: {
                         if((Activity.Oneclick === false)&&(Activity.tuxfallingblock ===false)) {
+                            helicopter.source = activity.dataSetUrl + Activity.planeWithouttux
                             tuximage.visible=true
                             tux.y = helimotion.y
                             tuxX.stop()
@@ -290,7 +292,7 @@ ActivityBase {
                     name: "DownPressed"
                     PropertyChanges {
                         target: tux
-                        y:(tux.y + 100)
+                        y:(tux.y + 75)
                         x:(tux.x + 2)
                     }
                 },
@@ -317,7 +319,7 @@ ActivityBase {
                 SmoothedAnimation { velocity:Activity.velocityX  }
             }
             Behavior on y {
-                SmoothedAnimation { velocity:Activity.velocityY }
+                SmoothedAnimation { velocity:Activity.velocityY[items.barlevel-1] }
             }
 
 

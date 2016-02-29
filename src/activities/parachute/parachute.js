@@ -36,6 +36,8 @@ var winlose
 var loseflag = false
 var minitux = "minitux.svg"
 var parachutetux = "parachute.svg"
+var planeWithtux = "tuxplane.svg"
+var planeWithouttux = "tuxwithoutplane.svg"
 var tuxImageStatus = 1
 var tuxfallingblock = false
 var velocityY = [30,45,55,80]
@@ -64,6 +66,7 @@ function initLevel() {
     Oneclick = false
     pressed = false
     loseflag =false
+    items.helicopter.source = "qrc:/gcompris/src/activities/parachute/resource/" +  planeWithtux
     tuxImageStatus = 0
     items.tux.state = "rest"
     items.tux.y = 0
