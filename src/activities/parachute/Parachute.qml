@@ -292,7 +292,7 @@ ActivityBase {
                     PropertyChanges {
                         target: tux
                         y:(tux.y + .02)
-                        x:(tux.x + 2)
+                        x:(tux.x + Activity.xsteps())
                     }
 
                 },
@@ -301,7 +301,7 @@ ActivityBase {
                     PropertyChanges {
                         target: tux
                         y:(tux.y + 75)
-                        x:(tux.x + 2)
+                        x:(tux.x + Activity.xsteps())
                     }
                 },
                 State {
@@ -309,7 +309,7 @@ ActivityBase {
                     PropertyChanges {
                         target:tux
                         y:(tux.y + Activity.steps())
-                        x:(tux.x + 2)
+                        x:(tux.x + Activity.xsteps())
                     }
 
                 },
@@ -318,7 +318,7 @@ ActivityBase {
                    PropertyChanges {
                        target: tux
                        y:(tux.y + Activity.steps1())
-                       x:(tux.x +2 )
+                       x:(tux.x + Activity.xsteps() )
                    }
 
                 },
@@ -416,51 +416,11 @@ ActivityBase {
                     id: animationcloud
                     target: cloudmotion
                     properties: "x"
-                    from:background.width
-                    to:-cloud.width
+                    from:Activity.cloudanimation() > 0.5 ?  background.width : -cloud.width
+                    to:animationcloud.from === background.width ? -cloud.width : background.width
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
-                }
-
-                PropertyAnimation {
-                    id: animationcloud1
-                    target: cloudmotion
-                    properties: "x"
-                    from: background.width
-                    to: -cloud.width
-                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type: Easing.Linear
-                }
-
-                PropertyAnimation {
-                    id: animationcloud2
-                    target: cloudmotion
-                    properties: "x"
-                    from: -cloud.width
-                    to: background.width
-                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type: Easing.Linear
-                }
-
-                PropertyAnimation {
-                    id: animationcloud3
-                    target: cloudmotion
-                    properties: "x"
-                    from: background.width
-                    to: -cloud.width
-                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type: Easing.Linear
-                }
-
-                PropertyAnimation {
-                    id: animationcloud4
-                    target: cloudmotion
-                    properties: "x"
-                    from: -cloud.width
-                    to: background.width
-                    duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
-                    easing.type: Easing.Linear
-                }
+                }   
             }
         }
 

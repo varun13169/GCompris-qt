@@ -42,6 +42,7 @@ var tuxImageStatus = 1
 var tuxfallingblock = false
 var velocityY = [30,45,55,80]
 var velocityX = 18
+var random
 
 function start(items_) {
     items = items_
@@ -189,4 +190,15 @@ function steps1() {
     }
 }
 
+function cloudanimation() {
+    random = Math.random()
+    return random;
+}
 
+function xsteps(){
+   if(random < 0.5) {
+       return 2;
+   } else {
+       return -0.25;
+   }
+}
