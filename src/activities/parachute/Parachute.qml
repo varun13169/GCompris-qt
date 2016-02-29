@@ -72,6 +72,7 @@ ActivityBase {
             property alias loop: loop
             property alias loopcloud: loopcloud
             property alias tuxX: tuxX
+            property alias touch: touch
             property alias tux: tux
             property alias tuximage: tuximage
             property alias helimotion: helimotion
@@ -217,6 +218,7 @@ ActivityBase {
                             keyunable.visible = true
                             tuximage.source = activity.dataSetUrl + Activity.parachutetux
                             Activity.tuxImageStatus = 2
+                            touch.enabled = true
 
                         }
                     }
@@ -236,12 +238,14 @@ ActivityBase {
                 if( (tux.y > background.height/1.5)&& Activity.tuxImageStatus === 1 ) {
                     activity.audioEffects.play(activity.dataSetUrl + "bubble.wav" )
                     tux.state = "finished"
+                    touch.enabled = false
                     Activity.tuxImageStatus = 0
                     Activity.onLose()
                 }
 
                 if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x>boatmotion.x) && (tux.x<boatmotion.x+boatmotion.width))){
                     tux.state = "finished"
+                    touch.enabled = false
                     Activity.tuxImageStatus = 0
                     Activity.tuxfallingblock = true
                     Activity.onWin()
@@ -250,6 +254,7 @@ ActivityBase {
                 else if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x<boatmotion.x)||(tux.x>boatmotion.x+boatmotion.width))){
                     activity.audioEffects.play(activity.dataSetUrl + "bubble.wav" )
                     tux.state = "finished"
+                    touch.enabled = false
                     Activity.tuxImageStatus = 0
                     Activity.onLose()
                 }
@@ -327,8 +332,8 @@ ActivityBase {
 
         Keys.onReleased: {
             if((Activity.tuxImageStatus === 1)||(Activity.tuxImageStatus ===2)) {
-               velocityY = Activity.velocityY[bar.level-1]
-               tux.state = "Released"
+                velocityY = Activity.velocityY[bar.level-1]
+                tux.state = "Released"
 
             }
 
@@ -336,16 +341,44 @@ ActivityBase {
 
         Keys.onUpPressed: {
             if(Activity.tuxImageStatus === 2) {
-                  tux.state = "UpPressed"
-                  velocityY = velocityY/2
-               }
+                tux.state = "UpPressed"
+                velocityY = velocityY/2
+            }
         }
 
         Keys.onDownPressed: {
             if(Activity.tuxImageStatus === 2) {
-                    tux.state = "DownPressed"
+                tux.state = "DownPressed"
             }
 
+        }
+
+        MultiPointTouchArea{
+            id:touch
+            anchors.fill:parent
+            enabled:false
+            touchPoints: [ TouchPoint { id: point1 } ]
+            onPressed:  {
+                if(Activity.tuxImageStatus === 2) {
+                    if(point1.y < tux.y ) {
+                        tux.state = "UpPressed"
+                        velocityY = velocityY/2
+                    }
+                    else {
+                        tux.state = "DownPressed"
+                    }
+                }
+
+            }
+            onReleased: {
+
+                if((Activity.tuxImageStatus === 1)||(Activity.tuxImageStatus ===2)) {
+                    velocityY = Activity.velocityY[bar.level-1]
+                    tux.state = "Released"
+
+                }
+
+            }
         }
 
 
