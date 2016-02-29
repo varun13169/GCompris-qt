@@ -67,6 +67,7 @@ function initLevel() {
     pressed = false
     loseflag =false
     items.helicopter.source = "qrc:/gcompris/src/activities/parachute/resource/" +  planeWithtux
+    items.helicopter.visible = true
     tuxImageStatus = 0
     items.tux.state = "rest"
     items.tux.y = 0
@@ -161,13 +162,31 @@ function onreset() {
 
 function steps() {
   switch(items.bar.level) {
-  case 1: return 0.5;
-  case 2: return 0.6;
-  case 3: return 0.7;
-  case 4: return 0.75;
+
+  case 1: return 0.6;
+
+  case 2: return 0.7;
+
+  case 3: return 0.8;
+
+  case 4: return 0.85;
+
   }
 }
 
+function steps1() {
 
+    switch(items.bar.level) {
+
+    case 1: return 0.35;
+
+    case 2: return 0.45;
+
+    case 3: return 0.55;
+
+    case 4: return 0.60;
+
+    }
+}
 
 

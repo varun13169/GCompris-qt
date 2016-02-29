@@ -143,12 +143,6 @@ ActivityBase {
                     id:mousei
                     hoverEnabled: true
                     anchors.fill: parent
-                    onEntered: {
-                        forhover.visible = true
-                    }
-                    onExited: {
-                        forhover.visible = false
-                    }
                     onClicked: {
                         if((Activity.Oneclick === false)&&(Activity.tuxfallingblock ===false)) {
                             helicopter.source = activity.dataSetUrl + Activity.planeWithouttux
@@ -162,6 +156,7 @@ ActivityBase {
                             velocityX = Activity.velocityX
                             velocityY = (items.bar.level === 1 ? 30 : items.bar.level === 2 ? 40 : items.bar.level === 3 ? 55 : items.bar.level === 4 ? 80 : 12 )
                             tux.state = "Released"
+
 
                         }
                     }
@@ -181,6 +176,14 @@ ActivityBase {
                     easing.type: Easing.Linear
                 }
             }
+
+             onXChanged: {
+                 if(Activity.tuxImageStatus === 1 || Activity.tuxImageStatus === 2){
+                       if(helimotion.x > (background.width - helimotion.width/2)) {
+                           helicopter.visible = false
+                       }
+                 }
+             }
         }
 
 
@@ -214,7 +217,7 @@ ActivityBase {
                             if(tuximagehover.visible === true) {
                                 tuximagehover.visible = false
                             }
-
+                            tux.state = "Released1"
                             keyunable.visible = true
                             tuximage.source = activity.dataSetUrl + Activity.parachutetux
                             Activity.tuxImageStatus = 2
@@ -288,7 +291,7 @@ ActivityBase {
                     name: "UpPressed"
                     PropertyChanges {
                         target: tux
-                        y:(tux.y + .25)
+                        y:(tux.y + .02)
                         x:(tux.x + 2)
                     }
 
@@ -310,6 +313,16 @@ ActivityBase {
                     }
 
                 },
+                State{
+                   name:"Released1"
+                   PropertyChanges {
+                       target: tux
+                       y:(tux.y + Activity.steps1())
+                       x:(tux.x +2 )
+                   }
+
+                },
+
                 State {
                     name: "finished"
                     PropertyChanges {
@@ -331,10 +344,13 @@ ActivityBase {
         }
 
         Keys.onReleased: {
-            if((Activity.tuxImageStatus === 1)||(Activity.tuxImageStatus ===2)) {
+            if(Activity.tuxImageStatus === 1) {
                 velocityY = Activity.velocityY[bar.level-1]
                 tux.state = "Released"
 
+            }else if(Activity.tuxImageStatus === 2) {
+                velocityY = Activity.velocityY[bar.level-1]
+                tux.state = "Released1"
             }
 
         }
@@ -400,8 +416,8 @@ ActivityBase {
                     id: animationcloud
                     target: cloudmotion
                     properties: "x"
-                    from: Math.random() > 0.2 ? background.width : -cloud.width
-                    to: animationcloud.from === background.width ? -cloud.width : background.width
+                    from:background.width
+                    to:-cloud.width
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
                 }
