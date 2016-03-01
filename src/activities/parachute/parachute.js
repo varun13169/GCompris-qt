@@ -71,6 +71,7 @@ function initLevel() {
     items.helicopter.visible = true
     tuxImageStatus = 0
     items.tux.state = "rest"
+    items.random = Math.random();
     items.tux.y = 0
     tuxfallingblock = false
     items.ok.visible = false
@@ -86,7 +87,6 @@ function onLose() {
     items.animationboat.stop()
     items.tuxX.stop()
     items.bonus.bad("lion")
-
     items.tux.x = -items.helimotion.width
     items.tux.y = 0
     tuxImageStatus = 0
@@ -179,11 +179,11 @@ function steps1() {
 
     switch(items.bar.level) {
 
-    case 1: return 0.35;
+    case 1: return 0.30;
 
-    case 2: return 0.45;
+    case 2: return 0.40;
 
-    case 3: return 0.55;
+    case 3: return 0.50;
 
     case 4: return 0.60;
 
@@ -191,12 +191,11 @@ function steps1() {
 }
 
 function cloudanimation() {
-    random = Math.random()
-    return random;
-}
+    return items.random
 
+}
 function xsteps(){
-   if(random < 0.5) {
+   if(items.random < 0.5) {
        return 2;
    } else {
        return -0.25;

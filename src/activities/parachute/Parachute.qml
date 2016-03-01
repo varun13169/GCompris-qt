@@ -78,6 +78,7 @@ ActivityBase {
             property alias helimotion: helimotion
             property alias helicopter : helicopter
             property real  velocityY:velocityY
+            property real  random
 
         }
 
@@ -416,7 +417,7 @@ ActivityBase {
                     id: animationcloud
                     target: cloudmotion
                     properties: "x"
-                    from:Activity.cloudanimation() > 0.5 ?  background.width : -cloud.width
+                    from:items.random > 0.5 ?  background.width : -cloud.width
                     to:animationcloud.from === background.width ? -cloud.width : background.width
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
