@@ -247,7 +247,7 @@ ActivityBase {
                     touch.enabled = false
                     Activity.tuxImageStatus = 0
                     Activity.onLose()
-                    items.keyunable = false
+                    items.keyunable.visible = false
                 }
 
                 if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x>boatmotion.x) && (tux.x<boatmotion.x+boatmotion.width))){
@@ -256,7 +256,7 @@ ActivityBase {
                     Activity.tuxImageStatus = 0
                     Activity.tuxfallingblock = true
                     Activity.onWin()
-                    items.keyunable = false
+                    items.keyunable.visible = false
                 }
 
                 else if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x<boatmotion.x)||(tux.x>boatmotion.x+boatmotion.width))){
@@ -265,7 +265,7 @@ ActivityBase {
                     touch.enabled = false
                     Activity.tuxImageStatus = 0
                     Activity.onLose()
-                    items.keyunable = false
+                    items.keyunable.visible = false
                 }
 
             }
@@ -390,6 +390,7 @@ ActivityBase {
                     else {
                         tux.state = "DownPressed"
                         velocityY = velocityY*0.8
+                        items.downstep = items.downstep + 0.8
                     }
                 }
 
