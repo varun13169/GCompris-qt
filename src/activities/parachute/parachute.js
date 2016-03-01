@@ -40,7 +40,7 @@ var planeWithtux = "tuxplane.svg"
 var planeWithouttux = "tuxwithoutplane.svg"
 var tuxImageStatus = 1
 var tuxfallingblock = false
-var velocityY = [30,45,55,80]
+var velocityY = [20,30,40,50]
 var velocityX = 18
 var random
 

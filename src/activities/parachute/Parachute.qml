@@ -79,6 +79,7 @@ ActivityBase {
             property alias helicopter : helicopter
             property real  velocityY:velocityY
             property real  random
+            property real  downstep
 
         }
 
@@ -223,6 +224,7 @@ ActivityBase {
                             tuximage.source = activity.dataSetUrl + Activity.parachutetux
                             Activity.tuxImageStatus = 2
                             touch.enabled = true
+                            items.downstep = (bar.level === 1 ? 0.09 : bar.level === 2 ? 0.1 : bar.level === 3 ? 0.12 : bar.level === 4 ? 0.13 : 9000)
 
                         }
                     }
@@ -245,6 +247,7 @@ ActivityBase {
                     touch.enabled = false
                     Activity.tuxImageStatus = 0
                     Activity.onLose()
+                    items.keyunable = false
                 }
 
                 if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x>boatmotion.x) && (tux.x<boatmotion.x+boatmotion.width))){
@@ -253,6 +256,7 @@ ActivityBase {
                     Activity.tuxImageStatus = 0
                     Activity.tuxfallingblock = true
                     Activity.onWin()
+                    items.keyunable = false
                 }
 
                 else if((tux.y>background.height/1.5 && Activity.tuxImageStatus === 2) && ((tux.x<boatmotion.x)||(tux.x>boatmotion.x+boatmotion.width))){
@@ -261,6 +265,7 @@ ActivityBase {
                     touch.enabled = false
                     Activity.tuxImageStatus = 0
                     Activity.onLose()
+                    items.keyunable = false
                 }
 
             }
@@ -301,7 +306,7 @@ ActivityBase {
                     name: "DownPressed"
                     PropertyChanges {
                         target: tux
-                        y:(tux.y + 6)
+                        y:(tux.y + items.downstep)
                         x:(tux.x + Activity.xsteps())
                     }
                 },
@@ -365,7 +370,8 @@ ActivityBase {
         Keys.onDownPressed: {
             if(Activity.tuxImageStatus === 2) {
                 tux.state = "DownPressed"
-                velocityY = velocityY*0.8
+                velocityY = velocityY*0.2
+                items.downstep = items.downstep + 0.02
             }
 
         }
