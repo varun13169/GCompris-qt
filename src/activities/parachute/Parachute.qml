@@ -97,7 +97,7 @@ ActivityBase {
                      +"Tux falls off when the player left clicks on the plane."),
                 qsTr("His speed can be controlled by the player by pressing UP and DOWN arrow keys,"
                      + "such that Tux is saved from falling in water. "),
-                qsTr("Help Tux save his life!")
+                qsTr("Help Tux save his life!"+"Otherwise he will die")
             ]
             z: 20
 
@@ -178,13 +178,13 @@ ActivityBase {
                 }
             }
 
-             onXChanged: {
-                 if(Activity.tuxImageStatus === 1 || Activity.tuxImageStatus === 2){
-                       if(helimotion.x > (background.width - helimotion.width/2)) {
-                           helicopter.visible = false
-                       }
-                 }
-             }
+            onXChanged: {
+                if(Activity.tuxImageStatus === 1 || Activity.tuxImageStatus === 2){
+                    if(helimotion.x > (background.width - helimotion.width/2)) {
+                        helicopter.visible = false
+                    }
+                }
+            }
         }
 
 
@@ -301,7 +301,7 @@ ActivityBase {
                     name: "DownPressed"
                     PropertyChanges {
                         target: tux
-                        y:(tux.y + 75)
+                        y:(tux.y + 6)
                         x:(tux.x + Activity.xsteps())
                     }
                 },
@@ -315,12 +315,12 @@ ActivityBase {
 
                 },
                 State{
-                   name:"Released1"
-                   PropertyChanges {
-                       target: tux
-                       y:(tux.y + Activity.steps1())
-                       x:(tux.x + Activity.xsteps() )
-                   }
+                    name:"Released1"
+                    PropertyChanges {
+                        target: tux
+                        y:(tux.y + Activity.steps1())
+                        x:(tux.x + Activity.xsteps() )
+                    }
 
                 },
 
@@ -328,7 +328,6 @@ ActivityBase {
                     name: "finished"
                     PropertyChanges {
                         target: tux
-
                     }
                 }
 
@@ -366,6 +365,7 @@ ActivityBase {
         Keys.onDownPressed: {
             if(Activity.tuxImageStatus === 2) {
                 tux.state = "DownPressed"
+                velocityY = velocityY*0.8
             }
 
         }
@@ -383,17 +383,21 @@ ActivityBase {
                     }
                     else {
                         tux.state = "DownPressed"
+                        velocityY = velocityY*0.8
                     }
                 }
 
             }
             onReleased: {
-
-                if((Activity.tuxImageStatus === 1)||(Activity.tuxImageStatus ===2)) {
+                if(Activity.tuxImageStatus === 1) {
                     velocityY = Activity.velocityY[bar.level-1]
                     tux.state = "Released"
 
+                }else if(Activity.tuxImageStatus === 2) {
+                    velocityY = Activity.velocityY[bar.level-1]
+                    tux.state = "Released1"
                 }
+
 
             }
         }
@@ -421,7 +425,7 @@ ActivityBase {
                     to:animationcloud.from === background.width ? -cloud.width : background.width
                     duration: (bar.level === 1 ? 19000 : bar.level === 2 ? 15000 : bar.level === 3 ? 11000 : bar.level === 4 ? 9000 : 9000)
                     easing.type: Easing.Linear
-                }   
+                }
             }
         }
 
