@@ -15,13 +15,12 @@
 * You should have received a copy of the GNU General Public License
 * along with this program; if not, see <http://www.gnu.org/licenses/>.
 */
-var depth=5;
+var depth;
 var INVALID_MOVE=-1;
 var scoreHouse=[];
 var lastMove;
 var nextPlayer;
 var board=[];
-var alpha,beta;
 var heuristicValue;
 for(var k=0;k<2;k++){
     scoreHouse[k]=0;
@@ -83,7 +82,7 @@ function makeMoveComplete(i,obj){
     for(k=0;k<6;k++)
         capture[k]=0;
     if((obj.board[j]==2 || obj.board[j]==3) &&
-      ((otherPlayer*6)<=j) && (j<(otherPlayer*6+6))){
+            ((otherPlayer*6)<=j) && (j<(otherPlayer*6+6))){
         capture[j%6]=1;
     }
     while(capture[j%6] && j%6){
@@ -129,25 +128,27 @@ function makeMoveComplete(i,obj){
         }
     }
     obj.nextPlayer=otherPlayer;
+    //console.log("make move move,nextplayer",i,obj.nextPlayer);
     obj.lastMove=i;
 }
 
 function makeAimove(){
 
     var move;
-    alpha=-200;
-    beta=200;
-    var out=newAlphaBetaPrune(depth,alpha,beta,this,heuristicValue);
+    var alpha=-200;
+    var beta=200;
+    //console.log("Ai started depth,alpha,beta",depth,alpha,beta)
+    var out=AlphaBetaPrune(depth,alpha,beta,this,heuristicValue);
     move=out[0];
     heuristicValue=out[1];
+    //console.log("final out",move,heuristicValue);
     makeMoveComplete(move,this);
-    console.log("move",move)
     return heuristicValue;
 }
 
 function isValidMove(i,obj){
     if ((obj.nextPlayer*6 > i) || (i >= (obj.nextPlayer*6 + 6))){
-         return false;
+        return false;
     }
     if (!obj.board[i]) {
         return false;
@@ -179,10 +180,10 @@ function isGameOver(obj){
 
 function newAlphaBetaPrune(depth,alpha,beta,Object){
 
-    console.log("in alpha beta prune",alpha,beta,Object.board);
+    //console.log("in alpha beta prune alpha=",alpha,"beta",beta,"board=",Object.board);
     if(depth==0 || isGameOver(Object)){
         this.heuristicValue=heuristicEvaluation(Object);
-        console.log("depth",this.heuristicValue,alpha,beta);
+        //console.log("depth over heauristic value,alpha,beta",this.heuristicValue,alpha,beta);
         return [INVALID_MOVE,this.heuristicValue];
     }
     var childHeuristics;
@@ -191,54 +192,123 @@ function newAlphaBetaPrune(depth,alpha,beta,Object){
         var temp=clone(Object);
         if(Object.nextPlayer){
             if(!isValidMove(6+i,Object)){
-                 continue
+                continue
             }
+            //console.log("current level",Object.board);
             temp.makeMoveComplete(6+i,temp);
-            console.log("cal function",depth,alpha,beta);
-            var out=newAlphaBetaPrune(depth-1,alpha,beta,temp);
-            console.log("cal function2",depth,alpha,beta);
+            //console.log("moving element",temp.board);
+            //console.log("recursion start depth,alpha,beta",depth,alpha,beta);
+            var out=AlphaBetaPrune(depth-1,alpha,beta,temp);
+            //console.log("after recursion depth,alpha,beta",depth,alpha,beta);
             bestMove=out[0];
             childHeuristics=out[1];
-            if(beta > childHeuristics && childHeuristics!=0){
+            if(beta > childHeuristics && childHeuristics!=0 && childHeuristics!=-200){
                 beta=childHeuristics;
                 bestMove=temp.lastMove;
-                console.log("beta changed",beta,bestMove);
+                //console.log("beta changed beta,bestMove",beta,bestMove);
             }
-            if(alpha>=childHeuristics){
-                console.log("break");
+            if(alpha>childHeuristics){
+                //console.log("break");
                 break;
             }
+
+
         }
         else{
             if(!isValidMove(i,Object))
                 continue
             temp.makeMoveComplete(i,temp);
             var out;
-            out=newAlphaBetaPrune(depth-1,alpha,beta,temp);
+            //console.log("recursion start depth,alpha,beta",depth,alpha,beta);
+            out=AlphaBetaPrune(depth-1,alpha,beta,temp);
+            //console.log("after recursion depth,alpha,beta",depth,alpha,beta);
             bestMove=out[0];
             childHeuristics=out[1];
-            if(alpha < childHeuristics && childHeuristics!=0){
-                  alpha=childHeuristics;
+            if(alpha < childHeuristics && childHeuristics!=0 && childHeuristics!=200){
+                alpha=childHeuristics;
                 bestMove=temp.lastMove;
-                console.log("alpha changed",alpha,bestMove);
+                //console.log("alpha changed alpha,bestMove",alpha,bestMove);
             }
-            if(beta<=childHeuristics){
+            if(beta<childHeuristics ){
+                //console.log("break");
+                break;
+            }
+
+        }
+    }
+    heuristicValue=Object.nextPlayer ? beta : alpha;
+    console.log("one result bestMove,depth,heuristicValue,alpha,beta",bestMove,depth,heuristicValue,alpha,beta);
+    return [bestMove,heuristicValue];
+}
+
+function AlphaBetaPrune(depth,alpha,beta,Object){
+    //if(depth==4)
+    //    console.log("in alpha beta prune alpha=",alpha,"beta",beta,"board=",Object.board,"depth",Object.nextPlayer);
+    if(depth==0 || isGameOver(Object)){
+        this.heuristicValue=heuristicEvaluation(Object);
+          console.log("depth over heauristic value,alpha,beta",this.heuristicValue,alpha,beta);
+        return [INVALID_MOVE,this.heuristicValue];
+    }
+    var childHeuristics;
+    var bestMove;
+    for(var i=0;i<12;i++){
+        if(!isValidMove(i,Object)){
+            continue
+        }
+        var temp=clone(Object);
+        //console.log("current level",Object.board);
+        temp.makeMoveComplete(i,temp);
+        //console.log("moving element",temp.board);
+        //console.log("recursion start depth,alpha,beta",depth,alpha,beta);
+        var out=AlphaBetaPrune(depth-1,alpha,beta,temp);
+        //console.log("after recursion depth,alpha,beta",depth,alpha,beta);
+        childHeuristics=out[1];
+        if(childHeuristics!=0){
+            ////console.log(childHeuristics,Object.nextPlayer,"jhsdsivuagsfiugauaguiragg");
+        }
+
+        if(Object.nextPlayer){
+            if(beta > childHeuristics && childHeuristics!=0 && childHeuristics!=-200){
+                beta=childHeuristics.valueOf();
+                if(temp.lastMove!=-1)
+                    bestMove=temp.lastMove;
+
+
+                console.log("beta changed beta,bestMove",beta,bestMove,depth);
+            }
+            if(alpha>childHeuristics){
+             //   console.log("break");
+                break;
+            }
+        }
+        else{
+            if(alpha < childHeuristics && childHeuristics!=0 && childHeuristics!=200){
+                alpha=childHeuristics.valueOf();
+
+                if(temp.lastMove!=-1)
+                    bestMove=temp.lastMove;
+            //   console.log("alpha changed alpha,bestMove",alpha,bestMove,depth);
+
+            }
+            if(beta<childHeuristics ){
+               // console.log("break");
                 break;
             }
         }
     }
+
     heuristicValue=Object.nextPlayer ? beta : alpha;
-    console.log("best Move",bestMove,heuristicValue,alpha,beta);
-    return [bestMove,this.heuristicValue];
+    console.log("one result bestMove,heuristicValue,alpha,beta",bestMove,depth,heuristicValue,alpha,beta);
+    return [bestMove,heuristicValue];
 }
 
-function heuristicEvaluation(obj){
-    var playerScore=[0,0];
-    for(var i=0;i<2;i++){
-        playerScore[i]=obj.scoreHouse[i];
-        if(playerScore[i]>24){
-            playerScore[i]+=100;
+    function heuristicEvaluation(obj){
+        var playerScore=[0,0];
+        for(var i=0;i<2;i++){
+            playerScore[i]=obj.scoreHouse[i];
+            if(playerScore[i]>24){
+                playerScore[i]+=100;
+            }
         }
+        return playerScore[1]-playerScore[0];
     }
-    return playerScore[1]-playerScore[0];
-}

@@ -30,6 +30,10 @@ ActivityBase{
     property var rule: qsTr("Oware is played on a board of two rows and six holes. The row in front of you is your own ground. The game starts with 4 seeds in each hole.")+"\n"+qsTr("Oware Rule 1 : sowing")+"\n"+qsTr("To sow you must take all the seeds of  any of your holes and lay its out along the holes against the direction of the clockwise. In every hole you should lay it out one seed.  If you reach the last hole of your ground you must continue in the land of the other player. Remember, you always have to lay out seeds in the direction against the clockwise")+"\n"+qsTr("Oware Rule 2: harvesting")+"\n"+qsTr("If the last hole where you sow is in the land of the other player and there are two or three seeds in the last hole remove from the board and keep them.If the previous holes also contain two or three seeds also remove them and remove all the seeds of your opponent that contains two or three seeds.")+"\n"+qsTr("Oware Rule 3: The Kroo ")+"\n"+qsTr("As the game progresses, is possible that one hole contains more than 12 seeds. This hole is called Kroo and makes possible complete one round.When the harvest starts at the Kroo, this hole must finish empty what means that the player shouldn’t lay out any seed.")+"\n"+qsTr("Oware Rule 4: You can’t permit other players feel hungry")+"\n"+qsTr("If the other player has only one seed in his field you will have to remove it in order to harvest and continue playing. This situation means that the other player will not be able keep playing.Players must provide in advance to avoid this situation. For example, having at least one seed in the last hole to harvest immediately to our opponent side and allow him to keep playing.If this is impossible, because we only have one seed in our land. The game is finished. Teh winner is the one that harvest more.")+"\n"+qsTr("Oware Rule 5: The final agreement ")+"\n"+qsTr("When there are few seeds left on the counter, the game may be perpetuating and hardly any of the 2 players can capture any new seed. By mutual agreement player can agree the end of the game. In this case every player is the owner of the seeds in his side.  As always, who has garnered more wins the match.")
     property bool learn:false
     property bool playerTwo:false
+    property int xStart
+    property int xEnd
+    property int yStart
+    property int yEnd
     onStart:{focus=true
     }
     onStop: {Activity.reload()}
@@ -61,6 +65,8 @@ ActivityBase{
             property alias textTwoSource: playerTwoText
             property alias repeator: repeator
             property alias player1turn: player1turn
+            property alias bar: bar
+            property alias rotatekonqi: rotatekonqi
         }
 
         onStart:{ Activity.start(items)}
@@ -69,8 +75,8 @@ ActivityBase{
             id: item
             property var dataset: {
                 "none": "",
-                "south":qsTr("its South turn"),
-                "north":qsTr("its north turn")
+                        "south":qsTr("its South turn"),
+                        "north":qsTr("its north turn")
             }
 
             property bool cycleDone: false
@@ -241,15 +247,41 @@ ActivityBase{
                     wrapMode: TextEdit.WordWrap
                 }
             }
-            GCText {
-                id: south
-                color: "white"
+            //            GCText {
+            //                id: south
+            //                color: "white"
+            //                anchors.top: imageOne.bottom
+            //                anchors.horizontalCenter: imageOne.horizontalCenter
+            //                fontSize: smallSize
+            //                text: qsTr("South")
+            //                horizontalAlignment: Text.AlignHCenter
+            //                wrapMode: TextEdit.WordWrap
+            //            }
+            Image {
+                id: player1image
+                source: Activity.url+"stone_1.svg"
                 anchors.top: imageOne.bottom
                 anchors.horizontalCenter: imageOne.horizontalCenter
-                fontSize: smallSize
-                text: qsTr("South")
-                horizontalAlignment: Text.AlignHCenter
-                wrapMode: TextEdit.WordWrap
+
+            }
+            SequentialAnimation {
+                id: rotatekonqi
+
+                loops: Animation.Infinite
+                NumberAnimation {
+                    target: player1image
+                    property: "rotation"
+                    from: -30; to: 30
+                    duration: 750
+                    easing.type: Easing.InOutQuad
+                }
+                NumberAnimation {
+                    target: player1image
+                    property: "rotation"
+                    from: 30; to: -30
+                    duration: 750
+                    easing.type: Easing.InOutQuad
+                }
             }
             states: [
                 State {
@@ -276,6 +308,32 @@ ActivityBase{
                 yScale: scale
             }
         }
+        ParallelAnimation{
+
+            id:translate
+            onStarted: {
+                transImage.state="true"
+            }
+            onStopped: {
+                transImage.state="false"
+            }
+
+            NumberAnimation {
+                target: transImage
+                property: "y"
+                from:yStart
+                to:yEnd
+                duration:1700
+
+            }
+            NumberAnimation {
+                target: transImage
+                property: "x"
+                from:xStart
+                to:xEnd
+                duration:1700
+            }
+        }
         PropertyAnimation {
             id: player1turn
             target: changeScale1
@@ -286,6 +344,7 @@ ActivityBase{
             onStarted:{
                 info.setText("south")
                 player2shrink.start()
+                rotatekonqi.start()
             }
             onStopped: {}
         }
@@ -308,6 +367,7 @@ ActivityBase{
             onStarted:{
                 info.setText("north")
                 player1shrink.start()
+                rotateTux.start()
             }
             onStopped: {}
         }
@@ -325,8 +385,8 @@ ActivityBase{
             source: Activity.url + "/awele_board.png"
             anchors.centerIn: parent
             //anchors.fill:parent
-            width:parent.width*0.6
-            height:parent.height*0.5
+            width:parent.width*0.7
+            height:width*0.4
         }
         Rectangle{
             id:playerTwoScore
@@ -340,7 +400,6 @@ ActivityBase{
             }
             Image{
                 id:imageTwo
-                anchors.centerIn: parent
                 anchors.leftMargin: 5*ApplicationInfo.ratio
                 source:Activity.url+"/score.png"
 
@@ -355,15 +414,23 @@ ActivityBase{
                     wrapMode: TextEdit.WordWrap
                 }
             }
-            GCText {
-                id: north
-                color: "white"
+            //            GCText {
+            //                id: tux
+            //                color: "white"
+            //                anchors.bottom: imageTwo.top
+            //                anchors.horizontalCenter: imageTwo.horizontalCenter
+            //                fontSize: smallSize
+            //                text: qsTr("tux")
+            //                horizontalAlignment: Text.AlignHCenter
+            //                wrapMode: TextEdit.WordWrap
+            //            }
+            Image {
+                id: player2image
+                source: Activity.url + "stone_2.svg"
                 anchors.bottom: imageTwo.top
+                height:parent.height*0.3
+                width: height
                 anchors.horizontalCenter: imageTwo.horizontalCenter
-                fontSize: smallSize
-                text: qsTr("north")
-                horizontalAlignment: Text.AlignHCenter
-                wrapMode: TextEdit.WordWrap
             }
             states: [
                 State {
@@ -382,6 +449,24 @@ ActivityBase{
                     }
                 }
             ]
+            SequentialAnimation {
+                id: rotateTux
+                loops: Animation.Infinite
+                NumberAnimation {
+                    target: player2image
+                    property: "rotation"
+                    from: -30; to: 30
+                    duration: 750
+                    easing.type: Easing.InOutQuad
+                }
+                NumberAnimation {
+                    target: player2image
+                    property: "rotation"
+                    from: 30; to:-30
+                    duration: 750
+                    easing.type: Easing.InOutQuad
+                }
+            }
 
             transform: Scale {
                 id: changeScale2
@@ -395,11 +480,12 @@ ActivityBase{
             id:boardGrid
             columns:6
             rows:2
-            spacing: 10*ApplicationInfo.ratio
+
+
             anchors {
                 horizontalCenter: board.horizontalCenter
                 top : board.top
-                margins: 5*ApplicationInfo.ratio
+
             }
             Repeater{
                 id:repeator
@@ -407,37 +493,74 @@ ActivityBase{
                 Rectangle {
                     color: "transparent"
                     height: board.height/2
-                    width: board.width*(1/7)
-                    property var value: Activity.getValueByIndex(index,player)
+                    width: board.width*(1/6.25)
+                    //  height:width
                     property var circleRadius: width
-                    radius: circleRadius
+                    property var value: Activity.getValueByIndex(index,player)
                     GCText{
                         text:value
                         color: "white"
                         font.bold: true
                         font.family: "Helvetica"
-
-                        anchors.bottom: parent.top
+                        fontSize: smallSize
+                        anchors.top: parent.top
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
                     Repeater {
                         model: value
                         Image {
-                            source: Activity.url+"graine1.png"
-                            x:circleRadius/2-sourceSize.width/2+Activity.getX(height,index,value)
-                            y:circleRadius/2+sourceSize.height/2+Activity.getY(height,index,value)
+                            source: Activity.url+"graine2.png"
+                            height:circleRadius*0.2
+                            width:circleRadius*0.2
+                            x:circleRadius/2+Activity.getX(circleRadius/6,index,value)
+                            y:circleRadius/2+Activity.getY(circleRadius/5,index,value)
+                            Loader {
+                                id: loader
+                                onLoaded: { view.state="fadeIn"; }
+                            }
 
+
+                            //                               MouseArea{
+                            //                                   anchors.fill: parent
+                            //                               }
                         }
                     }
                 }
             }
+            // spacing: 10*ApplicationInfo.ratio
         }
+        Image {
+            id: transImage
+            visible: false
+            source: Activity.url+"graine1.png"
+            states: [
+                State {
+                    name: "true"
+                    PropertyChanges {
+                        target: transImage
+                        visible: true
+                    }
+                },
+                State {
+                    name: "false"
 
+                    PropertyChanges {
+                        target: transImage
+                        visible: false
+                    }
+                }
+            ]
+
+        }
         Row {
             id:rowButton
             height: boardGrid.height*(1/6)
-            width: board.width
+            width: parent.width*0.7
             spacing: board.width*(1/10)
+            onWidthChanged: {
+
+            }
+
             anchors {
                 horizontalCenter: board.horizontalCenter
                 top: board.bottom
@@ -446,36 +569,40 @@ ActivityBase{
             Repeater {
                 id:rowButtonRepeator
                 model:6
-                Image {
-                    property var sourceString: Activity.url + "bouton"+(index+1)+".png"
-                    source: sourceString
-                    MouseArea {
-                        anchors.fill:parent
-                        hoverEnabled: true
-                        onClicked:{
-                            if(playerTwo==true)
-                                multiPlayer(index);
-                            else
-                                singlePlayer(index);
-                            sourceString: Activity.url + "bouton"+(index+1)+".png"
+                Component{
+                    Image {
+                        property var sourceString: Activity.url + "bouton"+(index+1)+".png"
+                        source: sourceString
 
-                        }
-                        onPressed: {
+                        MouseArea {
+                            anchors.fill:parent
+                            hoverEnabled: true
+                            onClicked:{
+                                if(playerTwo==true){
+                                    multiPlayer(index);
+                                }
+                                else
+                                    singlePlayer(index);
+                                sourceString: Activity.url + "bouton"+(index+1)+".png"
 
-                            sourceString=Activity.url + "bouton"+(index+1)+"_clic.png";
-                        }
-                        onReleased: {
-                            sourceString=Activity.url + "bouton"+(index+1)+".png";
-                        }
+                            }
+                            onPressed: {
 
-                        onEntered: {
+                                sourceString=Activity.url + "bouton"+(index+1)+"_clic.png";
+                            }
+                            onReleased: {
+                                sourceString=Activity.url + "bouton"+(index+1)+".png";
+                            }
 
-                            sourceString=Activity.url + "bouton"+(index+1)+"_notify.png";
-                        }
-                        onExited: {
+                            onEntered: {
 
-                            sourceString=Activity.url + "bouton"+(index+1)+".png";
+                                sourceString=Activity.url + "bouton"+(index+1)+"_notify.png";
+                            }
+                            onExited: {
 
+                                sourceString=Activity.url + "bouton"+(index+1)+".png";
+
+                            }
                         }
                     }
                 }
@@ -571,34 +698,36 @@ ActivityBase{
         }
 
         function singlePlayer(index){
-            if(player){
-                player2turn.stop();
-                player1turn.start();
-            }
-            else{
-                player1turn.stop();
-                player2turn.start();
-            }
             Activity.newAi(index,player);
             Activity.updateValues();
             Activity.updateScores();
         }
 
         function multiPlayer(index){
-            if(player){
-                player2turn.stop();
-                player1turn.start();
-            }
-            else{
-                player1turn.stop();
-                player2turn.start();
-            }
+            console.log("player",player,index,Activity.getValueByIndex(index,player));
+            if(Activity.getValueByIndex(index,player)!=0){
+                //                for(var i=index;i<index+Activity.getValueByIndex(index,player);i++){
+                //                    xStart=repeator.itemAt(index).x;
+                //                    xEnd=repeator.itemAt(index+i).x;
+                //                    yStart=repeator.itemAt(index).y;
+                //                    yEnd=repeator.itemAt(index+i).y;
+                //                    console.log(xStart,xEnd,yStart,yEnd);
+                //                    translate.start();
+                //                }
+                if(player){
+                    player2turn.stop();
+                    player1turn.start();
+                    rotateTux.stop();
+                }
+                else{
+                    player1turn.stop();
+                    player2turn.start();
+                    rotatekonqi.stop();
+                }
 
-
-
-            Activity.twoPlayer(index,player);
-            if(Activity.getValueByIndex(index,player)!=0)
+                Activity.twoPlayer(index,player);
                 player=!player;
+            }
             Activity.updateValues();
             Activity.updateScores();
         }
@@ -613,7 +742,7 @@ ActivityBase{
                 displayDialog(dialogHelp)
             }
             onHomeClicked: activity.home()
-            onReloadClicked: Activity.reload()
+            onReloadClicked: {Activity.reload();player=false}
             onNextLevelClicked: Activity.nextLevel()
             onPreviousLevelClicked: Activity.previousLevel()
 
