@@ -71,26 +71,35 @@ ActivityBase {
             fontSize: largeSize
             property int spacePresses: 0
             property int flag: 1
-            text: "Your Score " + spacePresses
+            text: "Flag is " + flag + " Your Score " + spacePresses
 
             focus: true
-            Keys.onSpacePressed: {
-                if(flag == 1) {
-                    increment();
+            Keys.onPressed: {
+                if(event.key == Qt.Key_Space) {
+
+                        increment();
+
                 }
             }
 
-            Keys.asteriskPressed: {
-                flaghandle();
+            Keys.onReleased: {
+                if(event.key == Qt.Key_Space) {
+                    flaghandle();
+                }
             }
 
             function increment() {
-                spacePresses = spacePresses +1;
-                flag = 0;
+                if(flag == 1) {
+                    flag = 0;
+                    spacePresses = spacePresses +1;
+                    textbutt.text = "Flag is " + flag + " Your Score " + spacePresses;
+
+                }
             }
 
             function flaghandle() {
                 flag = 1;
+                textbutt.text = "Flag is " + flag + " Your Score " + spacePresses;
             }
         }
 
