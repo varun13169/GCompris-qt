@@ -75,10 +75,12 @@ ActivityBase {
 
             focus: true
             Keys.onSpacePressed: {
-                increment();
+                if(flag == 1) {
+                    increment();
+                }
             }
 
-            Keys.onReleased: {
+            Keys.asteriskPressed: {
                 flaghandle();
             }
 
