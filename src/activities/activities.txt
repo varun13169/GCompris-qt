@@ -96,6 +96,7 @@ money_back
 money_back_cents
 money_cents
 mosaic
+myFirstActivity
 numbers-odd-even
 paintings
 penalty
