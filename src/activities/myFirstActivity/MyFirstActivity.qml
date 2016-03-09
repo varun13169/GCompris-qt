@@ -66,41 +66,39 @@ ActivityBase {
         GCText {
             id: textbutt
             anchors.centerIn: parent
-            //x: parent.width/2 ; y: parent.height/2;
 
             fontSize: largeSize
             property int spacePresses: 0
-            property int flag: 1
-            text: "Flag is " + flag + " Your Score " + spacePresses
+            text: "Press Space Bar to Start"
 
             focus: true
             Keys.onPressed: {
-                if(event.key == Qt.Key_Space) {
-
-                        increment();
-
+                if((event.key == Qt.Key_Space)&&(event.isAutoRepeat == 0)) {
+                    increment();
                 }
             }
-
-            Keys.onReleased: {
-                if(event.key == Qt.Key_Space) {
-                    flaghandle();
-                }
-            }
-
             function increment() {
-                if(flag == 1) {
-                    flag = 0;
-                    spacePresses = spacePresses +1;
-                    textbutt.text = "Flag is " + flag + " Your Score " + spacePresses;
-
-                }
+                spacePresses = spacePresses +1;
+                textbutt.text = "Your Score " + spacePresses;
+                counter.running = true;
             }
+        }
 
-            function flaghandle() {
-                flag = 1;
-                textbutt.text = "Flag is " + flag + " Your Score " + spacePresses;
+        GCText {
+            id: displayCounter
+            x: parent.x + 20; y: parent.y + 20;
+            property int ticks: 0
+            text: ticks + " Seconds"
+
+            function incrementTicks() {
+                ticks = ticks + 1;
             }
+        }
+
+        Timer {
+            id: counter
+            interval: 1000; repeat: true;
+            onTriggered: displayCounter.incrementTicks();
         }
 
 
