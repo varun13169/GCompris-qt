@@ -74,7 +74,7 @@ ActivityBase {
             text: "Your Score " + spacePresses
 
             focus: true
-            Keys.onSpacePressed: : {
+            Keys.onSpacePressed: {
                 increment();
             }
 
