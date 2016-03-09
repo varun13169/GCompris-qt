@@ -69,6 +69,7 @@ ActivityBase {
 
             fontSize: largeSize
             property int spacePresses: 0
+            property int flag: 1
             text: "Press Space Bar to Start"
 
             focus: true
@@ -78,9 +79,11 @@ ActivityBase {
                 }
             }
             function increment() {
+                if(flag == 1) {
                 spacePresses = spacePresses +1;
                 textbutt.text = "Your Score " + spacePresses;
                 counter.running = true;
+                }
             }
         }
 
@@ -91,7 +94,13 @@ ActivityBase {
             text: ticks + " Seconds"
 
             function incrementTicks() {
-                ticks = ticks + 1;
+                if(ticks < 5) {
+                    ticks = ticks + 1;
+                }
+                else {
+                    textbutt.flag = 0;
+                    displayCounter.text = "done";
+                }
             }
         }
 
