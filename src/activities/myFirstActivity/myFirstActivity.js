@@ -23,7 +23,7 @@
 .import QtQuick 2.0 as Quick
 
 var currentLevel = 0
-var numberOfLevel = 4
+var numberOfLevel = 1  /**************************************************/
 var items
 
 function start(items_) {
@@ -36,7 +36,20 @@ function stop() {
 }
 
 function initLevel() {
-    items.bar.level = currentLevel + 1
+    items.bar.level = currentLevel + 1;
+    //////////////////////////////////////////////////////////////////////////////
+    items.flag = true
+    items.timerRunning = false
+    items.timerRepeat = true
+
+    items.spacePresses = 0
+    items.ticks = 0
+    items.playerScore = 0
+
+    items.textbuttText = "Press Space Bar to Start"
+    items.displayCounterText = items.ticks + " Seconds"
+    items.spaceBarButtonColor = "#ABCDEF"
+    ///////////////////////////////////////////////////////////////////////////////////
 }
 
 function nextLevel() {
@@ -52,3 +65,51 @@ function previousLevel() {
     }
     initLevel();
 }
+
+////////////////////////////////////////////////////////////////////////
+var spaceButtonColor = true;
+
+function increment() {
+    if(items.flag == true) {
+        items.spacePresses = items.spacePresses +1;
+        items.textbuttText = "Your Score " + items.spacePresses;
+        items.timerRunning = true;
+        if(spaceButtonColor == true) {
+            items.spaceBarButtonColor = "#AB4DEF"
+            spaceButtonColor = false;
+        }
+        else {
+            items.spaceBarButtonColor = "#ABCDEF"
+            spaceButtonColor = true;
+        }
+    }
+}
+
+function incrementTicks() {
+    if(items.ticks < 5) {
+        items.ticks = items.ticks + 1;
+        items.displayCounterText = items.ticks + " Seconds";
+    }
+    else {
+        items.flag = false;
+        items.timerRepeat = false; items.timerRunning = false;
+        items.playerScore = items.spacePresses;
+        if(items.playerScore > items.highScore) {
+            items.highScore = items.playerScore
+        }
+        items.displayCounterText = "done";
+        gameOver();
+    }
+}
+
+function gameOver() {
+    //items.bonus.good("planet");
+    if(items.playerScore > items.highScore) {
+        items.bonus.good("planet");
+    }
+    else {
+        items.bonus.bad("planet");
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////

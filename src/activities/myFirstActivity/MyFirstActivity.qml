@@ -30,10 +30,16 @@ ActivityBase {
     onStart: focus = true
     onStop: {}
 
-    pageComponent: Rectangle {
+    pageComponent: Image {
         id: background
-        anchors.fill: parent
-        color: "#ABCDEF"
+        width: parent; height: parent;
+        //////////////////////////////////////////////////////////////////////////////
+        fillMode: Image.PreserveAspectCrop
+        source: "./resource/asteroid.svg"
+        sourceSize.width: parent.width
+        //anchors.fill: parent
+        //color: "#ABCDEF"
+        /////////////////////////////////////////////////////////////////////////////////
         signal start
         signal stop
 
@@ -49,11 +55,26 @@ ActivityBase {
             property alias background: background
             property alias bar: bar
             property alias bonus: bonus
+            /////////////////////////////////////////////////////////////////////////
+            /* Variables */
+            property bool flag: true
+            property bool timerRunning: false
+            property bool timerRepeat: true
+
+            property int spacePresses: 0
+            property int ticks: 0
+            property int highScore: 0
+            property int playerScore: 0
+
+            property string textbuttText: "Press Space Bar to Start"
+            property string displayCounterText: items.ticks + " Seconds"
+            property string spaceBarButtonColor: "#ABCDEF"
+            //////////////////////////////////////////////////////////////////////////////////////////////
         }
 
         onStart: {
             Activity.start(items)
-            textbutt.forceActiveFocus()
+            textbutt.forceActiveFocus() /**************************************************/
         }
         onStop: { Activity.stop() }
 
@@ -62,54 +83,66 @@ ActivityBase {
             text: "myFirstActivity activity"
             fontSize: largeSize
         }*/
+/////////////////////////////////////////////////////////////////
+        Rectangle {
+            id: spaceBarButton
+            anchors.centerIn: parent;
+            width: 750; height: 100;
+            color: items.spaceBarButtonColor;
+            GCText {
+                id: textbutt
+                anchors.centerIn: parent
+                fontSize: largeSize
+                text: items.textbuttText;
 
-        GCText {
-            id: textbutt
-            anchors.centerIn: parent
-
-            fontSize: largeSize
-            property int spacePresses: 0
-            property int flag: 1
-            text: "Press Space Bar to Start"
-
-            focus: true
-            Keys.onPressed: {
-                if((event.key == Qt.Key_Space)&&(event.isAutoRepeat == 0)) {
-                    increment();
-                }
-            }
-            function increment() {
-                if(flag == 1) {
-                spacePresses = spacePresses +1;
-                textbutt.text = "Your Score " + spacePresses;
-                counter.running = true;
+                focus: true
+                Keys.onPressed: {
+                    if((event.key == Qt.Key_Space)&&(event.isAutoRepeat == 0)) {
+                        Activity.increment();
+                        //signal bonus.win;
+                        //animateOpacity.start();
+                    }
                 }
             }
         }
 
         GCText {
             id: displayCounter
-            x: parent.x + 20; y: parent.y + 20;
-            property int ticks: 0
-            text: ticks + " Seconds"
+            x: parent.x + 100 ; y: parent.y + 400;
+            text: items.displayCounterText
+        }
 
-            function incrementTicks() {
-                if(ticks < 5) {
-                    ticks = ticks + 1;
-                }
-                else {
-                    textbutt.flag = 0;
-                    displayCounter.text = "done";
-                }
+        Rectangle {
+            anchors.top: parent.top;
+            anchors.left: parent.left;
+            width: 200; height: 50;
+            color: "#ABCDEF"
+            GCText {
+                id: highScoreDisplay
+                anchors.centerIn: parent;
+                text: "High Score" + items.highScore;
+            }
+        }
+
+        Rectangle {
+            anchors.top: parent.top;
+            anchors.right: parent.right;
+            width: 200; height: 50;
+            color: "#ABCDEF"
+            GCText {
+                id: playerScoredisplay
+                anchors.centerIn: parent;
+                text: "Your Score" + items.playerScore;
             }
         }
 
         Timer {
             id: counter
-            interval: 1000; repeat: true;
-            onTriggered: displayCounter.incrementTicks();
+            interval: 1000; repeat: items.timerRepeat; running: items.timerRunning;
+            onTriggered: Activity.incrementTicks();
         }
 
+/////////////////////////////////////////////////////////////////////////////
 
         DialogHelp {
             id: dialogHelp
@@ -126,11 +159,15 @@ ActivityBase {
             onNextLevelClicked: Activity.nextLevel()
             onHomeClicked: activity.home()
         }
-
+        //////////////////////////////////////////////////////////////////////////////
         Bonus {
             id: bonus
-            Component.onCompleted: win.connect(Activity.nextLevel)
+            Component.onCompleted: {
+                win.connect(Activity.nextLevel)
+                loose.connect(Activity.nextLevel)
+            }
         }
+        ///////////////////////////////////////////////////////////////////////////////
     }
 
 }

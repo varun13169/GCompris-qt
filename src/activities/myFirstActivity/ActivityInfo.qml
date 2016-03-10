@@ -23,7 +23,7 @@ ActivityInfo {
   icon: "myFirstActivity/myFirstActivity.svg"
   author: "Your Name &lt;yy@zz.org&gt;"
   demo: true
-  title: "MyFirstActivity activity"
+  title: "My  hFirstActivity activity"
   description: ""
   //intro: "put here in comment the text for the intro voice"
   goal: ""
