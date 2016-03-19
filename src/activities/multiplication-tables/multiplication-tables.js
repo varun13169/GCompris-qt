@@ -45,16 +45,16 @@ function initLevel() {
         items.repeater.itemAt(i).state="default"
     }
 
-    for(i=0; i<items.gridTableRepeater.count; i++) {      // For initialization of Board
+    for(i=0; i<items.gridTableRepeater.count; i++) {      // For initialization of tables
         items.gridTableRepeater.itemAt(i).opacity = 0
     }
 
-    for(i=0; i<items.repeaterGridRow.count; i++) {        // For initialization of top rows color
+    /*for(i=0; i<items.repeaterGridRow.count; i++) {        // For initialization of top rows color
         items.repeaterGridRow.itemAt(i).color = "white"
-    }
+    }*/
 
     items.gridTableRepeater.itemAt(0).opacity = 1
-    items.repeaterGridRow.itemAt(1).color = "pink"
+    //items.repeaterGridRow.itemAt(1).color = "pink"
 }
 
 function nextLevel() {
@@ -91,7 +91,7 @@ function checkPlaceChangedSquares() {
         }
     }
 
-    if(!items.answer) {
+    if(!items.answer) {             // For Complementry part as was suggested by allon
         items.answer=true
         for(i=0; i<items.repeater.count; i++) {
             if(items.repeater.itemAt(i).clickedFlag) {
@@ -122,7 +122,7 @@ function checkit() {
         tableControl++
         items.gridTableRepeater.itemAt(tableControl).opacity = 1.0
         items.repeaterGridRow.itemAt(tableControl).color = "white"
-        items.repeaterGridRow.itemAt(tableControl+1).color = "pink"
+        //items.repeaterGridRow.itemAt(tableControl+1).color = "pink"
     }
     else {
         items.bonus.bad("flower")
