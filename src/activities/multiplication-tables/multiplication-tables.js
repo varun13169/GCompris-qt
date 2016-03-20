@@ -101,7 +101,7 @@ function checkPlaceChangedSquares() {
             //console.log((i+1), "asdfgh", items.multiplicand, "asd", ( i%10 < items.multiplier && i < items.multiplicand *10 ), "answere", items.answer)
         }
 
-        if(!items.answer) {
+        if(!items.answer) {                        // For Complementry part as was suggested by allon
             items.answer = true
             for(var i=0; i<items.repeater.count; i++) {
                 if(items.repeater.itemAt(i).clickedFlag) {
