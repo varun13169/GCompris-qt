@@ -48,13 +48,7 @@ function initLevel() {
     for(i=0; i<items.gridTableRepeater.count; i++) {      // For initialization of table's board
         items.gridTableRepeater.itemAt(i).opacity = 0
     }
-
-    /*for(i=0; i<items.repeaterGridRow.count; i++) {        // For initialization of top rows color
-        items.repeaterGridRow.itemAt(i).color = "white"
-    }*/
-
     items.gridTableRepeater.itemAt(0).opacity = 1
-    //items.repeaterGridRow.itemAt(1).color = "pink"
 }
 
 function nextLevel() {
@@ -133,7 +127,6 @@ function checkit() {
         tableControl++
         items.gridTableRepeater.itemAt(tableControl).opacity = 1.0
         items.repeaterGridRow.itemAt(tableControl).color = "white"
-        //items.repeaterGridRow.itemAt(tableControl+1).color = "pink"
     }
     else {
         items.bonus.bad("flower")

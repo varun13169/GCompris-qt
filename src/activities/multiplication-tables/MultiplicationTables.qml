@@ -160,10 +160,6 @@ ActivityBase {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            /*if (dots.state == "default")
-                                dots.state = "active"
-                            else
-                                dots.state = "default"*/
                             items.indexOfClicked = index
                             Activity.colorAllBeforeIt()
                         }
