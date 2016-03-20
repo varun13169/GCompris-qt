@@ -71,6 +71,11 @@ function previousLevel() {
 
     initLevel();
 }
+/*
+function colorAllBeforeIt() {
+    for(var i=0; i<items.repeater.count; i++) {
+    }
+}*/
 
 function checkPlaceChangedSquares() {
     for(var i=0; i<items.repeater.count; i++) {

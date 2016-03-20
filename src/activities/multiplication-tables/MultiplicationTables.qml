@@ -163,6 +163,7 @@ ActivityBase {
                                 dots.state = "active"
                             else
                                 dots.state = "default"
+                            //Activity.colorAllBeforeIt()
                         }
                     }
                 }
