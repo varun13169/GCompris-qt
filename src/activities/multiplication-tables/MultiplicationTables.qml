@@ -63,6 +63,7 @@ ActivityBase {
             property int multiplicand: 1
             property int rectHeight: main.height/15
             property int rectWidth: main.height/15 //main.width/20
+            property int indexOfClicked: 0
             property bool answer: true
         }
 
@@ -159,11 +160,12 @@ ActivityBase {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            if (dots.state == "default")
+                            /*if (dots.state == "default")
                                 dots.state = "active"
                             else
-                                dots.state = "default"
-                            //Activity.colorAllBeforeIt()
+                                dots.state = "default"*/
+                            items.indexOfClicked = index
+                            Activity.colorAllBeforeIt()
                         }
                     }
                 }

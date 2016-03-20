@@ -71,11 +71,18 @@ function previousLevel() {
 
     initLevel();
 }
-/*
+
 function colorAllBeforeIt() {
+    console.log(items.indexOfClicked , "asdfghjk")
     for(var i=0; i<items.repeater.count; i++) {
+        if(i%10 <= items.indexOfClicked%10 && i <= items.indexOfClicked) {
+            items.repeater.itemAt(i).state="active"
+        }
+        else {
+                items.repeater.itemAt(i).state="default"
+        }
     }
-}*/
+}
 
 function checkPlaceChangedSquares() {
     for(var i=0; i<items.repeater.count; i++) {
