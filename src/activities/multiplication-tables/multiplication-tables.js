@@ -49,12 +49,12 @@ function initLevel() {
         items.gridTableRepeater.itemAt(i).opacity = 0
     }
 
-    for(i=0; i<items.repeaterGridRow.count; i++) {        // For initialization of top rows color
+    /*for(i=0; i<items.repeaterGridRow.count; i++) {        // For initialization of top rows color
         items.repeaterGridRow.itemAt(i).color = "white"
-    }
+    }*/
 
     items.gridTableRepeater.itemAt(0).opacity = 1
-    items.repeaterGridRow.itemAt(1).color = "pink"
+    //items.repeaterGridRow.itemAt(1).color = "pink"
 }
 
 function nextLevel() {
@@ -73,7 +73,6 @@ function previousLevel() {
 }
 
 function colorAllBeforeIt() {
-    console.log(items.indexOfClicked , "asdfghjk")
     for(var i=0; i<items.repeater.count; i++) {
         if(i%10 <= items.indexOfClicked%10 && i <= items.indexOfClicked) {
             items.repeater.itemAt(i).state="active"
@@ -101,6 +100,27 @@ function checkPlaceChangedSquares() {
             }  // To check if green then not in red area
             //console.log((i+1), "asdfgh", items.multiplicand, "asd", ( i%10 < items.multiplier && i < items.multiplicand *10 ), "answere", items.answer)
         }
+
+        if(!items.answer) {
+            items.answer = true
+            for(var i=0; i<items.repeater.count; i++) {
+                if(items.repeater.itemAt(i).clickedFlag) {
+                    if( i%10 >= items.multiplicand ) {
+                        items.answer = false
+                    }
+                    if( i >= items.multiplier *10 ) {
+                        items.answer = false
+                    } // To check if red then not outside red area
+                    //console.log((i+1), "asdfgh", items.multiplicand, "asd", items.multiplier,"asdf",( i%10 >= items.multiplier ), "asdf", ( i >= items.multiplicand *10 ))
+                }
+                if(!(items.repeater.itemAt(i).clickedFlag)) {
+                    if( i%10 < items.multiplicand && i < items.multiplier *10 ) {
+                        items.answer = false
+                    }  // To check if green then not in red area
+                    //console.log((i+1), "asdfgh", items.multiplicand, "asd", ( i%10 < items.multiplier && i < items.multiplicand *10 ), "answere", items.answer)
+                }
+            }
+        }
     }
 }
 
@@ -113,7 +133,7 @@ function checkit() {
         tableControl++
         items.gridTableRepeater.itemAt(tableControl).opacity = 1.0
         items.repeaterGridRow.itemAt(tableControl).color = "white"
-        items.repeaterGridRow.itemAt(tableControl+1).color = "pink"
+        //items.repeaterGridRow.itemAt(tableControl+1).color = "pink"
     }
     else {
         items.bonus.bad("flower")
