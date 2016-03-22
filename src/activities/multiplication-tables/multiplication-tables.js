@@ -86,13 +86,13 @@ function checkPlaceChangedSquares() {
             if( i >= items.multiplicand *10 ) {
                 items.answer = false
             } // To check if red then not outside red area
-            //console.log((i+1), "asdfgh", items.multiplicand, "asd", items.multiplier,"asdf",( i%10 >= items.multiplier ), "asdf", ( i >= items.multiplicand *10 ))
+              //console.log((i+1), "asdfgh", items.multiplicand, "asd", items.multiplier,"asdf",( i%10 >= items.multiplier ), "asdf", ( i >= items.multiplicand *10 ))
         }
         if(!(items.repeater.itemAt(i).clickedFlag)) {
             if( i%10 < items.multiplier && i < items.multiplicand *10 ) {
                 items.answer = false
             }  // To check if green then not in red area
-            //console.log((i+1), "asdfgh", items.multiplicand, "asd", ( i%10 < items.multiplier && i < items.multiplicand *10 ), "answere", items.answer)
+               //console.log((i+1), "asdfgh", items.multiplicand, "asd", ( i%10 < items.multiplier && i < items.multiplicand *10 ), "answere", items.answer)
         }
 
         if(!items.answer) {                        // For Complementry part as was suggested by allon
@@ -105,13 +105,13 @@ function checkPlaceChangedSquares() {
                     if( i >= items.multiplier *10 ) {
                         items.answer = false
                     } // To check if red then not outside red area
-                    //console.log((i+1), "asdfgh", items.multiplicand, "asd", items.multiplier,"asdf",( i%10 >= items.multiplier ), "asdf", ( i >= items.multiplicand *10 ))
+                      //console.log((i+1), "asdfgh", items.multiplicand, "asd", items.multiplier,"asdf",( i%10 >= items.multiplier ), "asdf", ( i >= items.multiplicand *10 ))
                 }
                 if(!(items.repeater.itemAt(i).clickedFlag)) {
                     if( i%10 < items.multiplicand && i < items.multiplier *10 ) {
                         items.answer = false
                     }  // To check if green then not in red area
-                    //console.log((i+1), "asdfgh", items.multiplicand, "asd", ( i%10 < items.multiplier && i < items.multiplicand *10 ), "answere", items.answer)
+                       //console.log((i+1), "asdfgh", items.multiplicand, "asd", ( i%10 < items.multiplier && i < items.multiplicand *10 ), "answere", items.answer)
                 }
             }
         }
