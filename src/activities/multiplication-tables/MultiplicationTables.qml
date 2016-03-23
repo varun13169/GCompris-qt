@@ -63,7 +63,9 @@ ActivityBase {
             property int multiplicand: 1
             property int rectHeight: main.height/15
             property int rectWidth: main.height/15 //main.width/20
-            property int indexOfClicked: 0
+            // property int indexOfClicked: 0
+            property int rowSelected: 0
+            property int colSelected: 0
             property bool answer: true
         }
 
@@ -91,7 +93,38 @@ ActivityBase {
                    color: "white"
                    width: items.rectWidth
                    height: items.rectHeight
+                   property bool clickedFlagRow: false
+                   state: "default"
+                   states:[
+                       State {
+                           name: "default"
+                           PropertyChanges { target: dotsGridRow; color: "white"}
+                           PropertyChanges { target: dotsGridRow; clickedFlagRow: false}
+                       },
+                       State {
+                           name: "active"
+                           PropertyChanges { target: dotsGridRow; color: "red"}
+                           PropertyChanges { target: dotsGridRow; clickedFlagRow: false}
+                       }
+                   ]
+
                    GCText{ text: index}
+
+                   MouseArea {
+                       anchors.fill: parent
+                       onClicked: {
+                           if (dotsGridRow.state == "default") {
+                               dotsGridRow.state = "active"
+                               items.rowSelected = index
+                           }
+                           else {
+                               dotsGridRow.state = "default"
+                               items.rowSelected = 0
+                           }
+                           Activity.makeOtherColInRowWhite()
+                           Activity.changesInMainBoard()
+                       }
+                   }
                 }
             }
 
@@ -116,11 +149,42 @@ ActivityBase {
                    color: "white"
                    width: items.rectWidth
                    height: items.rectHeight
+                   property bool clickedFlagCol: false
+                   state: "default"
+                   states:[
+                       State {
+                           name: "default"
+                           PropertyChanges { target: dotsGridCol; color: "white"}
+                           PropertyChanges { target: dotsGridCol; clickedFlagCol: false}
+                       },
+                       State {
+                           name: "active"
+                           PropertyChanges { target: dotsGridCol; color: "red"}
+                           PropertyChanges { target: dotsGridCol; clickedFlagCol: false}
+                       }
+                   ]
+
                    GCText{ text: index}
-                }
-            }
+                   MouseArea {
+                       anchors.fill: parent
+                       onClicked: {
+                           if (dotsGridCol.state == "default") {
+                               dotsGridCol.state = "active"
+                               items.colSelected = index
+                           }
+                           else {
+                               dotsGridCol.state = "default"
+                               items.colSelected = 0
+                           }
+                           Activity.makeOtherRowInColWhite()
+                           Activity.changesInMainBoard()
+                       }
+                   }
+               }
+           }
 
         }
+
 
         Grid {
             id: grid
@@ -142,7 +206,8 @@ ActivityBase {
                     id: dots
                     width: items.rectWidth
                     height: items.rectHeight
-                    state: "default"
+                    color: "green"
+                   /* state: "default"
                     property bool clickedFlag: false
                     states:[
                         State {
@@ -157,13 +222,13 @@ ActivityBase {
                         }
                     ]
 
-                    MouseArea {
+                    /*MouseArea {
                         anchors.fill: parent
                         onClicked: {
                             items.indexOfClicked = index
                             Activity.colorAllBeforeIt()
                         }
-                    }
+                    }*/
                 }
             }
         }

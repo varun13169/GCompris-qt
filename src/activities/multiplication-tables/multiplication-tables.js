@@ -66,6 +66,63 @@ function previousLevel() {
     initLevel();
 }
 
+
+
+function makeOtherColInRowWhite() {
+    for(var i=0; i<items.repeaterGridRow.count; i++) {
+        if(i != items.rowSelected) {
+            items.repeaterGridRow.itemAt(i).state="default"
+        }
+    }
+}
+
+function makeOtherRowInColWhite() {
+    for(var i=0; i<items.repeaterGridCol.count; i++) {
+        if(i != items.colSelected) {
+            items.repeaterGridCol.itemAt(i).state="default"
+        }
+    }
+}
+
+
+function checkPlaceChangedSquares() {
+    if(items.rowSelected==items.multiplicand && items.colSelected==items.multiplier) {
+        items.answer=true
+    }
+    else if(items.rowSelected==items.multiplier && items.colSelected==items.multiplicand) {
+        items.answer=true
+    }
+    else {
+        items.answer=false
+    }
+}
+
+
+function changesInMainBoard() {
+    for(var i=0; i<items.repeater.count; i++) {
+        if((i%10 <= items.rowSelected -1) && (i < (items.colSelected)*10)) {           // This colors the row on main board corresponding to rowSelect
+            items.repeater.itemAt(i).color = "pink"
+        }
+        else {                                         // This colors every other row green
+            items.repeater.itemAt(i).color = "green"
+        }
+
+        /*if(i>= (items.colSelected-1)*10 && i < items.colSelected*10 ) { // After all the above ^^ this colors the column
+            items.repeater.itemAt(i).color = "pink"
+        }*/
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*
 function colorAllBeforeIt() {
     for(var i=0; i<items.repeater.count; i++) {
         if(i%10 <= items.indexOfClicked%10 && i <= items.indexOfClicked) {
@@ -117,6 +174,7 @@ function checkPlaceChangedSquares() {
         }
     }
 }
+*/
 
 function checkit() {
     if(items.answer) {
@@ -126,7 +184,7 @@ function checkit() {
         }
         tableControl++
         items.gridTableRepeater.itemAt(tableControl).opacity = 1.0
-        items.repeaterGridRow.itemAt(tableControl).color = "white"
+        //items.repeaterGridRow.itemAt(tableControl).color = "white"
     }
     else {
         items.bonus.bad("flower")
