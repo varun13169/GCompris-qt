@@ -101,7 +101,7 @@ function checkPlaceChangedSquares() {
 function changesInMainBoard() {
     for(var i=0; i<items.repeater.count; i++) {
         if((i%10 <= items.rowSelected -1) && (i < (items.colSelected)*10)) {           // This colors the row on main board corresponding to rowSelect
-            items.repeater.itemAt(i).color = "pink"
+            items.repeater.itemAt(i).color = "red"
         }
         else {                                         // This colors every other row green
             items.repeater.itemAt(i).color = "green"

@@ -103,7 +103,7 @@ ActivityBase {
                        },
                        State {
                            name: "active"
-                           PropertyChanges { target: dotsGridRow; color: "red"}
+                           PropertyChanges { target: dotsGridRow; color: "pink"}
                            PropertyChanges { target: dotsGridRow; clickedFlagRow: false}
                        }
                    ]
@@ -159,7 +159,7 @@ ActivityBase {
                        },
                        State {
                            name: "active"
-                           PropertyChanges { target: dotsGridCol; color: "red"}
+                           PropertyChanges { target: dotsGridCol; color: "pink"}
                            PropertyChanges { target: dotsGridCol; clickedFlagCol: false}
                        }
                    ]
