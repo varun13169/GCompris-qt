@@ -16,7 +16,7 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 import GCompris 1.0
-
+/**/
 ActivityInfo {
   name: "multiplication-tables/MultiplicationTables.qml"
   difficulty: 2
